@@ -4,6 +4,10 @@ import { usersController } from './users.controller';
 export const router: Router = Router();
 
 /**
- * @public
+ * @method POST
+ * @params [[UserSaveInterface]]: JSON
+ * @route /api/users
+ * @acces public
+ * @async
  */
 router.post('/', usersController.createOne);
