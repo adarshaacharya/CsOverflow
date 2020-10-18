@@ -1,3 +1,4 @@
+import BadRequest from '../../common/exceptions/bad-request';
 import { Users } from './users.model';
 
 interface IUsersData {
@@ -11,7 +12,7 @@ class UsersService {
         const { name, email, password } = userData;
 
         if (await this.findOneByEmail(email)) {
-            throw new Error('User with provided email already exists');
+            throw new BadRequest('User with provided email already exists');
         }
 
         const user = new Users({

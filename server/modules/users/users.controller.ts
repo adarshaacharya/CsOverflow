@@ -1,13 +1,13 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { usersService } from './users.service';
 
 class UsersController {
-    public async createOne(req: Request, res: Response) {
+    public async createOne(req: Request, res: Response, next: NextFunction) {
         try {
             const user = await usersService.createOne(req.body);
             res.json(user);
         } catch (error) {
-            console.warn(error);
+            next(error);
         }
     }
 }

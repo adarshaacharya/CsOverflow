@@ -1,4 +1,4 @@
-import { createValidator } from '../../common/middlewares/create-validator';
+import { createValidator } from '../../common/middlewares/create-validator.middleware';
 import { Router } from 'express';
 import { usersController } from './users.controller';
 import { createUsersDto } from './users.dtos';

@@ -6,7 +6,7 @@
      "sourceMap": true,
      "downlevelIteration": true,
      "strict": true,
-     "noImplicitAny": true,
+     "noImplicitAny": false, // shoudl always assign value to params (recheck it)
      "strictFunctionTypes": true,
      "alwaysStrict": true,
      "skipLibCheck": true,
