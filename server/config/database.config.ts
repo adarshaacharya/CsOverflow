@@ -22,7 +22,7 @@ export const databaseGenerate = () => {
         .authenticate()
         .then(() =>
             console.log(
-                'Connection to DataBase is successfully set on port ' +
+                '✅ Connection to batabase is successfully set on port ' +
                     process.env.DB_PORT
             )
         )
@@ -30,6 +30,6 @@ export const databaseGenerate = () => {
 
     // sync db
     sequelize.sync({ force: true }).then(() => {
-        console.log('Drop and re-sync db.');
+        console.log('✅ Drop and re-sync db.');
     });
 };

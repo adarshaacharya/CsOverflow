@@ -1,15 +1,17 @@
+import { NextFunction, Response } from 'express';
 import * as Joi from 'joi';
-import { Response, NextFunction } from 'express';
-import BadRequest from '../exceptions/bad-request';
+// import { BadRequest } from '../exceptions/';
 
 export const createValidator = (schema: Joi.Schema, key: string = 'body') => (
     req: any,
-    _: Response,
+    res: Response,
     next: NextFunction
 ) => {
-    const { error } = Joi.valid(req[key], schema);
+    const { error } = schema.validate(req[key]);
     if (error) {
-        throw new BadRequest(error);
+        // throw new BadRequest(error.details[0].message);
+        res.status(400).json({ msg: error.details[0].message });
+        return;
     }
     next();
 };

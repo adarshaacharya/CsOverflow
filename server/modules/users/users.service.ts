@@ -23,7 +23,7 @@ class UsersService {
         return user.save();
     }
 
-    public async findOneByEmail(email: string) {
+    public async findOneByEmail(email: string): Promise<Users | null> {
         const user = await Users.findOne({
             where: { email },
         });

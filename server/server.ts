@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 import app from './app';
-import { databaseGenerate } from './config/database';
+import { databaseGenerate } from './config/database.config';
 
 //db
 databaseGenerate();

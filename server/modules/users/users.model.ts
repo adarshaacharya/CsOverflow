@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { DataTypes, Model, Sequelize } from 'sequelize';
-import { sequelize } from '../../config/database';
+import { sequelize } from '../../config/database.config';
 
 export class Users extends Model {
     public static readonly tableName: string = 'users';
