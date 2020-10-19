@@ -1,23 +1,24 @@
 import { Response } from 'express';
-import { Comments } from './comments.model';
+import { Answers } from './answers.model';
 
-class CommentsController {
+class AnswersController {
   public async createOne(req, res: Response): Promise<void> {
     try {
       const { body } = req.body;
 
-      const comment: Comments = new Comments({
+      const answer: Answers = new Answers({
         body,
         postId: +req.params.postId,
         userId: req.user.id,
       });
-      await comment.save();
+      await answer.save();
 
-      res.json(comment);
+      res.json(answer);
     } catch (error) {
       console.log(error.message);
       res.status(500).json('Server error');
     }
   }
 }
-export const commentsController = new CommentsController();
+
+export const answersController = new AnswersController();

@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { commentsController } from './comments.controller';
-import { createCommentsDto } from './comments.dtos';
+import { answersController } from './answers.controller';
+import { createAnswersDto } from './answers.dtos';
 import { createValidator } from '../../common/middlewares/create-validator.middleware';
 import { authJwt } from '../../common/middlewares/auth.middleware';
 
@@ -8,13 +8,13 @@ export const router: Router = Router();
 
 /**
  * @method POST
- * @route /api/posts
- * @description : Create a new post by auth user
+ * @route /api/answers
+ * @description : Answer to posts by auth users
  * @acces private
  * @async
  */
 router.post(
   '/:postId',
-  [authJwt, createValidator(createCommentsDto)],
-  commentsController.createOne
+  [authJwt, createValidator(createAnswersDto)],
+  answersController.createOne
 );
