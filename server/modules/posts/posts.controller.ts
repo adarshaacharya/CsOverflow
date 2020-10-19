@@ -1,24 +1,17 @@
 import { Response } from 'express';
-import { Users } from '../../modules/users/users.model';
+// import { Users } from '../../modules/users/users.model';
 import { Posts } from './posts.model';
 
 class PostsController {
   public async createOne(req, res: Response): Promise<void> {
     try {
-      const { title, body, userId } = req.body;
-      const user = await Users.findByPk(userId);
-      if (!user) {
-        res.status(400).json({ msg: 'User not found' });
-        return;
-      }
+      const { title, body } = req.body;
 
       const post: Posts = new Posts({
         title,
         body,
-        userId: req.user.id,
+        userId: req.user.id, // from token
       });
-      await post.save();
-
       await post.save();
       res.status(201).json(post);
     } catch (error) {

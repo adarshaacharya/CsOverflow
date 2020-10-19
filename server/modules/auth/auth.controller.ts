@@ -25,7 +25,6 @@ class AuthController {
       }
 
       const token: string = generateToken(user.id);
-
       res.status(201).json({ token });
     } catch (err) {
       console.log(err.message);

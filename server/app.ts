@@ -7,6 +7,7 @@ import path from 'path';
 import { router as usersRoutes } from './modules/users/users.routes';
 import { router as authRoutes } from './modules/auth/auth.routes';
 import { router as postsRoutes } from './modules/posts/posts.routes';
+import { router as commentsRoutes } from './modules/comments/comments.routes';
 
 // middleware
 import { errorHandler } from './common/middlewares/errors.middleware';
@@ -24,6 +25,7 @@ app.use(compression());
 app.use('/api/users', usersRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postsRoutes);
+app.use('/api/comments', commentsRoutes);
 
 // middlewares
 app.use(errorHandler);

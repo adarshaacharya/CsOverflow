@@ -1,5 +1,5 @@
-import { Posts } from 'modules/posts/posts.model';
-import { Users } from 'modules/users/users.model';
+import { Posts } from '../../modules/posts/posts.model';
+import { Users } from '../../modules/users/users.model';
 import { DataTypes, Model, Sequelize } from 'sequelize';
 import { sequelize } from '../../config/database.config';
 
