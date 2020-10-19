@@ -2,12 +2,7 @@ import { NextFunction, Response } from 'express';
 import * as jwt from 'jsonwebtoken';
 // import { AuthRequest } from '../../common/types/types';
 
-
-export const authJwt = (
-  req,
-  res: Response,
-  next: NextFunction
-) => {
+export const authJwt = (req, res: Response, next: NextFunction) => {
   const token = req.header('x-auth-token');
 
   if (!token) {
