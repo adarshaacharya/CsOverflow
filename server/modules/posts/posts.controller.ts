@@ -1,8 +1,9 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
+import { Users } from '../../modules/users/users.model';
 import { Posts } from './posts.model';
 
 class PostsController {
-  public async createOne(req: Request, res: Response): Promise<void> {
+  public async createOne(req: Request, res: Response, next : NextFunction): Promise<void> {
     try {
       const { title, body, userId } = req.body;
 
@@ -11,11 +12,17 @@ class PostsController {
         body,
         userId,
       });
+
+      const user = await Users.findByPk(userId);
+      if (!user) {
+        res.status(400).json({ msg: 'User not found' });
+        return;
+      }
+
       await post.save();
       res.status(201).json(post);
     } catch (error) {
-      console.log(error.message);
-      res.status(500).json('Server error');
+      next()
     }
   }
 }

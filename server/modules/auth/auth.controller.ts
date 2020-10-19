@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import generateToken from '../../common/token/generate-jwt-token';
 
 import { Request, Response } from 'express';
 import { Users } from '../../modules/users/users.model';
@@ -24,14 +24,7 @@ class AuthController {
         return;
       }
 
-      const payload = {
-        user: {
-          id: user.id,
-        },
-      };
-      const token: string = jwt.sign(payload, process.env.JWT_SECRET, {
-        expiresIn: '24h',
-      });
+      const token: string = generateToken(user.id);
 
       res.status(201).json({ token });
     } catch (err) {

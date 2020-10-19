@@ -1,5 +1,5 @@
+import generateToken from '../../common/token/generate-jwt-token';
 import { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
 
 import { Users } from './users.model';
 // import { usersService } from './users.service';
@@ -13,9 +13,9 @@ class UsersController {
         where: { email },
       });
       if (user) {
-        res.json({
-          msg: 'User with provided email already exists',
-        });
+        res
+          .status(400)
+          .json({ msg: 'User with provided email already exists' });
         return;
       }
 
@@ -26,17 +26,7 @@ class UsersController {
       });
       await user.save();
 
-      /**
-       * Sing JWT, valid for 24 hour
-       */
-      const payload = {
-        user: {
-          id: user.id,
-        },
-      };
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
-        expiresIn: '24h',
-      });
+      const token = generateToken(user.id);
 
       res.status(201).json({ token });
     } catch (error) {

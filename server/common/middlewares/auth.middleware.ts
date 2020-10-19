@@ -1,9 +1,10 @@
+import { NextFunction, Response } from 'express';
 import * as jwt from 'jsonwebtoken';
-import { Response, NextFunction } from 'express';
-import { AuthRequest } from '../../common/types/types';
+// import { AuthRequest } from '../../common/types/types';
 
-export const jwtAuth = (
-  req: AuthRequest,
+
+export const authJwt = (
+  req,
   res: Response,
   next: NextFunction
 ) => {
