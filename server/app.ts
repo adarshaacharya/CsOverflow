@@ -6,6 +6,8 @@ import path from 'path';
 // routes
 import { router as usersRoutes } from './modules/users/users.routes';
 import { router as authRoutes } from './modules/auth/auth.routes';
+import { router as postsRoutes } from './modules/posts/posts.routes';
+
 
 // middleware
 import { errorHandler } from './common/middlewares/errors.middleware';
@@ -22,6 +24,8 @@ app.use(compression());
 // routes
 app.use('/api/users', usersRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/posts', postsRoutes);
+
 
 // middlewares
 app.use(errorHandler);

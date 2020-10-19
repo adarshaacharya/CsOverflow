@@ -1,4 +1,4 @@
-import { Users } from 'modules/users/users.model';
+import { Users } from '../users/users.model';
 import { DataTypes, Model, Sequelize } from 'sequelize';
 import { sequelize } from '../../config/database.config';
 
@@ -45,8 +45,8 @@ export class Posts extends Model {
 Posts.prepareInit(sequelize);
 
 Posts.belongsTo(Users, {
-  foreignKey: 'postId',
-  as: 'post',
+  foreignKey: 'userId',
+  as: 'user',
 });
 
 Users.hasMany(Posts, {

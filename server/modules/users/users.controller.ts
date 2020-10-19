@@ -27,7 +27,7 @@ class UsersController {
       await user.save();
 
       /**
-       * Sing JWT, valid for 1 hour
+       * Sing JWT, valid for 24 hour
        */
       const payload = {
         user: {
