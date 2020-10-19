@@ -8,7 +8,6 @@ import { createPostDto } from './posts.dtos';
 
 export const router: Router = Router();
 
-
 /**
  * @method POST
  * @route /api/posts
