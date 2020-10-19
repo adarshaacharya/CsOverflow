@@ -4,8 +4,6 @@ import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 import { Users } from '../../modules/users/users.model';
 
-
-
 class AuthController {
   public async login(req: Request, res: Response): Promise<void> {
     try {

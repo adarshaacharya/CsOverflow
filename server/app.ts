@@ -7,7 +7,6 @@ import path from 'path';
 import { router as usersRoutes } from './modules/users/users.routes';
 import { router as authRoutes } from './modules/auth/auth.routes';
 
-
 // middleware
 import { errorHandler } from './common/middlewares/errors.middleware';
 
@@ -24,16 +23,15 @@ app.use(compression());
 app.use('/api/users', usersRoutes);
 app.use('/api/auth', authRoutes);
 
-
 // middlewares
 app.use(errorHandler);
 
 // Serve static files in prod env
 if (process.env.NODE_ENV === 'production') {
-    app.use('/', express.static(path.join(__dirname, 'client')));
-    app.get('*', (_, res: Response): void => {
-        res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
-    });
+  app.use('/', express.static(path.join(__dirname, 'client')));
+  app.get('*', (_, res: Response): void => {
+    res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
+  });
 }
 
 export default app;
