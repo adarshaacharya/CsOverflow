@@ -9,7 +9,7 @@ export class BaseHttpError implements IBaseHttpError {
   public statusCode: number;
   public error: any;
 
-  constructor(statusCode, error) {
+  constructor(statusCode: number, error: any) {
     this.statusCode = statusCode;
     this.error = error;
   }

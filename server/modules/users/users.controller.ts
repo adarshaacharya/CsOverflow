@@ -1,11 +1,11 @@
 import generateToken from '../../common/token/generate-jwt-token';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import { Users } from './users.model';
-// import { usersService } from './users.service';
+import { BadRequest } from '../../common/exceptions';
 
 class UsersController {
-  public async createOne(req: Request, res: Response) {
+  public async createOne(req: Request, res: Response, next: NextFunction) {
     try {
       const { name, email, password } = req.body;
 
@@ -13,8 +13,7 @@ class UsersController {
         where: { email },
       });
       if (user) {
-        res.status(400).json({ msg: 'User with provided email already exists' });
-        return;
+        throw new BadRequest('User with provided email already exists');
       }
 
       user = new Users({
@@ -28,8 +27,7 @@ class UsersController {
 
       res.status(201).json({ token });
     } catch (error) {
-      console.log(error.message);
-      res.status(500).json('Server error');
+      next(error);
     }
   }
 }
