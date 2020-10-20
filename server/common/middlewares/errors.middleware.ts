@@ -1,7 +1,6 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
-export const errorHandler = (error: any, _: Request, res: Response) => {
-  console.log('Server error', error);
+export const errorHandler = (error: any, _: Request, res: Response, _next: NextFunction) => {
   res.statusCode = error.statusCode;
-  res.send(error);
+  res.json(error);
 };
