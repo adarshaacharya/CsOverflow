@@ -3,7 +3,7 @@ import { Response } from 'express';
 import { Tags } from './tags.model';
 
 class TagsController {
-  public async getAll(_ : AuthRequest, res: Response) {
+  public async getAll(_: AuthRequest, res: Response) {
     try {
       const tags: Tags[] = await Tags.findAll();
       res.status(200).json({ tags });

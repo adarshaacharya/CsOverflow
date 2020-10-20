@@ -3,7 +3,7 @@ import { Response } from 'express';
 import { Posts } from './posts.model';
 
 class PostsController {
-  public async createOne(req : AuthRequest, res: Response): Promise<void> {
+  public async createOne(req: AuthRequest, res: Response): Promise<void> {
     try {
       const { title, body } = req.body;
 

@@ -2,7 +2,6 @@ import { DataTypes, Model, Sequelize } from 'sequelize';
 import { sequelize } from '../../config/database.config';
 import { Posts } from '../../modules/posts/posts.model';
 
-
 export class Tags extends Model {
   public static readonly tableName: string = 'students';
 
