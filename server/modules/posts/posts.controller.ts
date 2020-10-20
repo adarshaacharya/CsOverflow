@@ -1,16 +1,16 @@
+import { AuthRequest } from '../../common/types/types';
 import { Response } from 'express';
-// import { Users } from '../../modules/users/users.model';
 import { Posts } from './posts.model';
 
 class PostsController {
-  public async createOne(req, res: Response): Promise<void> {
+  public async createOne(req : AuthRequest, res: Response): Promise<void> {
     try {
       const { title, body } = req.body;
 
       const post: Posts = new Posts({
         title,
         body,
-        userId: req.user.id, // from token
+        userId: req.user!.id, // from token
       });
       await post.save();
       res.status(201).json(post);

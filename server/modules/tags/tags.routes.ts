@@ -1,4 +1,6 @@
+import { authJwt } from '../../common/middlewares/auth.middleware';
 import { Router } from 'express';
+import { tagsController } from './tags.controller';
 
 export const router: Router = Router();
 
@@ -9,4 +11,4 @@ export const router: Router = Router();
  * @acces private
  * @async
  */
-router.get('/');
+router.get('/', authJwt, tagsController.getAll);

@@ -1,4 +1,6 @@
 import { Request } from 'express';
-import { Users } from 'modules/users/users.model';
+// import { Users } from '../../modules/users/users.model';
 
-export type AuthRequest = Request & { user: Users };
+export interface AuthRequest extends Request {
+  user?: { id: number };
+}
