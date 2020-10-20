@@ -5,7 +5,6 @@ class CommentsController {
   public async createOne(req, res: Response): Promise<void> {
     try {
       const { body } = req.body;
-
       const comment: Comments = new Comments({
         body,
         postId: +req.params.postId,
