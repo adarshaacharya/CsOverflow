@@ -10,7 +10,6 @@ import { router as postsRoutes } from './modules/posts/posts.routes';
 import { router as commentsRoutes } from './modules/comments/comments.routes';
 import { router as answersRoutes } from './modules/answers/answers.routes';
 
-
 // middleware
 import { errorHandler } from './common/middlewares/errors.middleware';
 
@@ -29,7 +28,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api/posts', postsRoutes);
 app.use('/api/comments', commentsRoutes);
 app.use('/api/answers', answersRoutes);
-
 
 // middlewares
 app.use(errorHandler);

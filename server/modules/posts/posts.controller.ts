@@ -5,7 +5,6 @@ import { Posts } from './posts.model';
 class PostsController {
   public async createOne(req, res: Response): Promise<void> {
     try {
-
       const { title, body } = req.body;
 
       const post: Posts = new Posts({
