@@ -13,8 +13,4 @@ export const router: Router = Router();
  * @acces private
  * @async
  */
-router.post(
-  '/',
-  [authJwt, createValidator(createPostDto)],
-  postsController.createOne
-);
+router.post('/', [authJwt, createValidator(createPostDto)], postsController.createOne);

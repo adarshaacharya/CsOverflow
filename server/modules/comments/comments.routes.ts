@@ -13,8 +13,4 @@ export const router: Router = Router();
  * @acces private
  * @async
  */
-router.post(
-  '/:postId',
-  [authJwt, createValidator(createCommentsDto)],
-  commentsController.createOne
-);
+router.post('/:postId', [authJwt, createValidator(createCommentsDto)], commentsController.createOne);

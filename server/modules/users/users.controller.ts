@@ -13,9 +13,7 @@ class UsersController {
         where: { email },
       });
       if (user) {
-        res
-          .status(400)
-          .json({ msg: 'User with provided email already exists' });
+        res.status(400).json({ msg: 'User with provided email already exists' });
         return;
       }
 

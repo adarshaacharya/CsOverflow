@@ -20,12 +20,7 @@ export const sequelize: Sequelize = new Sequelize({
 export const databaseGenerate = () => {
   sequelize
     .authenticate()
-    .then(() =>
-      console.log(
-        '✅ Connection to batabase is successfully set on port ' +
-          process.env.DB_PORT
-      )
-    )
+    .then(() => console.log('✅ Connection to batabase is successfully set on port ' + process.env.DB_PORT))
     .catch(err => console.log(err));
 
   // sync db
