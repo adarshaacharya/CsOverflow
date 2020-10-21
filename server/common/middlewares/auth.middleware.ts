@@ -1,21 +1,19 @@
-import { NextFunction, Response } from 'express';
-import * as jwt from 'jsonwebtoken';
-// import { AuthRequest } from '../../common/types/types';
+import { NextFunction } from 'express';
+const jwt = require('jsonwebtoken');
+import { Unauthorized } from '../../common/exceptions';
 
-export const authJwt = (req, res: Response, next: NextFunction) => {
+
+export const authJwt = (req, _res, next: NextFunction) => {
   const token = req.header('x-auth-token');
 
-  if (!token) {
-    res.status(401).json({ msg: 'No token, authorization denied' });
-    return;
-  }
+  if (!token) throw new Unauthorized('No token, authorization denied');
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
     req.user = decoded.user;
     next();
-  } catch (error) {
+  } catch (err) {
     console.error('something wrong with auth middleware');
-    res.status(500).json({ msg: 'Token not valid' });
+    throw new Unauthorized('Token not valid');
   }
 };

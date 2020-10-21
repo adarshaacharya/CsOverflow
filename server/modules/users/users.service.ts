@@ -9,7 +9,7 @@ interface IUsersData {
 }
 
 class UsersService {
-  public async createOne(userData: IUsersData): Promise<Users> {
+  public async createOne(userData: IUsersData) {
     const { name, email, password } = userData;
 
     if (await this.findOneByEmail(email)) {

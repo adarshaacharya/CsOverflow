@@ -6,7 +6,7 @@ class PostsController {
   public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
       const { title, body } = req.body;
-      const post = postsService.createOne({
+      const post = await postsService.createOne({
         title,
         body,
         userId: req.user!.id, // from token

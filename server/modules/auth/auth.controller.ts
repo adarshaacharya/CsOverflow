@@ -4,7 +4,7 @@ import { authServices } from './auth.service';
 class AuthController {
   public async login(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-      const token = authServices.login(req.body);
+      const token = await authServices.login(req.body);
       res.status(201).json({ token });
     } catch (error) {
       next(error);
