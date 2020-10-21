@@ -7,6 +7,7 @@ class CommentsController {
   public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
       validateIdOrThrow(+req.params.postId);
+
       const comment = await commentsService.createOne({
         body: req.body.body,
         postId: +req.params.postId,

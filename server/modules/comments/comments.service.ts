@@ -1,3 +1,5 @@
+import { postsService } from '../../modules/posts/posts.service';
+import { NotFound } from '../../common/exceptions';
 import { Comments } from './comments.model';
 
 interface ICommentsData {
@@ -9,6 +11,9 @@ interface ICommentsData {
 class CommentsService {
   public async createOne(answersData: ICommentsData): Promise<Comments> {
     const { body, postId, userId } = answersData;
+
+    const post = await postsService.findById(postId);
+    if (!post) throw new NotFound(`Can't find post with id ${postId}`);
 
     const comment = new Comments({
       body,

@@ -17,6 +17,11 @@ class PostsService {
     });
     return post.save();
   }
+
+  public async findById(id: number) {
+    const post = await Posts.findOne({ where: { id } });
+    return post;
+  }
 }
 
 export const postsService = new PostsService();
