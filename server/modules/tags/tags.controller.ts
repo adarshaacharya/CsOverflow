@@ -1,15 +1,15 @@
 import { AuthRequest } from '../../common/types/types';
-import { Response } from 'express';
+import { NextFunction, Response } from 'express';
 import { Tags } from './tags.model';
+import { tagsService } from './tags.service';
 
 class TagsController {
-  public async getAll(_: AuthRequest, res: Response) {
+  public async getAll(_: AuthRequest, res: Response, next: NextFunction) {
     try {
-      const tags: Tags[] = await Tags.findAll();
-      res.status(200).json({ tags });
+      const tags: Tags[] = await tagsService.getAll();
+      res.status(200).json(tags);
     } catch (error) {
-      console.log(error.message);
-      res.status(500).json('Server error');
+      next(error);
     }
   }
 }
