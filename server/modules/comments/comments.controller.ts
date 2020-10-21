@@ -1,18 +1,17 @@
 import { AuthRequest } from '../../common/types/types';
 import { Response } from 'express';
-import { Comments } from './comments.model';
+import { commentsService } from './comments.service';
+import { validateIdOrThrow } from '../../common/validators';
 
 class CommentsController {
   public async createOne(req: AuthRequest, res: Response): Promise<void> {
     try {
-      const { body } = req.body;
-      const comment: Comments = new Comments({
-        body,
+      validateIdOrThrow(+req.params.postId);
+      const comment = commentsService.createOne({
+        body: req.body.body,
         postId: +req.params.postId,
         userId: req.user!.id,
       });
-      await comment.save();
-
       res.json(comment);
     } catch (error) {
       console.log(error.message);
