@@ -2,7 +2,6 @@ import { NextFunction } from 'express';
 const jwt = require('jsonwebtoken');
 import { Unauthorized } from '../../common/exceptions';
 
-
 export const authJwt = (req, _res, next: NextFunction) => {
   const token = req.header('x-auth-token');
 
