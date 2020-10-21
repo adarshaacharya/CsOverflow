@@ -1,22 +1,21 @@
-import { Response } from 'express';
-import { Answers } from './answers.model';
+import { AuthRequest } from '../../common/types/types';
+import { NextFunction, Response } from 'express';
+import { answersService } from './answers.service';
+import validateIdOrThrow from '../../common/validators/id-validator';
 
 class AnswersController {
-  public async createOne(req, res: Response): Promise<void> {
+  public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
-      const { body } = req.body;
-
-      const answer: Answers = new Answers({
-        body,
+      validateIdOrThrow(+req.params.postId);
+      const answer = await answersService.createOne({
+        body: req.body.body,
         postId: +req.params.postId,
-        userId: req.user.id,
+        userId: req.user!.id,
       });
-      await answer.save();
 
       res.json(answer);
     } catch (error) {
-      console.log(error.message);
-      res.status(500).json('Server error');
+      next(error);
     }
   }
 }

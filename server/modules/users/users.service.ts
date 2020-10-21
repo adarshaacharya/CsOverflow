@@ -2,7 +2,6 @@ import BadRequest from '../../common/exceptions/bad-request';
 import { Users } from './users.model';
 import generateToken from '../../common/token/generate-jwt-token';
 
-
 interface IUsersData {
   name: string;
   email: string;
@@ -25,7 +24,7 @@ class UsersService {
     await user.save();
 
     const token = generateToken(user.id);
-    return token
+    return token;
   }
 
   public async findOneByEmail(email: string): Promise<Users | null> {
