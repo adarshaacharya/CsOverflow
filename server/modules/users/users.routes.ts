@@ -6,10 +6,24 @@ import { createUsersDto } from './users.dtos';
 export const router: Router = Router();
 
 /**
+ * @method GET
+ * @route /api/users
+ * @description fetch all users
+ * @acces private
+ */
+// router.get('/', usersController.findAll)
+
+/**
+ * @method GET
+ * @route /api/users/:id
+ * @description fetch single user
+ * @acces private
+ */
+// router.get('/:id', usersController.findById)
+
+/**
  * @method POST
- * @params [[UserSaveInterface]]: JSON
  * @route /api/users
  * @acces public
- * @async
  */
 router.post('/', createValidator(createUsersDto), usersController.createOne);
