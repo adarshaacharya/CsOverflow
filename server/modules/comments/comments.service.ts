@@ -1,4 +1,4 @@
-import {  Comments } from './comments.model';
+import { Comments } from './comments.model';
 
 interface ICommentsData {
   body: string;
