@@ -9,6 +9,5 @@ export const router: Router = Router();
  * @route /api/tags
  * @description : fetch all tags
  * @acces private
- * @async
  */
 router.get('/', authJwt, tagsController.getAll);

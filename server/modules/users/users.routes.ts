@@ -24,6 +24,7 @@ export const router: Router = Router();
 /**
  * @method POST
  * @route /api/users
+ * @description register a new user
  * @acces public
  */
 router.post('/', createValidator(createUsersDto), usersController.createOne);
