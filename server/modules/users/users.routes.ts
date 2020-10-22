@@ -2,6 +2,7 @@ import { createValidator } from '../../common/middlewares/create-validator.middl
 import { Router } from 'express';
 import { usersController } from './users.controller';
 import { createUsersDto } from './users.dtos';
+import { authJwt } from '../../common/middlewares/auth.middleware';
 
 export const router: Router = Router();
 
@@ -11,7 +12,7 @@ export const router: Router = Router();
  * @description fetch all users
  * @acces private
  */
-router.get('/', usersController.findAll)
+router.get('/', authJwt, usersController.findAll);
 
 /**
  * @method GET
@@ -19,7 +20,7 @@ router.get('/', usersController.findAll)
  * @description fetch single user
  * @acces private
  */
-// router.get('/:id', usersController.findById)
+router.get('/:id', authJwt, usersController.findOneById);
 
 /**
  * @method POST

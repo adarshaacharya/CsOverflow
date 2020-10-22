@@ -1,6 +1,6 @@
-import BadRequest from '../../common/exceptions/bad-request';
 import { Users } from './users.model';
 import generateToken from '../../common/token/generate-jwt-token';
+import { NotFound, BadRequest } from '../../common/exceptions';
 
 interface IUsersData {
   name: string;
@@ -15,6 +15,16 @@ class UsersService {
       order: [['id', 'DESC']],
     });
     return users;
+  }
+
+  public async findOneById(id: number): Promise<Users | null> {
+    const user = await Users.findOne({
+      where: { id },
+      attributes: { exclude: ['password'] },
+    });
+
+    if (!user) throw new NotFound("User with given id doesn't exists");
+    return user;
   }
 
   public async createOne(userData: IUsersData) {
