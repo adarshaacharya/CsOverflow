@@ -6,10 +6,17 @@ import { authController } from './auth.controller';
 export const router: Router = Router();
 
 /**
- * @method POST
- * @route /api/auth/login
- * @description : User login to app
- * @acces public
- * @async
+ * @method GET
+ * @route /api/auth
+ * @description : fetch logged in user details
+ * @acces private
  */
-router.post('/login', createValidator(loginDto), authController.login);
+// router.post('/', authController.loadUser);
+
+/**
+ * @method POST
+ * @route /api/auth
+ * @description : login registered user to app
+ * @acces public
+ */
+router.post('/', createValidator(loginDto), authController.login);

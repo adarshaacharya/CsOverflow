@@ -27,8 +27,8 @@ app.use(compression());
 app.use('/api/users', usersRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postsRoutes);
-app.use('/api/comments', commentsRoutes);
-app.use('/api/answers', answersRoutes);
+app.use('/api/posts/comments', commentsRoutes);
+app.use('/api/posts/answers', answersRoutes);
 app.use('/api/tags', tagsRoutes);
 
 // middlewares
