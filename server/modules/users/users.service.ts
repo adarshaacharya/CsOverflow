@@ -9,6 +9,14 @@ interface IUsersData {
 }
 
 class UsersService {
+  public async findAll() {
+    const users = await Users.findAll({
+      attributes: { exclude: ['password'] },
+      order: [['id', 'DESC']],
+    });
+    return users;
+  }
+
   public async createOne(userData: IUsersData) {
     const { name, email, password } = userData;
 

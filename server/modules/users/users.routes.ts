@@ -11,7 +11,7 @@ export const router: Router = Router();
  * @description fetch all users
  * @acces private
  */
-// router.get('/', usersController.findAll)
+router.get('/', usersController.findAll)
 
 /**
  * @method GET
