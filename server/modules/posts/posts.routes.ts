@@ -12,7 +12,7 @@ export const router: Router = Router();
  * @description : Fetch all posts
  * @acces private
  */
-// router.get('/', postsController.findAll);
+router.get('/',authJwt ,postsController.findAll);
 
 /**
  * @method GET
