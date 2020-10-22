@@ -9,21 +9,27 @@ interface ILoginData {
 }
 
 class AuthServices {
+  async loadUser(id: number) {
+    const user = await Users.findOne({
+      where: { id },
+      attributes: {
+        exclude: ['password'],
+      },
+    });
+
+    return user;
+  }
+
   async login(loginData: ILoginData) {
     const { email, password } = loginData;
-
     const user = await Users.findOne({
       where: { email },
     });
 
-    if (!user) {
-      throw new Unauthorized("User desn't exists");
-    }
+    if (!user) throw new Unauthorized("User desn't exists");
 
     const isMatch = bcrypt.compareSync(password, user.password);
-    if (!isMatch) {
-      throw new Unauthorized('Invalid email or password');
-    }
+    if (!isMatch) throw new Unauthorized('Invalid email or password');
 
     const token: string = generateToken(user.id);
     return token;

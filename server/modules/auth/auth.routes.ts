@@ -2,6 +2,7 @@ import { loginDto } from './auth.dtos';
 import { Router } from 'express';
 import { createValidator } from '../../common/middlewares/create-validator.middleware';
 import { authController } from './auth.controller';
+import { authJwt } from '../../common/middlewares/auth.middleware';
 
 export const router: Router = Router();
 
@@ -11,7 +12,7 @@ export const router: Router = Router();
  * @description : fetch logged in user details
  * @acces private
  */
-// router.post('/', authController.loadUser);
+router.get('/', authJwt, authController.loadUser);
 
 /**
  * @method POST
