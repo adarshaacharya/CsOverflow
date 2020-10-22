@@ -14,7 +14,7 @@ class UsersController {
 
   public async findOneById(req: Request, res: Response, next: NextFunction) {
     try {
-      const user = await usersService.findOneById(+req.params.id);
+      const user = await usersService.findOneOrThrow(+req.params.id);
       res.status(201).json(user);
     } catch (error) {
       next(error);

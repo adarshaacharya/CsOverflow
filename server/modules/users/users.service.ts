@@ -17,8 +17,12 @@ class UsersService {
     return users;
   }
 
-  
+  public async findOneOrThrow(id: number) {
+    const user = await this.findOneById(id);
 
+    if (!user) throw new NotFound("User with given id doesn't exists");
+    return user;
+  }
 
   public async createOne(userData: IUsersData) {
     const { name, email, password } = userData;
@@ -37,8 +41,6 @@ class UsersService {
     const token = generateToken(user.id);
     return token;
   }
-
-
 
   public async findOneById(id: number): Promise<Users | null> {
     const user = await Users.findOne({
