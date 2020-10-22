@@ -6,11 +6,11 @@ import { validateIdOrThrow } from '../../common/validators';
 class CommentsController {
   public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
-      validateIdOrThrow(+req.params.postId);
+      validateIdOrThrow(+req.params.id);
 
       const comment = await commentsService.createOne({
         body: req.body.body,
-        postId: +req.params.postId,
+        postId: +req.params.id,
         userId: req.user!.id,
       });
       res.json(comment);

@@ -7,25 +7,24 @@ import { authJwt } from '../../common/middlewares/auth.middleware';
 export const router: Router = Router();
 
 /** @method GET
- * @route  /api/posts/answers/:postId
+ * @route  /api/posts/answers/:id
  *  @desc : fetch all answers of a post
  *  @access Private
  */
-// router.get('/:postId', answersController.fetchAll);
+// router.get('/:id', answersController.fetchAll);
 
 /**
  * @method POST
- * @route /api/posts/answers/:postId
+ * @route /api/posts/answers/:id
  * @description : Answer to posts by auth users
  * @acces private
  */
-router.post('/:postId', [authJwt, createValidator(createAnswersDto)], answersController.createOne);
-
+router.post('/:id', [authJwt, createValidator(createAnswersDto)], answersController.createOne);
 
 /**
  * @method DELETE
- * @route /api/posts/answers/:postId
+ * @route /api/posts/answers/:id
  * @description : delete an answer to the post
  * @acces private
  */
-// router.delete('/:postId', answersController.deleteOne);
+// router.delete('/:id', answersController.deleteOne);

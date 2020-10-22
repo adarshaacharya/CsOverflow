@@ -6,10 +6,10 @@ import validateIdOrThrow from '../../common/validators/id-validator';
 class AnswersController {
   public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
-      validateIdOrThrow(+req.params.postId);
+      validateIdOrThrow(+req.params.id);
       const answer = await answersService.createOne({
         body: req.body.body,
-        postId: +req.params.postId,
+        postId: +req.params.id,
         userId: req.user!.id,
       });
 

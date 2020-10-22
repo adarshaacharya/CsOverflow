@@ -8,9 +8,16 @@ export const router: Router = Router();
 
 /**
  * @method POST
+ * @route /api/posts/comments/:id
+ * @description : Fetch all comments of a post
+ * @acces private
+ */
+// router.post('/:id', commentsController.findAll);
+
+/**
+ * @method POST
  * @route /api/posts
  * @description : Create a new post by auth user
  * @acces private
- * @async
  */
-router.post('/:postId', [authJwt, createValidator(createCommentsDto)], commentsController.createOne);
+router.post('/:id', [authJwt, createValidator(createCommentsDto)], commentsController.createOne);
