@@ -1,4 +1,4 @@
-import { BadRequest, NotFound } from '../../common/exceptions';
+import { BadRequest, NotFound, Unauthorized } from '../../common/exceptions';
 import { Posts } from './posts.model';
 
 interface IPostsData {
@@ -6,6 +6,7 @@ interface IPostsData {
   title: string;
   userId: number;
 }
+const NO_RIGHTS = 'You do not have rights to do this.';
 
 class PostsService {
   public async findAll(): Promise<Posts[]> {
@@ -30,6 +31,19 @@ class PostsService {
       userId,
     });
     return post.save();
+  }
+
+  public async deleteOne(postId: number, userId: number) {
+    const post = await this.findOneById(postId);
+    if (!post) throw new NotFound(`Can't find the post with id ${postId}`);
+
+    console.log(typeof post.userId, typeof userId);
+    // check whether logged in user is the one who create the post to be deleted
+    if (post.userId !== userId) {
+      throw new Unauthorized(NO_RIGHTS);
+    }
+
+    await Posts.destroy({ where: { id: postId } });
   }
 
   public async findOneById(id: number) {

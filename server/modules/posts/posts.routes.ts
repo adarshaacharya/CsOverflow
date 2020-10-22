@@ -36,7 +36,7 @@ router.get('/', authJwt, postsController.findAll);
  * @description : Fetch a single post
  * @acces private
  */
-router.get('/:id', postsController.findOneById);
+router.get('/:id', authJwt, postsController.findOneById);
 
 /**
  * @method POST
@@ -53,4 +53,4 @@ router.post('/', [authJwt, createValidator(createPostDto)], postsController.crea
  * @description : Delete a post
  * @acces private
  */
-// router.delete('/:id', postsController.findAll);
+router.delete('/:id',authJwt ,postsController.deleteOne);
