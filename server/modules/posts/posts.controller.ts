@@ -1,6 +1,7 @@
 import { AuthRequest } from '../../common/types/types';
 import { NextFunction, Response } from 'express';
 import { postsService } from './posts.service';
+import { validateIdOrThrow } from 'common/validators';
 
 class PostsController {
   public async findAll(_req: AuthRequest, res: Response, next: NextFunction) {
@@ -12,8 +13,11 @@ class PostsController {
     }
   }
 
-  public async findOneById(req: Request, res: Response, next: NextFunction) {
+  public async findOneById(req: AuthRequest, res: Response, next: NextFunction) {
     try {
+      validateIdOrThrow(+req.params.id);
+      const post = await postsService.findOneByIdOrThrow(+req.params.id);
+      res.status(201).json(post);
     } catch (error) {
       next(error);
     }

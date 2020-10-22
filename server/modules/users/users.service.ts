@@ -9,7 +9,7 @@ interface IUsersData {
 }
 
 class UsersService {
-  public async findAll() {
+  public async findAll(): Promise<Users[]> {
     const users = await Users.findAll({
       attributes: { exclude: ['password'] },
       order: [['id', 'DESC']],
@@ -17,15 +17,8 @@ class UsersService {
     return users;
   }
 
-  public async findOneById(id: number): Promise<Users | null> {
-    const user = await Users.findOne({
-      where: { id },
-      attributes: { exclude: ['password'] },
-    });
+  
 
-    if (!user) throw new NotFound("User with given id doesn't exists");
-    return user;
-  }
 
   public async createOne(userData: IUsersData) {
     const { name, email, password } = userData;
@@ -43,6 +36,17 @@ class UsersService {
 
     const token = generateToken(user.id);
     return token;
+  }
+
+
+
+  public async findOneById(id: number): Promise<Users | null> {
+    const user = await Users.findOne({
+      where: { id },
+      attributes: { exclude: ['password'] },
+    });
+
+    return user;
   }
 
   public async findOneByEmail(email: string): Promise<Users | null> {

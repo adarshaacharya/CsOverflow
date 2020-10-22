@@ -1,3 +1,4 @@
+import { BadRequest, NotFound } from '../../common/exceptions';
 import { Posts } from './posts.model';
 
 interface IPostsData {
@@ -14,6 +15,12 @@ class PostsService {
     return posts;
   }
 
+  public async findOneByIdOrThrow(id: number): Promise<Posts | null> {
+    const post = this.findOneById(id);
+    if (!post) throw new BadRequest(`Post with id ${id} not found`);
+    return post;
+  }
+
   public async createOne(postsData: IPostsData): Promise<Posts> {
     const { title, body, userId } = postsData;
 
@@ -25,7 +32,7 @@ class PostsService {
     return post.save();
   }
 
-  public async findById(id: number) {
+  public async findOneById(id: number) {
     const post = await Posts.findOne({ where: { id } });
     return post;
   }

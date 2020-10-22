@@ -12,7 +12,7 @@ export const router: Router = Router();
  * @description : Fetch all posts
  * @acces private
  */
-router.get('/',authJwt ,postsController.findAll);
+router.get('/', authJwt, postsController.findAll);
 
 /**
  * @method GET
@@ -36,7 +36,7 @@ router.get('/',authJwt ,postsController.findAll);
  * @description : Fetch a single post
  * @acces private
  */
-// router.get('/:id', postsController.findOneById);
+router.get('/:id', postsController.findOneById);
 
 /**
  * @method POST

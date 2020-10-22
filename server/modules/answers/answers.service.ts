@@ -12,7 +12,7 @@ class AnswersService {
   public async createOne(answersData: IAnswersData): Promise<Answers> {
     const { body, postId, userId } = answersData;
 
-    const post = await postsService.findById(postId);
+    const post = await postsService.findOneById(postId);
     if (!post) throw new NotFound(`Can't find post with id ${postId}`);
 
     const answer: Answers = new Answers({
