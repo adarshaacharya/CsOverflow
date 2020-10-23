@@ -6,16 +6,30 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node prod/server.js",
     "server": "nodemon server/server.ts",
+    "client": "npm --prefix ./client run start",
+    "client:install": "npm --prefix ./client install",
     "server:install": "npm install",
     "server:build": "tsc -p tsconfig.prod.json",
-    "format": "prettier --write \"server/**/*.{ts,tsx,js,jsx}\""
+    "client:build": "npm --prefix ./client run build && npm run client:move-build",
+    "develop": "concurrently \"npm run server\" \"npm run client\"",
+    "develop:ci": "concurrently \"npm start\" \"cd client && npm start\"",
+    "client:move-build": "ts-node utils/move-from-to.ts client/build prod/client",
+    "heroku-prebuild": "cd client && npm install --dev",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run server:build && npm run client:install && npm run client:build",
+    "format": "prettier --write \"server/**/*.{ts,tsx,js,jsx}\" \"client/**/*.{ts,tsx,js,jsx}\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adarshaacharya/csoverflow.git"
   },
   "keywords": [
-    "csoverflow"
+    "csoverflow",
+    "typescript",
+    "mern",
+    "react",
+    "mongo",
+    "node",
+    "express"
   ],
   "author": "Aadarsha <connectwithadarsha@gmail.com>",
   "license": "MIT",
@@ -57,7 +71,11 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "client/*"
+      "client/*",
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
     ],
     "watch": [
       "server/*"

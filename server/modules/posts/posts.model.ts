@@ -1,7 +1,6 @@
 import { Users } from '../users/users.model';
 import { DataTypes, Model, Sequelize } from 'sequelize';
 import { sequelize } from '../../config/database.config';
-import { Tags } from '../../modules/tags/tags.model';
 
 export class Posts extends Model {
   public static readonly tableName: string = 'posts';
