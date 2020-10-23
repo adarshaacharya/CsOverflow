@@ -1,5 +1,5 @@
 import { Users } from './users.model';
-import generateToken from '../../common/token/generate-jwt-token';
+import generateToken from '../../common/token/generate-jwt';
 import { NotFound, BadRequest } from '../../common/exceptions';
 
 interface IUsersData {

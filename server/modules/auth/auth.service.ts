@@ -1,6 +1,6 @@
 import { Users } from '../../modules/users/users.model';
 import * as bcrypt from 'bcryptjs';
-import generateToken from '../../common/token/generate-jwt-token';
+import generateToken from '../../common/token/generate-jwt';
 import { Unauthorized } from '../../common/exceptions';
 
 interface ILoginData {

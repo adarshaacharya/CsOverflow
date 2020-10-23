@@ -53,4 +53,4 @@ router.post('/', [authJwt, createValidator(createPostDto)], postsController.crea
  * @description : Delete a post
  * @acces private
  */
-router.delete('/:id',authJwt ,postsController.deleteOne);
+router.delete('/:id', authJwt, postsController.deleteOne);
