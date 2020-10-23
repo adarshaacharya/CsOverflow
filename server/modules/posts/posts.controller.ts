@@ -25,12 +25,11 @@ class PostsController {
 
   public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
-      const { title, body, tagname } = req.body;
+      const { title, body,  } = req.body;
       const post = await postsService.createOne({
         title,
         body,
         userId: req.user!.id, // from token
-        tagname
       });
       res.status(201).json(post);
     } catch (error) {

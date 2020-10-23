@@ -5,7 +5,6 @@ interface IPostsData {
   body: string;
   title: string;
   userId: number;
-  tagname: string;
 }
 const NO_RIGHTS = 'You do not have rights to do this.';
 
@@ -24,14 +23,14 @@ class PostsService {
   }
 
   public async createOne(postsData: IPostsData): Promise<Posts> {
-    const { title, body, userId, tagname } = postsData;
+    const { title, body, userId } = postsData;
 
     const post = new Posts({
       title,
       body,
       userId,
-      tagname,
     });
+
     return post.save();
   }
 

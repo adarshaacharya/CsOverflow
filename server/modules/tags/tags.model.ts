@@ -33,13 +33,14 @@ export class Tags extends Model {
 Tags.prepareInit(sequelize);
 
 Tags.belongsToMany(Posts, {
-  through: 'post_tag',
+  through: 'posttag',
   as: 'posts',
   foreignKey: 'tagId',
 });
 
 Posts.belongsToMany(Tags, {
-  through: 'post_tag',
+  through: 'posttag',
   as: 'tags',
   foreignKey: 'postId',
+  otherKey: 'tagId',
 });
