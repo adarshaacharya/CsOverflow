@@ -3,7 +3,7 @@ import { sequelize } from '../../config/database.config';
 import { Posts } from '../../modules/posts/posts.model';
 
 export class Tags extends Model {
-  public static readonly tableName: string = 'students';
+  public static readonly tableName: string = 'tags';
 
   public id: number;
   public tagname: string;
