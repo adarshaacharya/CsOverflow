@@ -3,7 +3,6 @@ import { NextFunction, Response } from 'express';
 import { postsService } from './posts.service';
 import { validateIdOrThrow } from '../../common/validators';
 
-
 class PostsController {
   public async findAll(_req: AuthRequest, res: Response, next: NextFunction) {
     try {

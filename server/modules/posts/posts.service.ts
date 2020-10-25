@@ -10,10 +10,21 @@ interface IPostsData {
 const NO_RIGHTS = 'You do not have rights to do this.';
 
 class PostsService {
-  public async findAll(): Promise<Posts[]> {
+  public async findAll() {
     const posts = await Posts.findAll({
       order: [['id', 'DESC']],
+      include: [
+        {
+          model: Tags,
+          attributes: ['tagname'],
+          // junction model
+          through: {
+            attributes: [],
+          },
+        },
+      ],
     });
+    console.log(posts, "<=============================<><><><><><><><><")
     return posts;
   }
 

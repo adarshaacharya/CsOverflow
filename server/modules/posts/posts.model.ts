@@ -3,7 +3,6 @@ import { sequelize } from '../../config/database.config';
 import { Users } from '../users/users.model';
 
 export class Posts extends Model {
-
   public static readonly tableName: string = 'posts';
 
   public id: number;
@@ -55,4 +54,3 @@ Users.hasMany(Posts, {
   foreignKey: 'userId',
   as: 'posts',
 });
-
