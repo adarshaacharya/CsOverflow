@@ -28,7 +28,7 @@ router.get('/', authJwt, postsController.findAll);
  * @description : Fetch all posts of a specific tag
  * @acces private
  */
-router.get('/tag/:tagname', postsController.findByTag);
+router.get('/tag/:tagname', authJwt, postsController.findByTag);
 
 /**
  * @method GET
