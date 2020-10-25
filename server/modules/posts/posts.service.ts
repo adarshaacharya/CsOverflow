@@ -44,6 +44,7 @@ class PostsService {
       userId,
     });
 
+    // map array & check if tag is already present if not add one
     tags.forEach(async el => {
       let tag = await Tags.findOne({ where: { tagname: el } });
       if (!tag) tag = await Tags.create({ tagname: el });
@@ -66,7 +67,15 @@ class PostsService {
   }
 
   public async findOneById(id: number) {
-    const post = await Posts.findOne({ where: { id } });
+    const post = await Posts.findOne({
+      where: { id },
+      include: [
+        {
+          model: Tags,
+          as: 'tags',
+        },
+      ],
+    });
     return post;
   }
 }
