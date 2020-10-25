@@ -23,6 +23,15 @@ class PostsController {
     }
   }
 
+  public async findByTag(req: AuthRequest, res: Response, next: NextFunction) {
+    try {
+      const posts = await postsService.findByTag(req.params.tag);
+      res.status(201).json(posts);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
       const { title, body, tags } = req.body;

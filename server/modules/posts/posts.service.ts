@@ -11,7 +11,7 @@ interface IPostsData {
 const NO_RIGHTS = 'You do not have rights to do this.';
 
 class PostsService {
-  public async findAll() {
+  public async findAll(): Promise<Posts[]> {
     const posts = await Posts.findAll({
       order: [['id', 'DESC']],
       include: [
@@ -19,7 +19,6 @@ class PostsService {
           model: Tags,
           as: 'tags',
           attributes: ['id', 'tagname'],
-          // junction model
           through: {
             attributes: [],
           },
@@ -35,7 +34,11 @@ class PostsService {
     return post;
   }
 
-  public async createOne(postsData: IPostsData) {
+  public async findByTag(tag : string) {
+    
+  }
+
+  public async createOne(postsData: IPostsData): Promise<Posts> {
     const { title, body, userId, tags } = postsData;
 
     const post = await Posts.create({
