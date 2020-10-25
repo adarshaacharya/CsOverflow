@@ -1,8 +1,9 @@
-import { Users } from '../users/users.model';
 import { DataTypes, Model, Sequelize } from 'sequelize';
 import { sequelize } from '../../config/database.config';
+import { Users } from '../users/users.model';
 
 export class Posts extends Model {
+
   public static readonly tableName: string = 'posts';
 
   public id: number;
@@ -11,6 +12,7 @@ export class Posts extends Model {
   public userId: number;
   public createdAt: Date;
   public updatedAt: Date;
+  setTags: any;
 
   public static prepareInit(sequelize: Sequelize) {
     this.init(
@@ -53,3 +55,4 @@ Users.hasMany(Posts, {
   foreignKey: 'userId',
   as: 'posts',
 });
+

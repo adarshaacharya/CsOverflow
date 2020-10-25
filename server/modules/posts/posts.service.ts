@@ -1,3 +1,4 @@
+import { Tags } from '../../modules/tags/tags.model';
 import { BadRequest, NotFound, Unauthorized } from '../../common/exceptions';
 import { Posts } from './posts.model';
 
@@ -22,23 +23,26 @@ class PostsService {
     return post;
   }
 
-  public async createOne(postsData: IPostsData): Promise<Posts> {
+  public async createOne(postsData: IPostsData) {
     const { title, body, userId } = postsData;
 
-    const post = new Posts({
+    const post = await Posts.create({
       title,
       body,
       userId,
     });
 
-    return post.save();
+    let tag = await Tags.findOne({ where: { tagname: 'programming' } });
+    if (!tag) tag = await Tags.create({ tagname: 'programming' });
+
+    await post.setTags(tag, { through: { postId: post.id, tagId: tag.id } });
+    return post;
   }
 
   public async deleteOne(postId: number, userId: number) {
     const post = await this.findOneById(postId);
     if (!post) throw new NotFound(`Can't find the post with id ${postId}`);
 
-    console.log(typeof post.userId, typeof userId);
     // check whether logged in user is the one who create the post to be deleted
     if (post.userId !== userId) {
       throw new Unauthorized(NO_RIGHTS);

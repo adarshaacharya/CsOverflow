@@ -18,8 +18,9 @@ export class Tags extends Model {
           autoIncrement: true,
         },
         tagname: {
-          type: DataTypes.STRING(),
+          type: DataTypes.TEXT,
           allowNull: false,
+          unique: true,
         },
       },
       {

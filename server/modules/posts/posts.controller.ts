@@ -2,7 +2,7 @@ import { AuthRequest } from '../../common/types/types';
 import { NextFunction, Response } from 'express';
 import { postsService } from './posts.service';
 import { validateIdOrThrow } from '../../common/validators';
-import { Tags } from '../../modules/tags/tags.model';
+
 
 class PostsController {
   public async findAll(_req: AuthRequest, res: Response, next: NextFunction) {
@@ -31,10 +31,6 @@ class PostsController {
         title,
         body,
         userId: req.user!.id, // from token
-      });
-
-      await Tags.create({
-        tagname: 'programming',
       });
 
       res.status(201).json(post);
