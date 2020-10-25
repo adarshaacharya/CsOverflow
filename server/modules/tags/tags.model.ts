@@ -35,13 +35,14 @@ Tags.prepareInit(sequelize);
 
 Tags.belongsToMany(Posts, {
   through: 'posttag',
-  as: 'posts',
+  // as: 'posts',
   foreignKey: 'tagId',
+  otherKey: 'postId',
 });
 
 Posts.belongsToMany(Tags, {
   through: 'posttag',
-  as: 'tags',
+  // as: 'tags',
   foreignKey: 'postId',
   otherKey: 'tagId',
 });

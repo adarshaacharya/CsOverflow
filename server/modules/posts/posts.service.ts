@@ -16,15 +16,15 @@ class PostsService {
       include: [
         {
           model: Tags,
-          attributes: ['tagname'],
+          // attributes: ['tagname'],
           // junction model
-          through: {
-            attributes: [],
-          },
+          // through: {
+          //   attributes: [],
+          // },
         },
       ],
     });
-    console.log(posts, "<=============================<><><><><><><><><")
+    console.log(posts, '<=============================<><><><><><><><><');
     return posts;
   }
 
