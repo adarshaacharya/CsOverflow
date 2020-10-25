@@ -73,6 +73,10 @@ class PostsService {
         {
           model: Tags,
           as: 'tags',
+          attributes: ['id', 'tagname'],
+          through: {
+            attributes: [],
+          },
         },
       ],
     });
