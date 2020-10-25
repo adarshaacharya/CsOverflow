@@ -37,10 +37,12 @@ Tags.belongsToMany(Posts, {
   through: 'posttag',
   foreignKey: 'tagId',
   otherKey: 'postId',
+  as: 'posts',
 });
 
 Posts.belongsToMany(Tags, {
   through: 'posttag',
   foreignKey: 'postId',
   otherKey: 'tagId',
+  as: 'tags',
 });

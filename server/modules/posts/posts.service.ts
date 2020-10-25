@@ -6,6 +6,7 @@ interface IPostsData {
   body: string;
   title: string;
   userId: number;
+  tags: string[];
 }
 const NO_RIGHTS = 'You do not have rights to do this.';
 
@@ -16,7 +17,8 @@ class PostsService {
       include: [
         {
           model: Tags,
-          attributes: ['tagname'],
+          as: 'tags',
+          attributes: ['id', 'tagname'],
           // junction model
           through: {
             attributes: [],
@@ -34,7 +36,7 @@ class PostsService {
   }
 
   public async createOne(postsData: IPostsData) {
-    const { title, body, userId } = postsData;
+    const { title, body, userId, tags } = postsData;
 
     const post = await Posts.create({
       title,
@@ -42,10 +44,12 @@ class PostsService {
       userId,
     });
 
-    let tag = await Tags.findOne({ where: { tagname: 'programming' } });
-    if (!tag) tag = await Tags.create({ tagname: 'programming' });
+    tags.forEach(async el => {
+      let tag = await Tags.findOne({ where: { tagname: el } });
+      if (!tag) tag = await Tags.create({ tagname: el });
+      await post.setTags(tag, { through: { postId: post.id, tagId: tag.id } });
+    });
 
-    await post.setTags(tag, { through: { postId: post.id, tagId: tag.id } });
     return post;
   }
 

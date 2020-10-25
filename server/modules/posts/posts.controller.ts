@@ -25,11 +25,14 @@ class PostsController {
 
   public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
-      const { title, body } = req.body;
+      const { title, body, tags } = req.body;
+      const tagsArr = Array.isArray(tags) ? tags : tags.split(',').map(skill => ' ' + skill.trim());
+
       const post = await postsService.createOne({
         title,
         body,
         userId: req.user!.id, // from token
+        tags: tagsArr,
       });
 
       res.status(201).json(post);
