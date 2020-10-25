@@ -34,8 +34,25 @@ class PostsService {
     return post;
   }
 
-  public async findByTag(tag : string) {
-    
+  public async findByTag(tagname: string) {
+    const tag = await Tags.findOne({ where: { tagname } });
+
+    if (!tag) throw new NotFound('Tag not found');
+
+    const post = await Tags.findOne({
+      where: { tagname },
+      include: [
+        {
+          model: Posts,
+          as: 'posts',
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
+
+    return post;
   }
 
   public async createOne(postsData: IPostsData): Promise<Posts> {

@@ -25,7 +25,7 @@ class PostsController {
 
   public async findByTag(req: AuthRequest, res: Response, next: NextFunction) {
     try {
-      const posts = await postsService.findByTag(req.params.tag);
+      const posts = await postsService.findByTag(req.params.tagname);
       res.status(201).json(posts);
     } catch (error) {
       next(error);
