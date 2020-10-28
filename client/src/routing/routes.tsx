@@ -1,4 +1,4 @@
-import Home from 'pages/Home/Home';
+import Home from 'pages/Home';
 import Login from 'pages/Login/Login';
 import Signup from 'pages/Signup/Signup';
 import React from 'react';

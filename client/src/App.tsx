@@ -1,6 +1,7 @@
 import 'antd/dist/antd.css';
-import { Router } from 'react-router-dom';
+import Navbar from 'components/AppHeader';
 import React from 'react';
+import { Router } from 'react-router-dom';
 import { useRoutes } from 'routing/routes';
 import history from 'utils/history';
 
@@ -10,7 +11,10 @@ const App: React.FC = () => {
   return (
     <>
       <Router history={history}>
-        <>{routes}</>
+        <>
+          <Navbar />
+          {routes}
+        </>
       </Router>
     </>
   );
