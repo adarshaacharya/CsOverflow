@@ -10,13 +10,15 @@ export const MenuItems = () => {
     <Menu mode="horizontal" selectable={false} className="menu">
       <Item key="/login">
         <NavLink to="/login" activeClassName="active">
-          <Button type="primary">Login</Button>
+          <Button type="primary" size="large">
+            Sign up
+          </Button>
         </NavLink>
       </Item>
 
       <Item key="/signup">
         <NavLink to="/signup" activeClassName="active">
-          <Button>Sign up</Button>
+          <Button size="large">Login</Button>
         </NavLink>
       </Item>
     </Menu>

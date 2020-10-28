@@ -15,7 +15,7 @@ const AppHeader = () => {
             <img src={logo} alt="app logo" />
           </NavLink>
         </div>
-        <div className="app-header__search-section">
+        <div className="app-header__search-input">
           <Searchbar />
         </div>
       </div>

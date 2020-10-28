@@ -57,6 +57,7 @@ html {
    flex-grow: 1;
    padding-right: 10px;
 }
+/* 
 .app-header__search-input .ant-input-group {
    border: 0;
    width: 100%;
@@ -68,4 +69,4 @@ html {
 }
 .app-header__menu-section {
    float: right;
-}
+} */
