@@ -1,9 +1,12 @@
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
 import React from 'react';
+
 
 function App() {
   return (
     <div>
-      <h1>Welcome to CODETREATS</h1>
+      <Button type="primary">Button</Button>
     </div>
   );
 }
