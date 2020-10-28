@@ -4,9 +4,9 @@ import React from 'react';
 
 function App() {
   return (
-    <div>
-      <Button type="primary">Button</Button>
-    </div>
+    <>
+      
+    </>
   );
 }
 
