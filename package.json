@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/adarshaacharya/csoverflow#readme",
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
