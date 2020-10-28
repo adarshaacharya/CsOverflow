@@ -1,11 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Layout } from 'antd';
 
-const Navbar = () => {
+import logo from './assets/csoverflow-logo.png';
+
+const { Header } = Layout;
+
+const AppHeader = () => {
   return (
-    <div>
-      <h1>Navbar</h1>
-    </div>
+    <Header className="app-header">
+      <div className="app-header__logo-search-section">
+        <div className="app-header__logo">
+          <Link to="/">
+            <img src={logo} alt="app logo" />
+          </Link>
+        </div>
+      </div>
+    </Header>
   );
 };
 
-export default Navbar;
+export default AppHeader;
