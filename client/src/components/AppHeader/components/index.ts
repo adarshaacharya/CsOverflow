@@ -1,3 +1,2 @@
-export * from './MenuItems'
-export * from './Searchbar'
-
+export * from './MenuItems';
+export * from './Searchbar';

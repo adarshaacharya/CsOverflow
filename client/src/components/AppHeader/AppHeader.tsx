@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from './assets/csoverflow-logo.png';
 import { MenuItems, Searchbar } from './components';
 
@@ -11,11 +11,13 @@ const AppHeader = () => {
     <Header className="app-header">
       <div className="app-header__logo-search-section">
         <div className="app-header__logo">
-          <Link to="/">
+          <NavLink to="/">
             <img src={logo} alt="app logo" />
-          </Link>
+          </NavLink>
         </div>
-        <Searchbar />
+        <div className="app-header__search-section">
+          <Searchbar />
+        </div>
       </div>
 
       <div className="app-header__menu-section">
