@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import React from 'react';
-
+import './style.css';
 import { MenuItems, Searchbar, Logo } from './components';
 
 const { Header } = Layout;

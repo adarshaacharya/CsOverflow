@@ -9,6 +9,7 @@ export class Users extends Model {
   public name: string;
   public email: string;
   public password: string;
+  public avatar: string;
   public readonly createdAt: Date;
   public readonly updatedAt: Date;
 
@@ -36,6 +37,11 @@ export class Users extends Model {
           type: new DataTypes.STRING(255),
           allowNull: false,
           field: 'password',
+        },
+        avatar: {
+          type: new DataTypes.STRING(255),
+          allowNull: false,
+          field: 'avatar',
         },
       },
       {

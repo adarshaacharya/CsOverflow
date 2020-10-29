@@ -5,5 +5,5 @@ const { Search } = Input;
 export const Searchbar = () => {
   const onSearch = (value: string) => console.log(value);
 
-  return <Search placeholder="Search..." onSearch={onSearch} enterButton />;
+  return <Search placeholder="Search..." onSearch={onSearch} size="large" enterButton />;
 };

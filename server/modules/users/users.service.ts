@@ -1,6 +1,8 @@
 import { Users } from './users.model';
 import generateToken from '../../common/token/generate-jwt';
 import { NotFound, BadRequest } from '../../common/exceptions';
+import gravatar from 'gravatar';
+import normalizeUrl from 'normalize-url';
 
 interface IUsersData {
   name: string;
@@ -31,10 +33,19 @@ class UsersService {
       throw new BadRequest('User with provided email already exists');
     }
 
+    const avatar = normalizeUrl(
+      gravatar.url(email, {
+        s: '200',
+        r: 'pg',
+        d: 'mm',
+      }),
+      { forceHttps: true }
+    );
     const user = new Users({
       name,
       email,
       password,
+      avatar,
     });
     await user.save();
 
