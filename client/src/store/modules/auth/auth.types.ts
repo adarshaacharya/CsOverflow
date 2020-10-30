@@ -22,6 +22,12 @@ export interface IUser {
   updatedAt: string;
 }
 
+export interface ISignupData {
+  name: string;
+  email: string;
+  password: string;
+}
+
 interface AuthActionType<T, P> {
   readonly type: T;
   payload?: P;
@@ -33,9 +39,3 @@ export type AuthActions =
   | AuthActionType<typeof REGISTER_SUCCESS, string>
   | AuthActionType<typeof REGISTER_FAIL, null>
   | AuthActionType<typeof LOGOUT, null>;
-
-export interface ISignupData {
-  name: string;
-  email: string;
-  password: string;
-}

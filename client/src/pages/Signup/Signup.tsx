@@ -1,6 +1,9 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { registerUser } from 'store/modules/auth/auth.actions';
+import { ISignupData } from 'store/modules/auth/auth.types';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
@@ -16,6 +19,12 @@ const tailFormItemLayout = {
 };
 
 const Signup = () => {
+  const dispatch = useDispatch();
+
+  const onFormSubmit = (formData: ISignupData) => {
+    dispatch(registerUser(formData));
+  };
+
   return (
     <Content className="sign-up">
       <Card className="sign-up-card">
@@ -35,7 +44,7 @@ const Signup = () => {
           </Text>
         </div>
 
-        <Form {...layout} size="large" className="sign-up-card__form">
+        <Form {...layout} onFinish={onFormSubmit} size="large" className="sign-up-card__form">
           <Item label="Name" name="name" rules={[{ required: true, message: 'Please input your name' }]}>
             <Input />
           </Item>
