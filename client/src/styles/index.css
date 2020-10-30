@@ -90,3 +90,29 @@ html {
 .log-in-card__form-button {
    width: 100%;
 }
+
+.sign-up {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.sign-up-card {
+   max-width: 510px;
+   text-align: center;
+   padding: 0 0 20px;
+   margin: 2rem 0;
+}
+
+.sign-up-card__intro-title.ant-typography,
+.sign-up-card__intro-title.ant-typography + h3.ant-typography {
+   margin-top: 5px;
+}
+
+.sign-up-card__form {
+   margin-top: 1rem;
+}
+
+.sign-up-card__form-button {
+   width: 100%;
+}

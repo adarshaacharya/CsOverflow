@@ -1,5 +1,6 @@
-import { Card, Layout, Typography, Form, Input } from 'antd';
+import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
@@ -10,6 +11,9 @@ const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
+const tailFormItemLayout = {
+  wrapperCol: { offset: 8, span: 16 },
+};
 
 const Signup = () => {
   return (
@@ -18,7 +22,7 @@ const Signup = () => {
         <div className="sign-up-card__intro">
           <Title level={3} className="sign-up-card__intro-title">
             <span role="img" aria-label="fire">
-              💥
+              👋
             </span>
           </Title>
 
@@ -89,8 +93,23 @@ const Signup = () => {
           >
             <Password />
           </Item>
+
+          <Item {...tailFormItemLayout}>
+            <Button type="primary" htmlType="submit" className="sign-up-card__form-button">
+              Register
+            </Button>
+          </Item>
         </Form>
+        <Text type="secondary">
+          Note: By creating an account, you agree our terms of service, privacy policy and cookie policy. We will never
+          share your personal information with anyone.
+        </Text>
+        <Divider />
+        <Text>
+          Already have an account ?<Link to="/login"> Login.</Link>
+        </Text>
       </Card>
+      
     </Content>
   );
 };
