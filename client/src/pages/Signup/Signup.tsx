@@ -1,9 +1,15 @@
-import { Card, Layout, Typography, Form } from 'antd';
+import { Card, Layout, Typography, Form, Input } from 'antd';
 import React from 'react';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
 const { Item } = Form;
+const { Password } = Input;
+
+const layout = {
+  labelCol: { span: 8 },
+  wrapperCol: { span: 16 },
+};
 
 const Signup = () => {
   return (
@@ -25,7 +31,56 @@ const Signup = () => {
           </Text>
         </div>
 
-        <Form className="sign-up-card__form"></Form>
+        <Form {...layout} size="large" className="sign-up-card__form">
+          <Item label="Name" name="name" rules={[{ required: true, message: 'Please input your name' }]}>
+            <Input />
+          </Item>
+
+          <Item
+            label="Email"
+            name="email"
+            rules={[{ required: true, type: 'email', message: 'Please input your email' }]}
+          >
+            <Input />
+          </Item>
+
+          <Item
+            name="password"
+            label="Password"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your password!',
+              },
+            ]}
+            hasFeedback
+          >
+            <Password />
+          </Item>
+
+          <Item
+            name="confirm"
+            label="Confirm Password"
+            dependencies={['password']}
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: 'Please confirm your password!',
+              },
+              ({ getFieldValue }) => ({
+                validator(_rule, value) {
+                  if (!value || getFieldValue('password') === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject('The two passwords that you entered do not match!');
+                },
+              }),
+            ]}
+          >
+            <Password />
+          </Item>
+        </Form>
       </Card>
     </Content>
   );
