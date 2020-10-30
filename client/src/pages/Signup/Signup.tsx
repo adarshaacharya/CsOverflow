@@ -37,9 +37,18 @@ const Signup = () => {
           </Item>
 
           <Item
-            label="Email"
             name="email"
-            rules={[{ required: true, type: 'email', message: 'Please input your email' }]}
+            label="E-mail"
+            rules={[
+              {
+                type: 'email',
+                message: 'The input is not valid E-mail!',
+              },
+              {
+                required: true,
+                message: 'Please input your E-mail!',
+              },
+            ]}
           >
             <Input />
           </Item>
