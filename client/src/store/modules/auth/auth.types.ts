@@ -14,9 +14,12 @@ export interface AuthState {
 }
 
 export interface IUser {
+  id: number;
   name: string;
   email: string;
-  password: string;
+  avatar: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface AuthActionType<T, P> {
@@ -24,4 +27,6 @@ interface AuthActionType<T, P> {
   payload?: P;
 }
 
-export type AuthActions = AuthActionType<typeof REGISTER_SUCCESS, null>;
+export type AuthActions = 
+    | AuthActionType<typeof AUTH_ERROR, null> 
+    | AuthActionType<typeof USER_LOADED, IUser>;
