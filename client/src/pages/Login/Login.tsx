@@ -1,17 +1,18 @@
 import React from 'react';
-import { Card, Layout, Typography, Form, Input, Checkbox, Button } from 'antd';
+import { Card, Layout, Typography, Form, Input, Checkbox, Button, Divider } from 'antd';
+import { Link } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
 const { Item } = Form;
 
 const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
+  labelCol: { span: 6 },
+  wrapperCol: { span: 18 },
 };
 
 const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
+  wrapperCol: { offset: 6, span: 18 },
 };
 
 const Login = () => {
@@ -27,10 +28,9 @@ const Login = () => {
           <Title level={3} className="log-in-card__intro-title">
             Welcome back !
           </Title>
-          <Text>Sign in to csoverflow to ask or answer questions and unlock all features.</Text>
+          <Text className="log-in-card__intro-text">Sign in to ask or answer questions and unlock all features.</Text>
         </div>
-
-        <Form {...layout} className="log-in-card__form">
+        <Form {...layout} size={'large'} className="log-in-card__form">
           <Item label="Email" name="email" rules={[{ required: true, type: 'email' }]}>
             <Input />
           </Item>
@@ -40,14 +40,19 @@ const Login = () => {
           </Item>
 
           <Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
-              Submit
+            <Button type="primary" htmlType="submit" className="log-in-card__form-button">
+              Log In
             </Button>
           </Item>
         </Form>
-
         <Text type="secondary">
-          Note: By signing in, you'll be redirected to the Google consent form to sign in with your Google account.
+          Note: By signing in, you'll agree our terms and policy. We will never sell or share your personal information
+          with anyone.
+        </Text>
+        <Divider />
+        <Text>
+          New to CsOverflow?
+          <Link to="/signup"> Create an account.</Link>
         </Text>
       </Card>
     </Content>
