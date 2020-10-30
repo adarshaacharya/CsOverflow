@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import { authReducer } from './auth/auth.reducer';
 
 const rootReducer = combineReducers({
-  replaceMe: () => 'hi there',
+  auth: authReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

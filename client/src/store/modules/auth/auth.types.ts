@@ -7,7 +7,7 @@ export const LOGIN_FAIL = '@@/auth/LOGIN_FAIL';
 export const LOGOUT = '@@/auth/LOGOUT';
 
 export interface AuthState {
-  token: string;
+  token: string | null;
   isAuthenticated: boolean | null;
   loading: boolean;
   user: IUser | null;
@@ -27,6 +27,15 @@ interface AuthActionType<T, P> {
   payload?: P;
 }
 
-export type AuthActions = 
-    | AuthActionType<typeof AUTH_ERROR, null> 
-    | AuthActionType<typeof USER_LOADED, IUser>;
+export type AuthActions =
+  | AuthActionType<typeof AUTH_ERROR, null>
+  | AuthActionType<typeof USER_LOADED, IUser>
+  | AuthActionType<typeof REGISTER_SUCCESS, string>
+  | AuthActionType<typeof REGISTER_FAIL, null>
+  | AuthActionType<typeof LOGOUT, null>;
+
+export interface ISignupData {
+  name: string;
+  email: string;
+  password: string;
+}
