@@ -1,5 +1,5 @@
+import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
 import React from 'react';
-import { Card, Layout, Typography, Form, Input, Checkbox, Button, Divider } from 'antd';
 import { Link } from 'react-router-dom';
 
 const { Content } = Layout;
@@ -31,11 +31,15 @@ const Login = () => {
           <Text className="log-in-card__intro-text">Sign in to ask or answer questions and unlock all features.</Text>
         </div>
         <Form {...layout} size={'large'} className="log-in-card__form">
-          <Item label="Email" name="email" rules={[{ required: true, type: 'email' }]}>
+          <Item
+            label="Email"
+            name="email"
+            rules={[{ required: true, type: 'email', message: 'Please input your email' }]}
+          >
             <Input />
           </Item>
 
-          <Item label="Password" name="password" rules={[{ required: true }]}>
+          <Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password' }]}>
             <Input.Password />
           </Item>
 
