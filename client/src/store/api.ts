@@ -18,7 +18,7 @@ const Api = Axios.create({
 Api.interceptors.response.use(
   res => res,
   err => {
-    if (err.response.data.error === 'Token not valid') {
+    if (err.response.status === 401) {
       // mesage that came from backend middleware
       store.dispatch({ type: LOGOUT });
     }

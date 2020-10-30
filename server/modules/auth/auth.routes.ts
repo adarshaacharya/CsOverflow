@@ -1,8 +1,8 @@
-import { loginDto } from './auth.dtos';
 import { Router } from 'express';
+import { authJwt } from '../../common/middlewares/auth.middleware';
 import { createValidator } from '../../common/middlewares/create-validator.middleware';
 import { authController } from './auth.controller';
-import { authJwt } from '../../common/middlewares/auth.middleware';
+import { loginDto } from './auth.dtos';
 
 export const router: Router = Router();
 
