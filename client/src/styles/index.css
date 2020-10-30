@@ -14,3 +14,70 @@ html {
    background: #fff;
    min-height: 100vh;
 }
+.app-header {
+   display: flex;
+   justify-content: space-between;
+   background: #fff;
+   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+   padding: 0;
+   z-index: 1000;
+   backdrop-filter: blur(10px);
+}
+
+.app-header__logo-search-section {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   /* align-items: center;
+    justify-content: space-around; */
+   /* flex-grow: 1; */
+}
+
+.app-header__logo {
+   display: inline-block;
+   padding: 0 20px;
+}
+
+.app-header__logo img {
+   width: 36px;
+}
+
+.app-header__search-input {
+   display: flex;
+   align-items: center;
+   flex-grow: 1;
+   padding-right: 10px;
+}
+
+.app-header__search-input .ant-input-group {
+   border: 0;
+   width: 100%;
+   min-width: 460px;
+}
+
+.menu {
+   width: 100%;
+   padding: 0 20px;
+   line-height: 63px;
+   border: 0;
+}
+
+@media (max-width: 48em) {
+   .menu {
+      padding: 0;
+   }
+}
+
+.log-in {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.log-in-card {
+   width: 450px;
+   text-align: center;
+   padding: 10px 0 20px;
+}
+.log-in-card__intro-title.ant-typography,
+.log-in-card__intro-title.ant-typography + h3.ant-typography {
+   margin-top: 5px;
+}
