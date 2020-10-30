@@ -1,4 +1,4 @@
-import { AuthActions, AuthState, IUser, REGISTER_SUCCESS, USER_LOADED } from './auth.types';
+import { AuthActions, AuthState, REGISTER_SUCCESS, USER_LOADED } from './auth.types';
 
 const initialState: AuthState = {
   token: localStorage.getItem('csoverflow:token'),
@@ -7,7 +7,7 @@ const initialState: AuthState = {
   user: null,
 };
 
-export const authReducer = (state: AuthState = initialState, action: AuthActions): AuthState => {
+export const authReducer = (state: AuthState = initialState, action: AuthActions) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -16,13 +16,13 @@ export const authReducer = (state: AuthState = initialState, action: AuthActions
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: payload!,
+        user: payload,
       };
 
     case REGISTER_SUCCESS:
       return {
         ...state,
-        token: payload!, // payload = token
+        token: payload, // payload = token
         isAuthenticated: true,
         loading: false,
       };
