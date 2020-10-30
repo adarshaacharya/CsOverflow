@@ -46,12 +46,12 @@ const Login = () => {
           </Item>
         </Form>
         <Text type="secondary">
-          Note: By signing in, you'll agree our terms and policy. We will never sell or share your personal information
-          with anyone.
+          Note: By signing in, you'll agree our terms of service, privacy policy and cookie policy. We will never share
+          your personal information with anyone.
         </Text>
         <Divider />
         <Text>
-          New to CsOverflow?
+          New to CS Overflow?
           <Link to="/signup"> Create an account.</Link>
         </Text>
       </Card>
