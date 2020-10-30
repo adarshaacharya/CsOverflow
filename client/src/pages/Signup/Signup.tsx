@@ -109,7 +109,6 @@ const Signup = () => {
           Already have an account ?<Link to="/login"> Login.</Link>
         </Text>
       </Card>
-      
     </Content>
   );
 };
