@@ -22,7 +22,8 @@ const Signup = () => {
   const dispatch = useDispatch();
 
   const onFormSubmit = (formData: ISignupData) => {
-    dispatch(registerUser(formData));
+    const { name, email, password } = formData;
+    dispatch(registerUser({ name, email, password }));
   };
 
   return (
