@@ -20,7 +20,7 @@ const App: React.FC = () => {
     }
 
     store.dispatch<any>(loadUser());
-    
+
     // log user out from all tabs if they log out in one tab
     window.addEventListener('storage', () => {
       if (!localStorage.cstoken) store.dispatch({ type: LOGOUT });
