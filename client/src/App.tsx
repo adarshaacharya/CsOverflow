@@ -19,7 +19,8 @@ const App: React.FC = () => {
       setAuthToken(localStorage.cstoken);
     }
 
-    // store.dispatch(loadUser());
+    store.dispatch<any>(loadUser());
+    
     // log user out from all tabs if they log out in one tab
     window.addEventListener('storage', () => {
       if (!localStorage.cstoken) store.dispatch({ type: LOGOUT });
@@ -28,15 +29,15 @@ const App: React.FC = () => {
 
   return (
     <>
-    <Provider store={store}>
-      <Router history={history}>
-        <Layout id="app">
-          <Affix offsetTop={0} className="app__affix-header">
-            <Navbar />
-          </Affix>
-          {routes}
-        </Layout>
-      </Router>
+      <Provider store={store}>
+        <Router history={history}>
+          <Layout id="app">
+            <Affix offsetTop={0} className="app__affix-header">
+              <Navbar />
+            </Affix>
+            {routes}
+          </Layout>
+        </Router>
       </Provider>
     </>
   );

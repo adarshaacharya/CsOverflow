@@ -28,6 +28,7 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
       type: REGISTER_SUCCESS,
       payload: token,
     });
+    dispatch<any>(loadUser());
   } catch (error) {
     dispatch({
       type: REGISTER_FAIL,
