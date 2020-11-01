@@ -27,9 +27,6 @@ html {
 .app-header__logo-search-section {
    display: grid;
    grid-template-columns: 1fr 1fr;
-   /* align-items: center;
-    justify-content: space-around; */
-   /* flex-grow: 1; */
 }
 
 .app-header__logo {
@@ -52,6 +49,11 @@ html {
    border: 0;
    width: 100%;
    min-width: 460px;
+}
+
+.app-header__search-input .ant-input-group input {
+   border: 1px solid #f0f1f2;
+   box-shadow: 0 2px 0 rgba(29, 34, 108, 0.1);
 }
 
 .menu {

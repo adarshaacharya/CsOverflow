@@ -20,15 +20,13 @@ export const MenuItems = () => {
       </Item>
       <Item key="/signup">
         <NavLink to="/signup" activeClassName="active">
-          <Button type="primary" size="large">
-            Sign up
-          </Button>
+          <Button type="primary">Sign up</Button>
         </NavLink>
       </Item>
 
       <Item key="/login">
         <NavLink to="/login" activeClassName="active">
-          <Button size="large">Login</Button>
+          <Button>Login</Button>
         </NavLink>
       </Item>
     </>
@@ -44,7 +42,6 @@ export const MenuItems = () => {
       </Item>
     </>
   );
-
 
   return (
     <Menu mode="horizontal" selectable={false} className="menu">
