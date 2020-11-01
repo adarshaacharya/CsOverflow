@@ -1,6 +1,14 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
-import { AuthActions, AUTH_ERROR, ISignupData, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED } from './auth.types';
+import {
+  AuthActions,
+  AUTH_ERROR,
+  ISignupData,
+  LOGOUT,
+  REGISTER_FAIL,
+  REGISTER_SUCCESS,
+  USER_LOADED,
+} from './auth.types';
 
 // load user after signin on every page render to check if user has been authorized with jwt
 // put the token in global header from localstorage (if there's any) so auth middleware will check
@@ -36,4 +44,10 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
       type: REGISTER_FAIL,
     });
   }
+};
+
+export const logOut = () => async (dispatch: Dispatch<AuthActions>) => {
+  dispatch({
+    type: LOGOUT,
+  });
 };
