@@ -7,7 +7,7 @@ const initialState: AuthState = {
   user: null,
 };
 
-export const authReducer = (state: AuthState = initialState, action: AuthActions) => {
+export const authReducer = (state: AuthState = initialState, action: AuthActions)  => {
   const { type, payload } = action;
 
   switch (type) {
