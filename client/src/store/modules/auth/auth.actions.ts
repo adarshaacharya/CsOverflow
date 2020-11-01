@@ -7,10 +7,12 @@ import { AuthActions, AUTH_ERROR, ISignupData, REGISTER_FAIL, REGISTER_SUCCESS, 
 // if there is any (x-auth-token) in req.header
 export const loadUser = () => async (dispatch: Dispatch<AuthActions>) => {
   try {
-    const { data } = await Api.get('/auth');
+    const {
+      data: { user },
+    } = await Api.get('/auth');
     dispatch({
       type: USER_LOADED,
-      payload: data,
+      payload: user,
     });
   } catch (error) {
     dispatch({
