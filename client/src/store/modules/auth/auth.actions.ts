@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
+import { setError } from '../errors/errors.action';
 import {
   AuthActions,
   AUTH_ERROR,
@@ -7,7 +8,7 @@ import {
   LOGOUT,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
-  USER_LOADED,
+  USER_LOADED
 } from './auth.types';
 
 // load user after signin on every page render to check if user has been authorized with jwt
@@ -40,6 +41,8 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
     });
     dispatch<any>(loadUser());
   } catch (error) {
+    const err = error.response.data.error;
+    dispatch<any>(setError(err));
     dispatch({
       type: REGISTER_FAIL,
     });
