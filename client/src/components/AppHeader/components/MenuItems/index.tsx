@@ -13,7 +13,7 @@ export const MenuItems = () => {
 
   const handleLogout = () => console.log('Successfully logged out');
 
-  const subMenuLogin = (
+  const _subMenuLogin = (
     <>
       <SubMenu
         title={<Avatar src="https://lh3.googleusercontent.com/a-/AOh14Gjfpooh7yoUV-1f5OO3mx6Iky00GXDEJL7V80Gq=s100" />}
@@ -54,7 +54,7 @@ export const MenuItems = () => {
     </>
   );
 
-  const privateLinks = (
+  const _privateLinks = (
     <>
       <Item key="/home">
         <NavLink to="/">
@@ -62,13 +62,13 @@ export const MenuItems = () => {
           Home
         </NavLink>
       </Item>
-      {subMenuLogin}
+      {_subMenuLogin}
     </>
   );
 
   return (
     <Menu mode="horizontal" selectable={false} className="menu">
-      {isAuthenticated ? privateLinks : publicLinks}
+      {isAuthenticated ? _privateLinks : publicLinks}
     </Menu>
   );
 };
