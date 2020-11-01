@@ -7,22 +7,21 @@ const initialState: AuthState = {
   user: null,
 };
 
-export const authReducer = (state: AuthState = initialState, action: AuthActions)  => {
-  const { type, payload } = action;
+export const authReducer = (state: AuthState = initialState, action: AuthActions): AuthState => {
 
-  switch (type) {
+  switch (action.type) {
     case USER_LOADED:
       return {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: payload,
+        user: action.payload, 
       };
 
     case REGISTER_SUCCESS:
       return {
         ...state,
-        token: payload, // token will be set on local storage by create-store.ts subscription listener
+        token: action.payload, // token will be set on local storage by create-store.ts subscription listener
         isAuthenticated: true,
         loading: false,
       };
