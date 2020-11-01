@@ -1,9 +1,10 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 import { registerUser } from 'store/modules/auth/auth.actions';
 import { ISignupData } from 'store/modules/auth/auth.types';
+import { RootState } from 'store/modules/combine-reducer';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
@@ -20,6 +21,11 @@ const tailFormItemLayout = {
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   const onFormSubmit = (formData: ISignupData) => {
     const { name, email, password } = formData;
