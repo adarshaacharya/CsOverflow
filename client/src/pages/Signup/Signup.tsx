@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { registerUser } from 'store/modules/auth/auth.actions';
 import { ISignupData } from 'store/modules/auth/auth.types';
 import { RootState } from 'store/modules/combine-reducer';
+import logo from '../../components/AppHeader/assets/csoverflow-logo.png';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
@@ -36,10 +37,8 @@ const Signup = () => {
     <Content className="sign-up">
       <Card className="sign-up-card">
         <div className="sign-up-card__intro">
-          <Title level={3} className="sign-up-card__intro-title">
-            <span role="img" aria-label="fire">
-              👋
-            </span>
+          <Title level={3} className="sign-up-card__intro-logo">
+            <img src={logo} alt="logo" />
           </Title>
 
           <Title level={3} className="sign-up-card__intro-title">

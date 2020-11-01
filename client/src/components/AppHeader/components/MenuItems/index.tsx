@@ -1,16 +1,23 @@
 import { HomeOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Menu } from 'antd';
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { logOut } from 'store/modules/auth/auth.actions';
 import { RootState } from 'store/modules/combine-reducer';
+import { displaySuccessNotification } from 'utils';
 
 const { Item, SubMenu } = Menu;
 
 export const MenuItems = () => {
   const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
 
-  const handleLogout = () => console.log('Successfully logged out');
+  const dispatch = useDispatch<any>();
+
+  const handleLogout = async () => {
+    await dispatch(logOut());
+    displaySuccessNotification("You've successfully logged out!");
+  };
 
   const _subMenuLogin = (
     <>
@@ -24,7 +31,7 @@ export const MenuItems = () => {
           </Item>
           <Item key="/logout" onClick={handleLogout}>
             <LogoutOutlined></LogoutOutlined>
-            Profile
+            Log out
           </Item>
         </SubMenu>
       )}

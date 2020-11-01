@@ -106,6 +106,10 @@ html {
    margin: 2rem 0;
 }
 
+.sign-up-card__intro-logo img {
+   width: 36px;
+}
+
 .sign-up-card__intro-title.ant-typography,
 .sign-up-card__intro-title.ant-typography + h3.ant-typography {
    margin-top: 5px;
