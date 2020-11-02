@@ -25,13 +25,13 @@ export const authReducer = (state: AuthState = initialState, action: AuthActions
         loading: false,
       };
 
-      case LOGIN_SUCESS:
-        return {
-          ..state,
-          token : payload,
-          isAuthenticated : true,
-          loading : false
-        }
+    case LOGIN_SUCESS:
+      return {
+        ...state,
+        token: action.payload,
+        isAuthenticated: true,
+        loading: false,
+      };
 
     case AUTH_ERROR:
     case LOGOUT:

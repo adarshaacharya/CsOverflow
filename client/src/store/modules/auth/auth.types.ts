@@ -26,6 +26,11 @@ export interface ISignupData {
   password: string;
 }
 
+export interface ISignInData {
+  email: string;
+  password: string;
+}
+
 // interface AuthActionType<T, P> {
 //   readonly type: T;
 //   payload?: P;
@@ -46,7 +51,7 @@ interface RegisterSuccessAction {
 }
 
 interface LoginSuccessAction {
-  type: typeof REGISTER_SUCCESS;
+  type: typeof LOGIN_SUCESS;
   payload: string;
 }
 

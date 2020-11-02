@@ -2,7 +2,16 @@ import { Dispatch } from 'redux';
 import Api from 'store/api';
 import { displaySuccessNotification } from 'utils';
 import { setError } from '../errors/errors.action';
-import { AuthActions, AUTH_ERROR, ISignupData, LOGOUT, REGISTER_SUCCESS, USER_LOADED } from './auth.types';
+import {
+  AuthActions,
+  AUTH_ERROR,
+  ISignInData,
+  ISignupData,
+  LOGIN_SUCESS,
+  LOGOUT,
+  REGISTER_SUCCESS,
+  USER_LOADED,
+} from './auth.types';
 
 // load user after signin on every page render to check if user has been authorized with jwt
 // put the token in global header from localstorage (if there's any) so auth middleware will check
@@ -34,6 +43,25 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
     });
     dispatch<any>(loadUser());
     displaySuccessNotification("You've successfully signed up.");
+  } catch (error) {
+    dispatch<any>(setError(error.response.data.error));
+    dispatch({
+      type: AUTH_ERROR,
+    });
+  }
+};
+
+export const loginUser = (formData: ISignInData) => async (dispatch: Dispatch<AuthActions>) => {
+  try {
+    const {
+      data: { token },
+    } = await Api.post('/auth', formData);
+    dispatch({
+      type: LOGIN_SUCESS,
+      payload: token,
+    });
+    dispatch<any>(loadUser());
+    displaySuccessNotification("You've successfully logged in.");
   } catch (error) {
     dispatch<any>(setError(error.response.data.error));
     dispatch({
