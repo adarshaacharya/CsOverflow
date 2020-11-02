@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { registerUser } from 'store/modules/auth/auth.actions';
 import { ISignupData } from 'store/modules/auth/auth.types';
 import { RootState } from 'store/modules/combine-reducer';
-import logo from 'assets/img/csoverflow-logo.png';
+import logo from 'assets/images/csoverflow-logo.png';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;

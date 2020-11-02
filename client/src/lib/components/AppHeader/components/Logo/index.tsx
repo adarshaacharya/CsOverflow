@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from 'assets/img/csoverflow-logo.png';
+import logo from 'assets/images/csoverflow-logo.png';
 
 export const Logo = () => {
   return (
