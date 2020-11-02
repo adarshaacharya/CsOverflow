@@ -4,7 +4,7 @@ import ErrorBoundary from 'components/ErrorBoundary';
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
-import { useRoutes } from 'routing/routes';
+import { useRoutes } from 'lib/routing/routes';
 import store from 'store';
 import { loadUser } from 'store/modules/auth/auth.actions';
 import { LOGOUT } from 'store/modules/auth/auth.types';

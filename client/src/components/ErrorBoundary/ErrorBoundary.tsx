@@ -6,11 +6,7 @@ import { displayErrorMessage } from 'utils';
 const ErrorBoundary: React.FC = () => {
   const { error } = useSelector((state: RootState) => state.error);
 
-  return (
-    <div>
-      {error && displayErrorMessage(error)}
-    </div>
-  );
+  return <div>{error && displayErrorMessage(error)}</div>;
 };
 
 export default ErrorBoundary;
