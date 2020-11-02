@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
+import { displaySuccessNotification } from 'utils';
 import { setError } from '../errors/errors.action';
 import {
   AuthActions,
@@ -40,9 +41,9 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
       payload: token,
     });
     dispatch<any>(loadUser());
+    displaySuccessNotification("You've successfully signed up.");
   } catch (error) {
-    const err = error.response.data.error;
-    dispatch<any>(setError(err));
+    dispatch<any>(setError(error.response.data.error));
     dispatch({
       type: REGISTER_FAIL,
     });

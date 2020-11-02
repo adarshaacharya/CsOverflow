@@ -10,4 +10,8 @@ interface SetErrorsAction {
   payload: string;
 }
 
-export type ErrorActions = SetErrorsAction;
+interface ClearErrorAction {
+  type: typeof CLEAR_ERRORS;
+}
+
+export type ErrorActions = SetErrorsAction | ClearErrorAction;

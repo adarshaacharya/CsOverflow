@@ -1,4 +1,4 @@
-import { ErrorActions, ErrorState, SET_ERRORS } from './errors.types';
+import { CLEAR_ERRORS, ErrorActions, ErrorState, SET_ERRORS } from './errors.types';
 
 const initialState: ErrorState = {
   error: null,
@@ -10,6 +10,12 @@ export const errorReducer = (state: ErrorState = initialState, action: ErrorActi
       return {
         ...state,
         error: action.payload,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
       };
 
     default:

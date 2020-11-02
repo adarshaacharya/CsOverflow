@@ -51,7 +51,17 @@ const Signup = () => {
         </div>
 
         <Form {...layout} onFinish={onFormSubmit} size="large" className="sign-up-card__form">
-          <Item label="Name" name="name" rules={[{ required: true, message: 'Please input your name' }]}>
+          <Item
+            label="Name"
+            name="name"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your name',
+              },
+              { min: 2, message: 'Name must be min 2 characters.' },
+            ]}
+          >
             <Input />
           </Item>
 
@@ -80,6 +90,7 @@ const Signup = () => {
                 required: true,
                 message: 'Please input your password!',
               },
+              { min: 6, message: 'Password must be minimum 6 characters long.' },
             ]}
             hasFeedback
           >
