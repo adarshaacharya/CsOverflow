@@ -1,8 +1,8 @@
-import NotFound from 'components/NotFound';
-import Dashboard from 'pages/Dashboard';
-import Home from 'pages/Home';
-import Login from 'pages/Login';
-import Signup from 'pages/Signup';
+import NotFound from 'lib/components/NotFound';
+import Dashboard from 'sections/Dashboard';
+import Home from 'sections/Home';
+import Login from 'sections/Login';
+import Signup from 'sections/Signup';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AuthRoute from './AuthRoute';

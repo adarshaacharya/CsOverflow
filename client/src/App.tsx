@@ -1,6 +1,6 @@
 import { Affix, Layout } from 'antd';
-import Navbar from 'components/AppHeader';
-import ErrorBoundary from 'components/ErrorBoundary';
+import Navbar from 'lib/components/AppHeader';
+import ErrorBoundary from 'lib/components/ErrorBoundary';
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
