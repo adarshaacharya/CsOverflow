@@ -13,7 +13,7 @@ const NotFound = () => {
       <Empty
         description={
           <>
-            <Text className="not-found__description-title">Uh oh! Something went wrong :(</Text>
+            <Text className="not-found__description-title">Uh oh! Something went wrong :( </Text>
             <Text className="not-found__description-subtitle">The page you're looking for can't be found</Text>
           </>
         }

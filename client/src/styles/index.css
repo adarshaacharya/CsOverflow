@@ -122,3 +122,25 @@ html {
 .sign-up-card__form-button {
    width: 100%;
 }
+
+.not-found {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.not-found__description-title.ant-typography {
+   display: block;
+   padding-bottom: 10px;
+   color: #1d226c;
+   font-size: 22px;
+   font-weight: 700;
+}
+.not-found__description-subtitle.ant-typography {
+   color: #1d226c;
+   font-size: 16px;
+}
+.not-found__cta {
+   margin-top: 20px;
+}

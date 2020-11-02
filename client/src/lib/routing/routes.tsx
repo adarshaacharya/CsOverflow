@@ -1,3 +1,4 @@
+import NotFound from 'components/NotFound';
 import Dashboard from 'pages/Dashboard';
 import Home from 'pages/Home';
 import Login from 'pages/Login';
@@ -13,6 +14,7 @@ export const useRoutes = () => {
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
       <AuthRoute exact path="/dashboard" component={Dashboard} />
+      <Route component={NotFound} />
     </Switch>
   );
 };

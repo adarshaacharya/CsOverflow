@@ -1,9 +1,7 @@
 export const REGISTER_SUCCESS = '@@/auth/REGISTER_SUCCESS';
-export const REGISTER_FAIL = '@@/auth/REGISTER_FAIL';
-export const USER_LOADED = '@@/auth/USER_LOADED';
-export const AUTH_ERROR = '@@/auth/AUTH_ERROR';
 export const LOGIN_SUCESS = '@@/auth/LOGIN_SUCESS';
-export const LOGIN_FAIL = '@@/auth/LOGIN_FAIL';
+export const AUTH_ERROR = '@@/auth/AUTH_ERROR';
+export const USER_LOADED = '@@/auth/USER_LOADED';
 export const LOGOUT = '@@/auth/LOGOUT';
 
 export interface AuthState {
@@ -47,15 +45,11 @@ interface RegisterSuccessAction {
   payload: string;
 }
 
-interface RegisterFailAction {
-  type: typeof REGISTER_FAIL;
-}
-
 interface LogOutAction {
   type: typeof LOGOUT;
 }
 
-export type AuthActions = AuthErorAction | UserLoadedAction | RegisterSuccessAction | RegisterFailAction | LogOutAction;
+export type AuthActions = AuthErorAction | UserLoadedAction | RegisterSuccessAction | LogOutAction;
 
 // export type AuthActions =
 //   | AuthActionType<typeof AUTH_ERROR, null>
