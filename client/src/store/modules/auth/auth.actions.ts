@@ -8,7 +8,7 @@ import {
   LOGOUT,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
-  USER_LOADED
+  USER_LOADED,
 } from './auth.types';
 
 // load user after signin on every page render to check if user has been authorized with jwt
