@@ -1,5 +1,6 @@
 import { Affix, Layout } from 'antd';
 import Navbar from 'components/AppHeader';
+import ErrorBoundary from 'components/ErrorBoundary';
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
@@ -35,6 +36,7 @@ const App: React.FC = () => {
             <Affix offsetTop={0} className="app__affix-header">
               <Navbar />
             </Affix>
+            <ErrorBoundary />
             {routes}
           </Layout>
         </Router>

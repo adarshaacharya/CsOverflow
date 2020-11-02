@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/modules/combine-reducer';
+import { displayErrorMessage } from 'utils';
 
 const ErrorBoundary = () => {
-    return (
-        <>
-         Error Boundary   
-        </>
-    )
-}
+  const { error } = useSelector((state: RootState) => state.error);
 
-export default ErrorBoundary
+  return <>{error && displayErrorMessage(error)}</>;
+};
+
+export default ErrorBoundary;

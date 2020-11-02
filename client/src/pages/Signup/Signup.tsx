@@ -24,7 +24,6 @@ const Signup = () => {
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
-  
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
