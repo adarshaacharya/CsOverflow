@@ -1,6 +1,10 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { loginUser } from 'store/modules/auth/auth.actions';
+import { ISignInData } from 'store/modules/auth/auth.types';
+import { RootState } from 'store/modules/combine-reducer';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
@@ -16,6 +20,17 @@ const tailLayout = {
 };
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
+
+  const onFormSubmit = (formData: ISignInData) => {
+    dispatch(loginUser(formData));
+  };
+
   return (
     <Content className="log-in">
       <Card className="log-in-card">
@@ -30,7 +45,7 @@ const Login = () => {
           </Title>
           <Text className="log-in-card__intro-text">Sign in to ask or answer questions and unlock all features.</Text>
         </div>
-        <Form {...layout} size={'large'} className="log-in-card__form">
+        <Form {...layout} size={'large'} className="log-in-card__form" onFinish={onFormSubmit}>
           <Item
             name="email"
             label="E-mail"
@@ -48,7 +63,14 @@ const Login = () => {
             <Input />
           </Item>
 
-          <Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password' }]}>
+          <Item
+            label="Password"
+            name="password"
+            rules={[
+              { required: true, message: 'Please input your password' },
+              { min: 6, message: 'Password must be minimum 6 characters long.' },
+            ]}
+          >
             <Input.Password />
           </Item>
 
