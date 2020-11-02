@@ -45,11 +45,16 @@ interface RegisterSuccessAction {
   payload: string;
 }
 
+interface LoginSuccessAction {
+  type: typeof REGISTER_SUCCESS;
+  payload: string;
+}
+
 interface LogOutAction {
   type: typeof LOGOUT;
 }
 
-export type AuthActions = AuthErorAction | UserLoadedAction | RegisterSuccessAction | LogOutAction;
+export type AuthActions = AuthErorAction | UserLoadedAction | RegisterSuccessAction | LoginSuccessAction | LogOutAction;
 
 // export type AuthActions =
 //   | AuthActionType<typeof AUTH_ERROR, null>
