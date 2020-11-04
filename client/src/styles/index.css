@@ -6,7 +6,7 @@
 }
 #app {
    background: #fff;
-} 
+}
 .app-header {
    display: flex;
    justify-content: space-between;
@@ -60,6 +60,11 @@
    .menu {
       padding: 0;
    }
+}
+.app__affix-footer {
+   position: fixed;
+   right: 10px;
+   bottom: 10px;
 }
 .log-in {
    display: flex;
@@ -124,4 +129,18 @@
 }
 .not-found__cta {
    margin-top: 20px;
+}
+.about {
+   padding: 40px 20px;
+}
+.about-hero {
+   text-align: center;
+}
+.ant-typography.about-hero__title {
+   color: #1d226c;
+   margin-bottom: 0.2em;
+}
+.ant-typography.about-hero__subtitle {
+   font-size: 17px;
+   margin-bottom: 1.5em;
 }

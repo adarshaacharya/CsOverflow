@@ -1,10 +1,11 @@
-import { Affix, Layout } from 'antd';
+import { CoffeeOutlined } from '@ant-design/icons';
+import { Affix, Button, Layout } from 'antd';
 import Navbar from 'lib/components/AppHeader';
 import ErrorBoundary from 'lib/components/ErrorBoundary';
+import { useRoutes } from 'lib/routing/routes';
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
-import { useRoutes } from 'lib/routing/routes';
+import { Link, Router } from 'react-router-dom';
 import store from 'store';
 import { loadUser } from 'store/modules/auth/auth.actions';
 import { LOGOUT } from 'store/modules/auth/auth.types';
@@ -38,6 +39,15 @@ const App: React.FC = () => {
             </Affix>
             <ErrorBoundary />
             {routes}
+
+            <Affix offsetBottom={10} className="app__affix-footer">
+              <Button type="primary">
+                <Link to="/about">
+                  <CoffeeOutlined />
+                  &nbsp;About CS Overflow
+                </Link>
+              </Button>
+            </Affix>
           </Layout>
         </Router>
       </Provider>
