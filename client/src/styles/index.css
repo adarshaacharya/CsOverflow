@@ -4,21 +4,9 @@
    padding: 0;
    box-sizing: border-box;
 }
-/* 
-html {
-   overflow: auto;
-}
-#root,
-body,
-html {
-   height: 100%;
-   width: 100%;
-} */
-/* #app {
-   position: relative;
+#app {
    background: #fff;
-   min-height: 100vh;
-} */
+} 
 .app-header {
    display: flex;
    justify-content: space-between;
@@ -53,17 +41,18 @@ html {
 .app-header__search-input .ant-input-group input {
    border: 1px solid #f0f1f2;
 }
+@media (max-width: 780px) {
+   .app-header__search-input {
+      display: none;
+   }
+}
 /* .app-header__menu-section--active {
-   border-bottom: 1px solid purple;
 } */
 .app-header__menu-section {
    float: right;
-   background: red;
-   /* display: flex; */
 }
 .menu {
    width: 100%;
-   /* padding: 0 20px; */
    line-height: 63px;
    border: 0;
 }
