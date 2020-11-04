@@ -2,6 +2,7 @@ import { CoffeeOutlined } from '@ant-design/icons';
 import { Affix, Button, Layout } from 'antd';
 import Navbar from 'lib/components/AppHeader';
 import ErrorBoundary from 'lib/components/ErrorBoundary';
+import Sidebar from 'lib/components/Sidebar';
 import { useRoutes } from 'lib/routing/routes';
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
@@ -37,17 +38,21 @@ const App: React.FC = () => {
             <Affix offsetTop={0} className="app__affix-header">
               <Navbar />
             </Affix>
-            <ErrorBoundary />
-            {routes}
-
-            <Affix offsetBottom={10} className="app__affix-footer">
-              <Button type="primary">
-                <Link to="/about">
-                  <CoffeeOutlined />
-                  &nbsp;About CS Overflow
-                </Link>
-              </Button>
-            </Affix>
+            <Layout>
+              <Sidebar />
+              <Layout>
+                <ErrorBoundary />
+                {routes}
+                <Affix offsetBottom={10} className="app__affix-footer">
+                  <Button type="primary">
+                    <Link to="/about">
+                      <CoffeeOutlined />
+                      &nbsp;About CS Overflow
+                    </Link>
+                  </Button>
+                </Affix>
+              </Layout>
+            </Layout>
           </Layout>
         </Router>
       </Provider>
