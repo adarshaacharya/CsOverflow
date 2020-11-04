@@ -38,10 +38,10 @@ const App: React.FC = () => {
             <Affix offsetTop={0} className="app__affix-header">
               <Navbar />
             </Affix>
+            <ErrorBoundary />
             <Layout>
               <Sidebar />
               <Layout>
-                <ErrorBoundary />
                 {routes}
                 <Affix offsetBottom={10} className="app__affix-footer">
                   <Button type="primary">

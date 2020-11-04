@@ -73,10 +73,11 @@
    }
 }
 .side-bar {
-   height: 100vh;
-   position: fixed;
-   left: 0;
-   margin-right: 24px;
+   /* height: 100vh; */
+   background: #fff;
+   /* position: fixed; */
+   /* left: 0; */
+   /* margin-right: 24px; */
 }
 .log-in {
    display: flex;

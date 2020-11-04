@@ -4,7 +4,7 @@ import React from 'react';
 
 const { SubMenu } = Menu;
 
-const MenuItems = () => {
+export const MenuItems = () => {
   return (
     <Menu
       mode="inline"
@@ -34,4 +34,3 @@ const MenuItems = () => {
   );
 };
 
-export default MenuItems;

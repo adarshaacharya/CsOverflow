@@ -1,12 +1,12 @@
 import { Layout } from 'antd';
 import React from 'react';
-import MenuItems from './components/MenuItems';
+import { MenuItems } from './components';
 
 const { Sider } = Layout;
 
 const Sidebar = () => {
   return (
-    <Sider width={200} theme="light" className="side-bar" breakpoint={'lg'} collapsedWidth={0} trigger={null}>
+    <Sider width={200} theme="light" className="side-bar" breakpoint={'lg'}>
       <div className="sidebar__menu-section">
         <MenuItems />
       </div>
