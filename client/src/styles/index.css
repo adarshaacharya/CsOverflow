@@ -1,5 +1,10 @@
 @import '~antd/dist/antd.css';
-
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+/* 
 html {
    overflow: auto;
 }
@@ -8,67 +13,65 @@ body,
 html {
    height: 100%;
    width: 100%;
-}
-#app {
+} */
+/* #app {
    position: relative;
    background: #fff;
    min-height: 100vh;
-}
+} */
 .app-header {
    display: flex;
    justify-content: space-between;
    background: #fff;
-   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+   box-shadow: 0 2px 8px #f0f1f2;
    padding: 0;
-   z-index: 1000;
-   backdrop-filter: blur(10px);
+   backdrop-filter: blur(20px);
 }
-
 .app-header__logo-search-section {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
+   display: flex;
+   align-items: center;
+   flex-grow: 1;
 }
-
 .app-header__logo {
    display: inline-block;
-   padding: 0 20px;
+   padding: 0 10px;
 }
-
 .app-header__logo img {
    width: 36px;
 }
-
 .app-header__search-input {
    display: flex;
    align-items: center;
    flex-grow: 1;
    padding-right: 10px;
 }
-
 .app-header__search-input .ant-input-group {
    border: 0;
    width: 100%;
-   min-width: 460px;
+   max-width: 460px;
 }
-
 .app-header__search-input .ant-input-group input {
    border: 1px solid #f0f1f2;
-   box-shadow: 0 2px 0 rgba(29, 34, 108, 0.1);
 }
-
+/* .app-header__menu-section--active {
+   border-bottom: 1px solid purple;
+} */
+.app-header__menu-section {
+   float: right;
+   background: red;
+   /* display: flex; */
+}
 .menu {
    width: 100%;
-   padding: 0 20px;
+   /* padding: 0 20px; */
    line-height: 63px;
    border: 0;
 }
-
 @media (max-width: 48em) {
    .menu {
       padding: 0;
    }
 }
-
 .log-in {
    display: flex;
    align-items: center;
@@ -79,57 +82,46 @@ html {
    text-align: center;
    padding: 10px 0 20px;
 }
-
 .log-in-card__intro-title.ant-typography,
 .log-in-card__intro-title.ant-typography + h3.ant-typography {
    margin-top: 10px;
 }
-
 .log-in-card__form {
    margin-top: 1rem;
 }
-
 .log-in-card__form-button {
    width: 100%;
 }
-
 .sign-up {
    display: flex;
    justify-content: center;
    align-items: center;
 }
-
 .sign-up-card {
    max-width: 510px;
    text-align: center;
    padding: 0 0 20px;
    margin: 2rem 0;
 }
-
 .sign-up-card__intro-logo img {
    width: 36px;
 }
-
 .sign-up-card__intro-title.ant-typography,
 .sign-up-card__intro-title.ant-typography + h3.ant-typography {
    margin-top: 5px;
 }
-
 .sign-up-card__form {
    margin-top: 1rem;
 }
-
 .sign-up-card__form-button {
    width: 100%;
 }
-
 .not-found {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
 }
-
 .not-found__description-title.ant-typography {
    display: block;
    padding-bottom: 10px;

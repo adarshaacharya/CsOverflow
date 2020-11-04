@@ -1,5 +1,6 @@
 import { HomeOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Menu } from 'antd';
+import SkeletonButton from 'antd/lib/skeleton/Button';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -41,20 +42,19 @@ export const MenuItems = () => {
   const publicLinks = (
     <>
       <Item key="/home">
-        <NavLink to="/">
+        <NavLink to="/" activeClassName="app-header__menu-section--active">
           <HomeOutlined />
           Home
         </NavLink>
       </Item>
-      <Item key="/signup">
-        <NavLink to="/signup" activeClassName="active">
-          <Button type="primary">Sign up</Button>
+      <Item key="/login">
+        <NavLink to="/login" activeClassName="app-header__menu-section--active">
+          <Button type="primary">Login</Button>
         </NavLink>
       </Item>
-
-      <Item key="/login">
-        <NavLink to="/login" activeClassName="active">
-          <Button>Login</Button>
+      <Item key="/signup">
+        <NavLink to="/signup" activeClassName="app-header__menu-section--active">
+          <Button>Sign up</Button>
         </NavLink>
       </Item>
     </>
