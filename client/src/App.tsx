@@ -39,21 +39,18 @@ const App: React.FC = () => {
               <Navbar />
             </Affix>
             <ErrorBoundary />
-            {/* <Layout> */}
-              {/* <Sidebar /> */}
-              <Layout>
-                {routes}
-                <Affix offsetBottom={10} className="app__affix-footer">
-                  <Button type="primary">
-                    <Link to="/about">
-                      <CoffeeOutlined />
-                      &nbsp;About CS Overflow
-                    </Link>
-                  </Button>
-                </Affix>
-              </Layout>
+            <Layout>
+              {routes}
+              <Affix offsetBottom={10} className="app__affix-footer">
+                <Button type="primary">
+                  <Link to="/about">
+                    <CoffeeOutlined />
+                    &nbsp;About CS Overflow
+                  </Link>
+                </Button>
+              </Affix>
             </Layout>
-          {/* </Layout> */}
+          </Layout>
         </Router>
       </Provider>
     </>

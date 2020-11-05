@@ -78,15 +78,10 @@
    padding-top: 1rem;
    border-top: 1px solid #fafafa;
 }
-.side-bar.sidebar__menu-items{
-   height: 100%; 
+.side-bar.sidebar__menu-items {
+   height: 100%;
    border-right: 0;
 }
-
-
-
-
-
 
 .log-in {
    display: flex;
@@ -137,9 +132,11 @@
 }
 .not-found {
    display: flex;
+   height: 80vh;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   background: #fff;
 }
 .not-found__description-title.ant-typography {
    display: block;

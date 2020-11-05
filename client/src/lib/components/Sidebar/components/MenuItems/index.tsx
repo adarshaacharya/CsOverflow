@@ -1,4 +1,4 @@
-import { HomeOutlined, LaptopOutlined, UserOutlined } from '@ant-design/icons';
+import { FileOutlined, HomeOutlined, LaptopOutlined, UserOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,9 @@ export const MenuItems = () => {
     <Menu mode="inline" defaultSelectedKeys={['home']} className="sidebar__menu-items">
       <Item key="home" icon={<HomeOutlined />}>
         <Link to="/">Home</Link>
+      </Item>
+      <Item key="posts" icon={<FileOutlined />}>
+        <Link to="/posts">Posts</Link>
       </Item>
       <Item key="tags" icon={<LaptopOutlined />}>
         <Link to="/tags">Tags</Link>
