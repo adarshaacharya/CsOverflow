@@ -39,8 +39,8 @@ const App: React.FC = () => {
               <Navbar />
             </Affix>
             <ErrorBoundary />
-            <Layout>
-              <Sidebar />
+            {/* <Layout> */}
+              {/* <Sidebar /> */}
               <Layout>
                 {routes}
                 <Affix offsetBottom={10} className="app__affix-footer">
@@ -53,7 +53,7 @@ const App: React.FC = () => {
                 </Affix>
               </Layout>
             </Layout>
-          </Layout>
+          {/* </Layout> */}
         </Router>
       </Provider>
     </>

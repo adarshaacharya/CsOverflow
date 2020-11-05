@@ -73,16 +73,27 @@
    }
 }
 .side-bar {
-   /* height: 100vh; */
    background: #fff;
-   /* position: fixed; */
-   /* left: 0; */
-   /* margin-right: 24px; */
+   position: sticky;
+   padding-top: 1rem;
+   border-top: 1px solid #fafafa;
 }
+.side-bar.sidebar__menu-items{
+   height: 100%; 
+   border-right: 0;
+}
+
+
+
+
+
+
 .log-in {
    display: flex;
    align-items: center;
    justify-content: center;
+   padding: 1rem 0;
+   background: #fff;
 }
 .log-in-card {
    max-width: 480px;
@@ -103,12 +114,13 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   padding: 1rem 0;
+   background: #fff;
 }
 .sign-up-card {
    max-width: 510px;
    text-align: center;
    padding: 0 0 20px;
-   margin: 2rem 0;
 }
 .sign-up-card__intro-logo img {
    width: 36px;
@@ -158,5 +170,6 @@
    margin-bottom: 1.5em;
 }
 .home {
-   background-color: #fff ;
+   background-color: #fff;
+   padding: 1rem;
 }

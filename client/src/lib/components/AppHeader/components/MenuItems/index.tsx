@@ -1,5 +1,5 @@
 import { HomeOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Menu } from 'antd';
+import { Avatar, Button, Menu, Space } from 'antd';
 import SkeletonButton from 'antd/lib/skeleton/Button';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -47,6 +47,7 @@ export const MenuItems = () => {
           Home
         </NavLink>
       </Item>
+
       <Item key="/login">
         <NavLink to="/login" activeClassName="app-header__menu-section--active">
           <Button type="primary">Login</Button>
