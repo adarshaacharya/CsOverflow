@@ -6,6 +6,11 @@ export const USER_ERROR = '@@/auth/USER_ERROR';
 
 interface GetUsersAction {
   type: typeof GET_USERS;
+  payload: IUser[];
+}
+
+interface GetUserAction {
+  type: typeof GET_USER;
   payload: IUser;
 }
 
@@ -14,4 +19,4 @@ interface UserError {
   payload: string;
 }
 
-export type UsersActions = GetUsersAction | UserError;
+export type UsersActions = GetUsersAction | GetUserAction | UserError;
