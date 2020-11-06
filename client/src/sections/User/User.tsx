@@ -1,4 +1,4 @@
-import { Layout } from 'antd';
+import { Col, Layout, Row } from 'antd';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
@@ -42,7 +42,11 @@ const User = () => {
   return (
     <>
       <Sidebar />
-      {userProfileElement}
+      <Content className="user">
+        <Row>
+          <Col xs={24}>{userProfileElement}</Col>
+        </Row>
+      </Content>
     </>
   );
 };

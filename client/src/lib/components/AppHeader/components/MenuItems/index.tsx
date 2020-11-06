@@ -25,7 +25,7 @@ export const MenuItems = () => {
       {user?.id && user.avatar && (
         <SubMenu title={<Avatar src={user.avatar} />}>
           <Item key="/user">
-            <NavLink to={`/user/${user.id}`}>
+            <NavLink to={`/users/${user.id}`}>
               <UserOutlined></UserOutlined>
               Profile
             </NavLink>

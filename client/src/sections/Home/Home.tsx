@@ -1,19 +1,17 @@
 import Sidebar from 'lib/components/Sidebar';
+import { useScrollToTop } from 'lib/hooks';
 import React from 'react';
 
 const Home = () => {
+  useScrollToTop();
+  
   return (
     <>
       <Sidebar />
-
       <div className="home">
         <h1>Home Page</h1>
         <p>
-          etur nostrum illo qui sapiente explicabo aspernatur ipsam alias velit, exercitationem vero quisquam officiis
-          labore ipsa mollitia, optio quidem assumenda necessitatibus similique ullam. Repudiandae dolore quaerat
-          repellendus fugit, quod molestiae aspernatur possimus ipsam suscipit veritatis alias, quos atque enim. Illum
-          voluptate aperiam a assumenda, doloremque hic in exercitationem dignissimos dolorem aliquid quas autem
-          molestias laboriosam iste consectetur, repellendus quasi iure earum labore, quia illo temporibus dolores vel.
+        te consectetur, repellendus quasi iure earum labore, quia illo temporibus dolores vel.
           Quod quisquam, quo numquam vero ipsam nulla ea illum sed ratione sapiente laboriosam aut, fuga est animi illo
           nesciunt odio, voluptatum minus neque. Vitae eum aliquam sapiente ea voluptates aliquid illo illum
           necessitatibus ipsa in quasi non a natus id obcaecati eos, sed repellendus accusantium enim! Eveniet modi

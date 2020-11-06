@@ -18,11 +18,13 @@ store.subscribe(() => {
   currentState = store.getState();
 
   // token state from auth reducer
-  if (previousState.auth['token'] !== currentState.auth['token']) {
-    // using bracket noation instead of dot to prevent ts error
-    const token = currentState.auth['token'];
+  if (previousState.auth.token !== currentState.auth.token) {
+    const token = currentState.auth.token;
     setAuthToken(token!);
   }
+
+ 
+
 });
 
 export default store;

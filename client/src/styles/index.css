@@ -183,7 +183,10 @@
 /* user */
 .user {
    padding: 60px 120px;
+   background-color: #fff;
 }
+
+
 @media (max-width: 75em) {
    .user {
       padding-left: 20px;
