@@ -7,6 +7,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AuthRoute from './AuthRoute';
 import About from 'sections/About';
+import User from 'sections/User';
 
 export const useRoutes = () => {
   return (
@@ -15,6 +16,7 @@ export const useRoutes = () => {
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/about" component={About} />
+      <Route exact path="/users/:id" component={User} />
       <AuthRoute exact path="/dashboard" component={Dashboard} />
       <Route component={NotFound} />
     </Switch>
