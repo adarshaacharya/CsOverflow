@@ -8,7 +8,7 @@ export interface UsersState {
   users: IUser[];
   user: IUser | null;
   loading: boolean;
-  error: {};
+  error: {} | null;
 }
 
 interface GetUsersAction {

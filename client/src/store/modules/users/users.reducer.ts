@@ -4,7 +4,7 @@ const initialState: UsersState = {
   users: [],
   user: null,
   loading: true,
-  error: {},
+  error: null,
 };
 
 export const usersReducer = (state: UsersState = initialState, action: UsersActions) => {

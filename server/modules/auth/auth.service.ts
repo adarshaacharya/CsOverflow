@@ -26,7 +26,7 @@ class AuthServices {
       where: { email },
     });
 
-    if (!user) throw new Unauthorized("User desn't exists");
+    if (!user) throw new Unauthorized("User with given email doesn't exists");
 
     const isMatch = bcrypt.compareSync(password, user.password);
     if (!isMatch) throw new Unauthorized('Invalid email or password');

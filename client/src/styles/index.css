@@ -179,3 +179,14 @@
    background-color: #fff;
    padding: 1rem;
 }
+
+/* user */
+.user {
+   padding: 60px 120px;
+}
+@media (max-width: 75em) {
+   .user {
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+}
