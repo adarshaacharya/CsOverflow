@@ -82,7 +82,16 @@
    height: 100%;
    border-right: 0;
 }
-
+.error-banner {
+   position: fixed;
+   width: 100%;
+   top: 64px;
+   left: 0;
+   z-index: 99;
+}
+.page-skeleton__paragraph {
+   padding-bottom: 40px;
+}
 .log-in {
    display: flex;
    align-items: center;
