@@ -186,6 +186,19 @@
    background-color: #fff;
 }
 
+.user-profile .user-profile__card .user-profile__avatar .user-profile__avatar-text {
+   padding: 1rem 0;
+   font-size: 13px;
+}
+.user-profile__details {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-left: 1rem;
+}
+.user-profile__details h3 {
+   color: #1d226c;
+}
 
 @media (max-width: 75em) {
    .user {
