@@ -21,7 +21,7 @@ export const getUsers = () => async (dispatch: Dispatch<UsersActions>) => {
 export const getUserById = (id: string) => async (dispatch: Dispatch<UsersActions>) => {
   try {
     const { data } = await Api.get(`/users/${id}`);
-
+    console.log(data)
     dispatch({
       type: GET_USER,
       payload: data,

@@ -12,10 +12,11 @@ const User = () => {
   useEffect(() => {
     dispatch(getUserById(id));
   }, [dispatch, id]);
+
   return (
     <>
       <Sidebar />
-      {id}
+      <h1>{id}</h1>
     </>
   );
 };
