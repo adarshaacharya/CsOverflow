@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logOut } from 'store/modules/auth/auth.actions';
 import { RootState } from 'store/modules/combine-reducer';
-import { displaySuccessNotification } from 'utils';
+import { displaySuccessNotification } from 'lib/utils';
 
 const { Item, SubMenu } = Menu;
 

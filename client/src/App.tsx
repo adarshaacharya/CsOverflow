@@ -12,7 +12,7 @@ import { loadUser } from 'store/modules/auth/auth.actions';
 import { LOGOUT } from 'store/modules/auth/auth.types';
 import { setAuthToken } from 'store/modules/auth/auth.utils';
 import 'styles/index.css';
-import history from 'utils/history';
+import history from 'lib/utils/history';
 
 const App: React.FC = () => {
   const routes = useRoutes();

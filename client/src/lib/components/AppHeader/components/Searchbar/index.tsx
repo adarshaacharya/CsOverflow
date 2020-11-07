@@ -1,7 +1,7 @@
 import { Input } from 'antd';
 import * as React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { displayErrorMessage } from 'utils';
+import { displayErrorMessage } from 'lib/utils';
 const { Search } = Input;
 
 export const Searchbar = () => {
