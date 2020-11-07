@@ -5,7 +5,6 @@ import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 const { Item } = List;
 const { Meta } = Item;
 
-
 const listData: any = [];
 for (let i = 0; i < 23; i++) {
   listData.push({
