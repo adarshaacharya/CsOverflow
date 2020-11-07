@@ -19,7 +19,7 @@ export const useRoutes = () => {
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/about" component={About} />
-      <AuthRoute exact path="/posts" component={Posts}/>
+      <AuthRoute exact path="/posts" component={Posts} />
       <AuthRoute exact path="/users/:id" component={User} />
       <AuthRoute exact path="/users" component={Users} />
       <AuthRoute exact path="/tags" component={Tags} />

@@ -235,10 +235,14 @@
    text-align: center;
    box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
    border-radius: 5px;
+   transition: all 0.3s ease 0s;
+}
+.users .users__user-cards .users__user-card-wrapper .users__user-card:hover {
+   transform: translate(0px, -5px);
 }
 .users__user-card .users__user-card--details {
    display: flex;
    flex-direction: column;
    align-items: center;
-  gap: 20px;
+   gap: 20px;
 }
