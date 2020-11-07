@@ -92,6 +92,14 @@
 .page-skeleton__paragraph {
    padding-bottom: 40px;
 }
+.spinner {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #fff;
+   height: 100vh;
+}
+
 .log-in {
    display: flex;
    align-items: center;
@@ -185,7 +193,6 @@
    padding: 60px 120px;
    background-color: #fff;
 }
-
 .user-profile .user-profile__card .user-profile__avatar .user-profile__avatar-text {
    padding: 1rem 0;
    font-size: 13px;
@@ -199,10 +206,20 @@
 .user-profile__details h3 {
    color: #1d226c;
 }
-
 @media (max-width: 75em) {
    .user {
       padding-left: 20px;
       padding-right: 20px;
    }
+}
+.user-profile__stats-cell {
+   text-align: center;
+}
+.user-profile__stats-head {
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: #1d226c;
+}
+.user-profile__stats-tail {
+   font-weight: bold;
 }

@@ -1,3 +1,4 @@
+import { Spin } from 'antd';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
@@ -19,7 +20,7 @@ const AuthRoute: React.FC<AuthRouteProps> = props => {
       {...rest}
       render={props =>
         loading ? (
-          <p>Checking authentication...</p>
+          <Spin tip="Checking authentication" size="large" className="spinner"/>
         ) : isAuthenticated ? (
           <Component {...props} />
         ) : (
