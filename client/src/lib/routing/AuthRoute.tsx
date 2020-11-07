@@ -20,7 +20,7 @@ const AuthRoute: React.FC<AuthRouteProps> = props => {
       {...rest}
       render={props =>
         loading ? (
-          <Spin tip="Checking authentication" size="large" className="spinner"/>
+          <Spin tip="Checking authentication" size="large" className="spinner" />
         ) : isAuthenticated ? (
           <Component {...props} />
         ) : (
