@@ -14,7 +14,6 @@ const { Content } = Layout;
 const User = () => {
   const dispatch = useDispatch();
   const { loading, error, user } = useSelector((state: RootState) => state.user);
-
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
