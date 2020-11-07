@@ -246,3 +246,11 @@
    align-items: center;
    gap: 20px;
 }
+.posts {
+   padding: 60px 100px;
+   background: #fff;
+}
+.posts > h1.posts__title {
+   color: #1d226c;
+   margin-bottom: 2rem;
+}

@@ -1,4 +1,4 @@
-import { Col, Layout, Row, Typography } from 'antd';
+import { Col, Divider, Layout, Row, Typography } from 'antd';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
@@ -47,8 +47,9 @@ const Users = () => {
       <Sidebar />
       <Content className="users">
         <Title level={3} className="users__title">
-          Users
+          Top Users
         </Title>
+        <Divider />
         {usersSectionElement}
       </Content>
     </>
