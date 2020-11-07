@@ -36,8 +36,6 @@ export const postsReducer = (state: PostsState = initialState, action: PostsActi
         loading: false,
       };
 
-      
-
     default:
       return state;
   }

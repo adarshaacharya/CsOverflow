@@ -21,9 +21,9 @@ interface GetUserAction {
   payload: IUser;
 }
 
-interface UserError {
+interface UserErrorAction {
   type: typeof USER_ERROR;
   payload: string;
 }
 
-export type UsersActions = GetUsersAction | GetUserAction | UserError;
+export type UsersActions = GetUsersAction | GetUserAction | UserErrorAction;
