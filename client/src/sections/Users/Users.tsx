@@ -1,4 +1,4 @@
-import { Layout, Typography } from 'antd';
+import { Col, Layout, Row, Typography } from 'antd';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
@@ -9,14 +9,14 @@ import { getUsers } from 'store/modules/users/users.actions';
 import { UserCard } from './components';
 
 const { Content } = Layout;
-const { Paragraph } = Typography;
+const { Paragraph, Title } = Typography;
 
 const Users = () => {
   const dispatch = useDispatch();
   const { loading, users } = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
-    dispatch(getUsers);
+    dispatch(getUsers());
   }, [dispatch]);
 
   useScrollToTop();
@@ -31,16 +31,27 @@ const Users = () => {
 
   const usersSectionElement =
     users.length < 1 ? (
-      <Paragraph>It appears that no posts have been created. Be the first person to create.</Paragraph>
+      <Paragraph>No users found.</Paragraph>
     ) : (
-      <UserCard />
+      <Row gutter={[48, 48]} className="users__user-cards">
+        {users.map(user => (
+          <Col span={8} className="users__user-card-wrapper" key={user.id}>
+            <UserCard user={user} />
+          </Col>
+        ))}
+      </Row>
     );
 
   return (
-    <div>
+    <>
       <Sidebar />
-      <Content className="users">{usersSectionElement}</Content>
-    </div>
+      <Content className="users">
+        <Title level={3} className="users__title">
+          Users
+        </Title>
+        {usersSectionElement}
+      </Content>
+    </>
   );
 };
 

@@ -5,7 +5,6 @@ import { GET_USER, GET_USERS, UsersActions, USER_ERROR } from './users.types';
 export const getUsers = () => async (dispatch: Dispatch<UsersActions>) => {
   try {
     const { data } = await Api.get('/users');
-
     dispatch({
       type: GET_USERS,
       payload: data,
