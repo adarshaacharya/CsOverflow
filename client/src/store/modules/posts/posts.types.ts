@@ -38,4 +38,14 @@ interface GetPostAction {
   payload: IPost;
 }
 
-export type PostsAction = GetPostsAction | GetPostAction;
+interface AddPostType {
+  type: typeof ADD_POST;
+  payload: IPost;
+}
+
+interface DeletePostType {
+  type: typeof DELETE_POST;
+  payload: number;
+}
+
+export type PostsAction = GetPostsAction | GetPostAction | AddPostType | DeletePostType;

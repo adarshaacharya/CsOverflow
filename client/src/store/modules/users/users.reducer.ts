@@ -14,7 +14,7 @@ export const usersReducer = (state: UsersState = initialState, action: UsersActi
         ...state,
         users: action.payload,
         loading: false,
-      }; 
+      };
 
     case GET_USER:
       return {

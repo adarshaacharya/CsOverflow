@@ -10,7 +10,7 @@ export interface UsersState {
   loading: boolean;
   error: {} | null;
 }
- 
+
 interface GetUsersAction {
   type: typeof GET_USERS;
   payload: IUser[];
