@@ -10,6 +10,7 @@ import About from 'sections/About';
 import User from 'sections/User';
 import Users from 'sections/Users';
 import Tags from 'sections/Tags';
+import Posts from 'sections/Posts';
 
 export const useRoutes = () => {
   return (
@@ -18,9 +19,10 @@ export const useRoutes = () => {
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/about" component={About} />
-      <AuthRoute exact path="/users" component={Users} />
-      <Route exact path="/tags" component={Tags} />
+      <AuthRoute exact path="/posts" component={Posts}/>
       <AuthRoute exact path="/users/:id" component={User} />
+      <AuthRoute exact path="/users" component={Users} />
+      <AuthRoute exact path="/tags" component={Tags} />
       <AuthRoute exact path="/dashboard" component={Dashboard} />
       <Route component={NotFound} />
     </Switch>
