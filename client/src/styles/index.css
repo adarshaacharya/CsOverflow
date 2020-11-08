@@ -256,6 +256,15 @@
 .posts .post__layout {
    margin: 30px 0;
    padding: 1rem 0;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+.posts .post__layout .post__layout--stats {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
 }
 .posts .post__layout .post__layout--body > h4 {
    padding: 5px 0;
@@ -265,4 +274,15 @@
 }
 .posts .post__layout .post__layout--tags {
    padding: 5px 0;
+}
+.posts .post__layout .post__layout--user {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   background: #fafafa;
+   border-radius: 10px;
+}
+.posts .post__layout .post__layout--user .post__layout--user-avatar {
+   margin-bottom: 1rem;
 }

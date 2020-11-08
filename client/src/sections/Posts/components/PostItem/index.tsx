@@ -1,4 +1,4 @@
-import { Avatar, Card, Col, List, Row, Tag, Typography } from 'antd';
+import { Avatar, Card, Col, Divider, List, Row, Tag, Typography } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IPost } from 'store/modules/posts/posts.types';
@@ -31,11 +31,11 @@ export const PostItem: React.FC<Props> = ({ post }) => {
             ))}
           </Paragraph>
         </Col>
-        <Col span={5} className="post__layout--user">
-          <Card>
-            {moment(createdAt).fromNow()}
-            <Avatar src={user.avatar} />
-            <Paragraph type="secondary">asked {user.name}</Paragraph>
+        <Col span={5}>
+          <Card className="post__layout--user">
+            <Avatar src={user.avatar} className="post__layout--user-avatar" />
+            <Paragraph type="secondary">{user.name}</Paragraph>
+            <Paragraph type="secondary">asked {moment(createdAt).fromNow()}</Paragraph>
           </Card>
         </Col>
       </Row>
