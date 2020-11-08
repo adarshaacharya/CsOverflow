@@ -10,7 +10,7 @@ import { getPosts } from 'store/modules/posts/posts.actions';
 import { PostItem } from './components';
 
 const { Content } = Layout;
-const { Title } = Typography;
+const { Title, Paragraph } = Typography;
 
 const Posts = () => {
   const dispatch = useDispatch();
@@ -25,9 +25,12 @@ const Posts = () => {
 
   if (loading) {
     return (
-      <Content className="posts">
-        <PageSkeleton />
-      </Content>
+      <>
+        <Sidebar />
+        <Content className="posts">
+          <PageSkeleton />
+        </Content>
+      </>
     );
   }
 
@@ -42,7 +45,11 @@ const Posts = () => {
 
   const postsSectionElement = (
     <>
-      <PostItem />
+      {posts.length < 1 ? (
+        <Paragraph>It appears no questions has been asked. Be first one to create it.</Paragraph>
+      ) : (
+        <PostItem posts={posts} />
+      )}
     </>
   );
 
@@ -56,7 +63,6 @@ const Posts = () => {
           </Title>
           <Button type="primary">Ask Question</Button>
         </Row>
-
         <Divider />
         {postsSectionElement}
       </Content>

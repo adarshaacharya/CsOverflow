@@ -1,6 +1,7 @@
 import { Tags } from '../../modules/tags/tags.model';
 import { BadRequest, NotFound, Unauthorized } from '../../common/exceptions';
 import { Posts } from './posts.model';
+import { Users } from '../../modules/users/users.model';
 
 interface IPostsData {
   body: string;
@@ -22,6 +23,11 @@ class PostsService {
           through: {
             attributes: [],
           },
+        },
+        {
+          model: Users,
+          as: 'user',
+          attributes: ['id', 'name', 'email', 'avatar'],
         },
       ],
     });

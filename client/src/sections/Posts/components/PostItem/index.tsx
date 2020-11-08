@@ -1,6 +1,8 @@
 import React from 'react';
 import { List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { IPost } from 'store/modules/posts/posts.types';
+import { Link } from 'react-router-dom';
 
 const { Item } = List;
 const { Meta } = Item;
@@ -24,16 +26,20 @@ const IconText = ({ icon, text }: { icon: any; text: any }) => (
   </Space>
 );
 
-export const PostItem = () => {
+type Props = {
+  posts: IPost[];
+};
+
+export const PostItem: React.FC<Props> = ({ posts }) => {
   return (
     <>
       <List
         itemLayout="vertical"
         size="large"
-        dataSource={listData}
-        renderItem={(item: any) => (
+        dataSource={posts}
+        renderItem={(item: IPost) => (
           <Item
-            key={item.title}
+            key={item.id}
             actions={[
               <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
               <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
@@ -41,11 +47,11 @@ export const PostItem = () => {
             ]}
           >
             <Meta
-              avatar={<Avatar src={item.avatar} />}
-              title={<a href={item.href}>{item.title}</a>}
-              description={item.description}
+              // avatar={<Avatar src={item.avatar} />}
+              title={<Link to={`${item.id}`}>{item.title}</Link>}
+              // description={item.body}
             />
-            {item.content}
+            {item.body}
           </Item>
         )}
       />

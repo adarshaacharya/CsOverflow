@@ -1,3 +1,5 @@
+import { IUser } from '../auth/auth.types';
+
 export const GET_POSTS = '@@/posts/GET_POSTS';
 export const GET_POST = '@@/posts/GET_POST';
 export const GET_TOP_POSTS = '@@/posts/GET_TOP_POSTS';
@@ -11,6 +13,13 @@ export interface ITag {
   tagname: string;
 }
 
+export interface IPostUser {
+  id: number;
+  name: string;
+  email: string;
+  avatar: string;
+}
+
 export interface IPost {
   id: number;
   title: string;
@@ -19,13 +28,14 @@ export interface IPost {
   createdAt: string;
   updatedAt: string;
   tags: ITag[];
+  user: IPostUser;
 }
 
 export interface PostsState {
   posts: IPost[];
   post: IPost | null;
   loading: boolean;
-  error: {} | null ;
+  error: {} | null;
 }
 
 interface GetPostsAction {
