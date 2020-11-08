@@ -48,7 +48,11 @@ const Posts = () => {
       {posts.length < 1 ? (
         <Paragraph>It appears no questions has been asked. Be first one to create it.</Paragraph>
       ) : (
-        <PostItem posts={posts} />
+        posts.map(post => (
+          <Row className="post__layout" id={`${post.id}`}>
+            <PostItem post={post} />
+          </Row>
+        ))
       )}
     </>
   );
