@@ -15,4 +15,3 @@ const PORT = process.env.PORT || 5000;
 const handleListening = () => console.log(`✅  Listening on: http://${hostname}:${PORT}`);
 
 app.listen(PORT, handleListening);
-

@@ -1,4 +1,4 @@
-import { ADD_POST, DELETE_POST, GET_POST, GET_POSTS, PostsAction, PostsState } from './posts.types';
+import { ADD_POST, DELETE_POST, GET_POST, GET_POSTS, PostsAction, PostsState, POST_ERROR } from './posts.types';
 
 const initialState: PostsState = {
   posts: [],
@@ -33,6 +33,13 @@ export const postsReducer = (state: PostsState = initialState, action: PostsActi
       return {
         ...state,
         posts: state.posts.filter(post => post.id !== action.payload),
+        loading: false,
+      };
+
+    case POST_ERROR:
+      return {
+        ...state,
+        error: action.payload,
         loading: false,
       };
 
