@@ -1,7 +1,6 @@
-import { Card, Col, Divider, Row, Typography } from 'antd';
-import Avatar from 'antd/lib/avatar/avatar';
-import dayjs from 'dayjs';
+import { Avatar, Card, Col, Divider, Row, Typography } from 'antd';
 import React from 'react';
+import Moment from 'react-moment';
 import { IUser } from 'store/modules/auth/auth.types';
 
 interface Props {
@@ -48,7 +47,10 @@ export const UserProfile: React.FC<Props> = ({ user }) => {
               Email : <Text strong>{email}</Text>
             </Paragraph>
             <Paragraph>
-              Created at : <Text strong>{dayjs(createdAt).format('MMMM D, YYYY	')}</Text>
+              Created at :{' '}
+              <Text strong>
+                <Moment format="YYY/MM/DD">{createdAt}</Moment>
+              </Text>
             </Paragraph>
           </Col>
         </Row>

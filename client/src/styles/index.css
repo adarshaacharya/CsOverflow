@@ -250,7 +250,19 @@
    padding: 60px 100px;
    background: #fff;
 }
-.posts > h1.posts__title {
+.posts .posts__header > h2 {
    color: #1d226c;
-   margin-bottom: 2rem;
+}
+.posts .post__layout {
+   margin: 30px 0;
+   padding: 1rem 0;
+}
+.posts .post__layout .post__layout--body > h4 {
+   padding: 5px 0;
+}
+.posts .post__layout .post__layout--text {
+   padding: 10px 0;
+}
+.posts .post__layout .post__layout--tags {
+   padding: 5px 0;
 }

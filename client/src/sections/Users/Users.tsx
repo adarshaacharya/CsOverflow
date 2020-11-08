@@ -23,9 +23,12 @@ const Users = () => {
 
   if (loading) {
     return (
-      <Content className="users">
-        <PageSkeleton />
-      </Content>
+      <>
+        <Sidebar />
+        <Content className="users">
+          <PageSkeleton />
+        </Content>
+      </>
     );
   }
 

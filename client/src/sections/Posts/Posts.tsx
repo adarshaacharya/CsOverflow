@@ -49,9 +49,9 @@ const Posts = () => {
         <Paragraph>It appears no questions has been asked. Be first one to create it.</Paragraph>
       ) : (
         posts.map(post => (
-          <Row className="post__layout" id={`${post.id}`}>
+          <div className="post" id={`${post.id}`}>
             <PostItem post={post} />
-          </Row>
+          </div>
         ))
       )}
     </>
@@ -61,8 +61,8 @@ const Posts = () => {
     <>
       <Sidebar />
       <Content className="posts">
-        <Row justify="space-between">
-          <Title level={3} className="posts__title">
+        <Row justify="space-between" className="posts__header">
+          <Title level={2} className="posts__title">
             Top Questions
           </Title>
           <Button type="primary">Ask Question</Button>
