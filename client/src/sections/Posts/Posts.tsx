@@ -1,13 +1,44 @@
 import { Button, Divider, Layout, Row, Typography } from 'antd';
+import { ErrorBanner } from 'lib/components/ErrorBanner';
+import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'store/modules/combine-reducer';
+import { getPosts } from 'store/modules/posts/posts.actions';
 import { PostItem } from './components';
 
 const { Content } = Layout;
 const { Title } = Typography;
+
 const Posts = () => {
+  const dispatch = useDispatch();
+
+  const { posts, loading, error } = useSelector((state: RootState) => state.post);
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   useScrollToTop();
+
+  if (loading) {
+    return (
+      <Content className="posts">
+        <PageSkeleton />
+      </Content>
+    );
+  }
+
+  if (error) {
+    return (
+      <Content className="posts">
+        <ErrorBanner description="Posts may not exist or we 've encounted an error. Please try again soon." />
+        <PageSkeleton />
+      </Content>
+    );
+  }
 
   const postsSectionElement = (
     <>

@@ -1,13 +1,13 @@
-import { ADD_POST, DELETE_POST, GET_POST, GET_POSTS, PostsAction, PostsState, POST_ERROR } from './posts.types';
+import { ADD_POST, DELETE_POST, GET_POST, GET_POSTS, PostsActions, PostsState, POST_ERROR } from './posts.types';
 
 const initialState: PostsState = {
   posts: [],
   post: null,
   loading: true,
-  error: {},
+  error: null,
 };
 
-export const postsReducer = (state: PostsState = initialState, action: PostsAction) => {
+export const postsReducer = (state: PostsState = initialState, action: PostsActions): PostsState => {
   switch (action.type) {
     case GET_POSTS:
       return {
@@ -26,7 +26,7 @@ export const postsReducer = (state: PostsState = initialState, action: PostsActi
     case ADD_POST:
       return {
         ...state,
-        posts: [action.payload, state.posts],
+        posts: [action.payload, ...state.posts],
       };
 
     case DELETE_POST:

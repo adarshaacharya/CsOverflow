@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
-import { GET_POST, GET_POSTS, PostsAction, POST_ERROR } from './posts.types';
+import { GET_POST, GET_POSTS, PostsActions, POST_ERROR } from './posts.types';
 
-export const getPosts = async (dispatch: Dispatch<PostsAction>) => {
+export const getPosts = () => async (dispatch: Dispatch<PostsActions>) => {
   try {
     const { data } = await Api.get('/posts');
     dispatch({
@@ -17,7 +17,7 @@ export const getPosts = async (dispatch: Dispatch<PostsAction>) => {
   }
 };
 
-export const getPostById = (id: string) => async (dispatch: Dispatch<PostsAction>) => {
+export const getPostById = (id: string) => async (dispatch: Dispatch<PostsActions>) => {
   try {
     const { data } = await Api.get(`/posts/${id}`);
     dispatch({

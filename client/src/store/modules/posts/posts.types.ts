@@ -25,7 +25,7 @@ export interface PostsState {
   posts: IPost[];
   post: IPost | null;
   loading: boolean;
-  error: {};
+  error: {} | null ;
 }
 
 interface GetPostsAction {
@@ -53,4 +53,4 @@ interface PostErrorAction {
   payload: string;
 }
 
-export type PostsAction = GetPostsAction | GetPostAction | AddPostAction | DeletePostAction | PostErrorAction;
+export type PostsActions = GetPostsAction | GetPostAction | AddPostAction | DeletePostAction | PostErrorAction;
