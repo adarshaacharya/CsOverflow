@@ -11,7 +11,7 @@ const { Title, Paragraph, Text } = Typography;
 
 export const PostDetails: React.FC<Props> = ({ post }) => {
   const { id, body, createdAt, tags, title, user } = post;
-  
+
   return (
     <div className="post-details">
       <Row className="post-details__header" justify="space-between">
@@ -20,7 +20,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
             {title}
           </Title>
           <Paragraph type="secondary">
-            asked {moment(createdAt).fromNow()} by {user}
+            asked {moment(createdAt).fromNow()} by {user && <Link to={`/users/${user.id}`}>{user.name}</Link>}
           </Paragraph>
         </div>
         <Button type="primary">Ask Question</Button>
@@ -34,7 +34,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
             </Tag>
             <Tag color="blue" className="post-details__stats--vote">
               <span className="vote-count">1</span>
-              <div className="count-text">comments</div>
+              <div className="count-text">answers</div>
             </Tag>
           </Col>
 

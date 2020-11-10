@@ -1,5 +1,3 @@
-import { IUser } from '../auth/auth.types';
-
 export const GET_POSTS = '@@/posts/GET_POSTS';
 export const GET_POST = '@@/posts/GET_POST';
 export const GET_TOP_POSTS = '@@/posts/GET_TOP_POSTS';

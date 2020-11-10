@@ -22,7 +22,7 @@ export const PostItem: React.FC<Props> = ({ post }) => {
           </Tag>
           <Tag color="blue" className="post__layout--stats-vote">
             <span className="vote-count">4</span>
-            <div className="count-text">comments</div>
+            <div className="count-text">answers</div>
           </Tag>
         </Col>
         <Col span={16} className="post__layout--body">

@@ -1,16 +1,16 @@
-import { Divider, Layout } from 'antd';
+import { Divider, Layout, Typography } from 'antd';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { PostItem } from 'sections/Posts/components';
 import { RootState } from 'store/modules/combine-reducer';
 import { getPostById } from 'store/modules/posts/posts.actions';
 import { AnswerCreate, AnswerDetails, PostDetails } from './components';
 
 const { Content } = Layout;
+const { Title } = Typography;
 const Post = () => {
   const { id } = useParams<{ id: string }>();
 
@@ -48,7 +48,7 @@ const Post = () => {
       <Sidebar />
       <Content className="post-wrapper">
         {post && <PostDetails post={post} />}
-
+        <Title level={5}>Answers</Title>
         <AnswerDetails />
         <Divider />
         <AnswerCreate />
