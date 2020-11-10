@@ -309,3 +309,30 @@
    padding: 60px 100px;
    background: #fff;
 }
+.post-details .post-details__header > div > h4 {
+   color: #1d226c;
+}
+.post-details .post-details__main {
+   padding: 1rem 0;
+}
+.post-details .post-details__main .post-details__stats {
+   display: grid;
+   justify-content: center;
+   text-align: center;
+   color: #6a737c;
+}
+.post-details .post-details__main .post-details__stats .post-details__stats--vote {
+   margin-bottom: 1rem;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   border-radius: 3px;
+   cursor: pointer;
+   max-height: 70px;
+   padding: 8px;
+}
+.post-details .post-details__main .post-details__body .post-details__text {
+   margin-bottom: 2rem;
+}
+

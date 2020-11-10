@@ -23,9 +23,9 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
         </div>
         <Button type="primary">Ask Question</Button>
       </Row>
-      <Card className="post-details__answer">
+      <Card className="post-details__main">
         <Row>
-          <Col span={3} className="post-deatils__stats">
+          <Col span={3} className="post-details__stats">
             <Tag color="magenta" className="post-details__stats--vote">
               <span className="vote-count">1</span>
               <div className="count-text">upvotes</div>
@@ -40,7 +40,9 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
             <Paragraph className="post-details__text">{body}</Paragraph>
             <Paragraph className="post-details__tags">
               {tags.map(tag => (
-                <Tag key={tag.id}>{tag.tagname}</Tag>
+                <Tag key={tag.id}>
+                  <Link to={`/tags/${tag.tagname}`}>{tag.tagname}</Link>
+                </Tag>
               ))}
             </Paragraph>
           </Col>
