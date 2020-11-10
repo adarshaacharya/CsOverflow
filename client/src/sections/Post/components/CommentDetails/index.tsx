@@ -3,7 +3,6 @@ import { Avatar, Comment, Tooltip } from 'antd';
 import moment from 'moment';
 import React, { createElement, useState } from 'react';
 
-
 export const CommentDetails = () => {
   const [action, setAction] = useState<null | string>(null);
   const [likes, setLikes] = useState(0);
@@ -36,7 +35,7 @@ export const CommentDetails = () => {
 
   return (
     <Comment
-    actions={actions}
+      actions={actions}
       author={'Han Solo'}
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
       content={

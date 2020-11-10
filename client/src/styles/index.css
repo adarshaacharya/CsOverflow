@@ -284,7 +284,6 @@
 .count-text {
    font-size: 12px;
 }
-
 .posts .post__layout .post__layout--body > h4 {
    padding: 5px 0;
 }
@@ -304,4 +303,9 @@
 }
 .posts .post__layout .post__layout--user .post__layout--user-avatar {
    margin-bottom: 1rem;
+}
+/* single post page */
+.post-wrapper {
+   padding: 60px 100px;
+   background: #fff;
 }

@@ -1,14 +1,53 @@
 import { Layout } from 'antd';
+import { ErrorBanner } from 'lib/components/ErrorBanner';
+import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
-import React from 'react';
-import { CommentCreate, CommentDetails } from './components';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { RootState } from 'store/modules/combine-reducer';
+import { getPostById } from 'store/modules/posts/posts.actions';
+import { CommentCreate, CommentDetails, PostDetails } from './components';
 
 const { Content } = Layout;
 const Post = () => {
+  const { id } = useParams<{ id: string }>();
+
+  const dispatch = useDispatch();
+  const { loading, post, error } = useSelector((state: RootState) => state.post);
+
+  useEffect(() => {
+    dispatch(getPostById(id));
+  }, [dispatch, id]);
+
+  if (loading) {
+    return (
+      <>
+        <Sidebar />
+        <Content className="post-wrapper">
+          <PageSkeleton />
+        </Content>
+      </>
+    );
+  }
+  if (error) {
+    return (
+      <>
+        <Sidebar />
+        <Content className="post-wrapper">
+          <ErrorBanner description="This post may not exists we've encountered an error. Please try again later" />
+          <PageSkeleton />
+        </Content>
+      </>
+    );
+  }
+
   return (
     <>
       <Sidebar />
-      <Content className="post">
+      <Content className="post-wrapper">
+        {id}
+        {post && <PostDetails post={post} />}
         <CommentDetails />
         <CommentCreate />
       </Content>
