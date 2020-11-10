@@ -1,3 +1,3 @@
-export * from './CommentCreate';
-export * from './CommentDetails';
+export * from './AnswerCreate';
+export * from './AnswerDetails';
 export * from './PostDetails';

@@ -21,7 +21,7 @@ const tailLayout = {
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { isAuthenticated , } = useSelector((state: RootState) => state.auth);
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
@@ -75,8 +75,7 @@ const Login = () => {
           </Item>
 
           <Item {...tailLayout}>
-            <Button type="primary" 
-            htmlType="submit" className="log-in-card__form-button">
+            <Button type="primary" htmlType="submit" className="log-in-card__form-button">
               Log In
             </Button>
           </Item>

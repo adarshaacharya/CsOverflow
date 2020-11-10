@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Comment, Avatar, Form, Button, List, Input } from 'antd';
+import { Comment, Avatar, Form, Button, List, Input, Typography } from 'antd';
 import moment from 'moment';
 
 const { Item } = Form;
 const { TextArea } = Input;
+const { Title, Paragraph, Text } = Typography;
 
-export const CommentCreate = () => {
+export const AnswerCreate = () => {
   const [value, setValue] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
@@ -18,13 +19,14 @@ export const CommentCreate = () => {
   };
   return (
     <>
+      <Title level={5}>Your Answer</Title>
       <Item>
         <TextArea rows={4} onChange={e => setValue(e.target.value)} value={value} />
       </Item>
 
       <Item>
         <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
-          Add Comment
+          Post Your Answer
         </Button>
       </Item>
     </>

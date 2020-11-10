@@ -1,5 +1,4 @@
-import { LikeOutlined, MessageOutlined, CaretUpOutlined } from '@ant-design/icons';
-import { Avatar, Button, Card, Col, Divider, Row, Space, Tag, Typography } from 'antd';
+import { Avatar, Card, Col, Row, Tag, Typography } from 'antd';
 import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
