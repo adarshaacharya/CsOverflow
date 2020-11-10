@@ -44,3 +44,10 @@ interface PostErrorAction {
 }
 
 export type AnswerActions = GetAnswersAction | AddAnswerAction | DeleteAnswerAction | PostErrorAction;
+
+
+
+export interface IAnswerCreate {
+  postId : string
+  body : string
+}
