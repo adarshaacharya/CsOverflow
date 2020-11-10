@@ -1,13 +1,18 @@
 import { Layout } from 'antd';
+import Sidebar from 'lib/components/Sidebar';
 import React from 'react';
+import { CommentCreate, CommentDetails } from './components';
 
-const {Content} = Layout
+const { Content } = Layout;
 const Post = () => {
-
   return (
-  <Content className="post">
-
-  </Content>
+    <>
+      <Sidebar />
+      <Content className="post">
+        <CommentDetails />
+        <CommentCreate />
+      </Content>
+    </>
   );
 };
 
