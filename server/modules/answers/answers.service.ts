@@ -1,7 +1,7 @@
-import { postsService } from '../../modules/posts/posts.service';
+import { Users } from '../../modules/users/users.model';
 import { NotFound } from '../../common/exceptions';
+import { postsService } from '../../modules/posts/posts.service';
 import { Answers } from './answers.model';
-import { Posts } from '../../modules/posts/posts.model';
 
 interface IAnswersData {
   body: string;
@@ -24,10 +24,20 @@ class AnswersService {
     return answer.save();
   }
 
-  public async findByPostId(postId: number): Promise<Posts | null> {
+  public async findByPostId(postId: number): Promise<Answers[] | null> {
     const post = await postsService.findOneById(postId);
     if (!post) throw new NotFound(`Can't find post with id ${postId}`);
-    return Posts.findOne({ where: { postId } });
+    return Answers.findAll({
+      where: { postId },
+      order: [['id', 'ASC']],
+      include: [
+        {
+          model: Users,
+          as: 'user',
+          attributes: ['id', 'name', 'email', 'avatar'],
+        },
+      ],
+    });
   }
 }
 
