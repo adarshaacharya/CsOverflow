@@ -13,7 +13,19 @@ class AnswersController {
         userId: req.user!.id,
       });
 
-      res.json(answer);
+      res.status(201).json(answer);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  public async findByPostId(req: AuthRequest, res: Response, next: NextFunction) {
+    try {
+      validateIdOrThrow(+req.params.id);
+
+      const postId = +req.params.id;
+      const comments = await answersService.findByPostId(postId);
+      res.status(201).json(comments);
     } catch (error) {
       next(error);
     }
