@@ -12,6 +12,7 @@ import {
   REGISTER_SUCCESS,
   USER_LOADED,
 } from './auth.types';
+import { setAlert } from '../alert/alert.actions';
 
 // load user after signin on every page render to check if user has been authorized with jwt
 // put the token in global header from localstorage (if there's any) so auth middleware will check
@@ -42,9 +43,9 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
       payload: token,
     });
     dispatch<any>(loadUser());
-    displaySuccessNotification("You've successfully signed up.");
+    dispatch<any>(setAlert("You've successfully signed up.", 'success'));
   } catch (error) {
-    dispatch<any>(setError(error.response.data.error));
+    dispatch<any>(setAlert(error.response.data.error, 'error'));
     dispatch({
       type: AUTH_ERROR,
     });
@@ -61,9 +62,9 @@ export const loginUser = (formData: ISignInData) => async (dispatch: Dispatch<Au
       payload: token,
     });
     dispatch<any>(loadUser());
-    displaySuccessNotification("You've successfully logged in.");
+    dispatch<any>(setAlert("You've successfully signed up.", 'success'));
   } catch (error) {
-    dispatch<any>(setError(error.response.data.error));
+    dispatch<any>(setAlert(error.response.data.error, 'error'));
     dispatch({
       type: AUTH_ERROR,
     });

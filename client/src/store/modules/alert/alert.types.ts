@@ -1,16 +1,17 @@
 export const SET_ALERT = '@@/auth/SET_ALERT';
-export const CLEAR_ALERT = '@@/auth/CLEART_ALERT';
+export const CLEAR_ALERT = '@@/auth/CLEAR_ALERT';
+export type Msg = 'success' | 'error'
 
 export interface AlertState {
   msg: string | null;
-  type: string | null;
+  type: Msg | null;
 }
 
 interface SetAlertAction {
   type: typeof SET_ALERT;
   payload: {
     msg: string;
-    type: string;
+    type: Msg;
   };
 }
 

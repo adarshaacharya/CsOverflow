@@ -18,7 +18,7 @@ export const alertReducer = (state: AlertState = initialState, action: AlertActi
       return {
         ...state,
         msg: null,
-        type: null,
+        type : null
       };
 
     default:

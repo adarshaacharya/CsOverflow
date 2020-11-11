@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
-import { AlertActions, SET_ALERT, CLEAR_ALERT } from './alert.types';
+import { AlertActions, SET_ALERT, CLEAR_ALERT, Msg } from './alert.types';
 
-export const setAlert = (msg: string, type: string) => async (dispatch: Dispatch<AlertActions>) => {
+export const setAlert = (msg: string, type: Msg) => async (dispatch: Dispatch<AlertActions>) => {
   dispatch({
     type: SET_ALERT,
     payload: { msg, type },
