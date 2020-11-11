@@ -4,6 +4,8 @@ import { authReducer } from './auth/auth.reducer';
 import { errorReducer } from './error/errors.reducer';
 import { postsReducer } from './posts/posts.reducer';
 import { usersReducer } from './users/users.reducer';
+import { alertReducer } from './alert/alert.reducer';
+
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -11,6 +13,7 @@ const rootReducer = combineReducers({
   post: postsReducer,
   answer: answersReducer,
   error: errorReducer,
+  alert: alertReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
