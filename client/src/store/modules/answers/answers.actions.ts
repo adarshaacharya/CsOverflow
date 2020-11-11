@@ -4,7 +4,7 @@ import { ADD_ANSWER, AnswerActions, ANSWER_ERROR, GET_ANSWERS, IAnswerCreate } f
 
 export const getAnswers = (id: string) => async (dispatch: Dispatch<AnswerActions>) => {
   try {
-    const { data } = await Api.get(`/api/posts/answers/${id}`);
+    const { data } = await Api.get(`/posts/answers/${id}`);
     dispatch({
       type: GET_ANSWERS,
       payload: data,
@@ -21,7 +21,7 @@ export const addAnswer = (answer: IAnswerCreate) => async (dispatch: Dispatch<An
   try {
     const { body, postId } = answer;
 
-    const { data } = await Api.post(`/api/posts/answers/${postId}`, { body });
+    const { data } = await Api.post(`/posts/answers/${postId}`, { body });
 
     dispatch({
       type: ADD_ANSWER,

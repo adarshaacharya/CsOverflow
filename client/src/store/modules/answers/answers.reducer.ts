@@ -1,4 +1,3 @@
-import { stat } from 'fs';
 import { ADD_ANSWER, AnswerActions, AnswersState, ANSWER_ERROR, DELETE_ANSWER, GET_ANSWERS } from './answers.types';
 
 const initialState: AnswersState = {

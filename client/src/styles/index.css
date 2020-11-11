@@ -72,6 +72,7 @@
       display: none;
    }
 }
+/* side bar */
 .side-bar {
    background: #fff;
    position: relative;
@@ -85,6 +86,7 @@
    height: 100%;
    border-right: 0;
 }
+/* error banner component */
 .error-banner {
    position: fixed;
    width: 100%;
@@ -92,9 +94,11 @@
    left: 0;
    z-index: 99;
 }
+/* page skeleton */
 .page-skeleton__paragraph {
    padding-bottom: 40px;
 }
+/* spinner component */
 .spinner {
    display: flex;
    justify-content: center;
@@ -102,6 +106,7 @@
    background: #fff;
    height: 100vh;
 }
+/* login page */
 .log-in {
    display: flex;
    align-items: center;
@@ -124,6 +129,7 @@
 .log-in-card__form-button {
    width: 100%;
 }
+/* sign up page */
 .sign-up {
    display: flex;
    justify-content: center;
@@ -149,6 +155,7 @@
 .sign-up-card__form-button {
    width: 100%;
 }
+/* not found page */
 .not-found {
    display: flex;
    height: 80vh;
@@ -171,6 +178,7 @@
 .not-found__cta {
    margin-top: 20px;
 }
+/* about page */
 .about {
    padding: 40px 20px;
 }
@@ -185,12 +193,13 @@
    font-size: 17px;
    margin-bottom: 1.5em;
 }
+/* home page */
 .home {
    background-color: #fff;
    padding: 1rem;
 }
 
-/* user */
+/* user page */
 .user {
    padding: 60px 120px;
    background-color: #fff;
@@ -225,6 +234,7 @@
 .user-profile__stats-tail {
    font-weight: bold;
 }
+/* users page */
 .users {
    padding: 60px 120px;
    background: #fff;
@@ -249,6 +259,7 @@
    align-items: center;
    gap: 20px;
 }
+/* posts page */
 .posts {
    padding: 60px 100px;
    background: #fff;
@@ -293,7 +304,8 @@
 .posts .post__layout .post__layout--tags {
    padding: 5px 0;
 }
-.posts .post__layout .post__layout--user {
+/* user post card */
+.user-post__card {
    display: flex;
    text-align: center;
    justify-content: center;
@@ -301,7 +313,7 @@
    background: #fafafa;
    border-radius: 10px;
 }
-.posts .post__layout .post__layout--user .post__layout--user-avatar {
+.user-post__card .user-post__card-avatar {
    margin-bottom: 1rem;
 }
 /* single post page */
@@ -335,4 +347,3 @@
 .post-details .post-details__main .post-details__body .post-details__text {
    margin-bottom: 2rem;
 }
-

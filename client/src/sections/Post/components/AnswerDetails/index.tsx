@@ -1,8 +1,9 @@
 import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
-import { Avatar, Comment, Tooltip } from 'antd';
+import { Avatar, Comment, Tooltip, Typography } from 'antd';
 import moment from 'moment';
 import React, { createElement, useState } from 'react';
 
+const { Title } = Typography;
 export const AnswerDetails = () => {
   const [action, setAction] = useState<null | string>(null);
   const [likes, setLikes] = useState(0);
@@ -34,21 +35,25 @@ export const AnswerDetails = () => {
   ];
 
   return (
-    <Comment
-      actions={actions}
-      author={'Han Solo'}
-      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-      content={
-        <p>
-          We supply a series of design principles, practical patterns and high quality design resources (Sketch and
-          Axure), to help people create their product prototypes beautifully and efficiently.
-        </p>
-      }
-      datetime={
-        <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-          <span>{moment().fromNow()}</span>
-        </Tooltip>
-      }
-    />
+    <>
+      <Title level={5}>Answers</Title>
+
+      <Comment
+        actions={actions}
+        author={'Han Solo'}
+        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
+        content={
+          <p>
+            We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+            Axure), to help people create their product prototypes beautifully and efficiently.
+          </p>
+        }
+        datetime={
+          <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+            <span>{moment().fromNow()}</span>
+          </Tooltip>
+        }
+      />
+    </>
   );
 };

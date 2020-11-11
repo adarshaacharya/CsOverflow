@@ -1,4 +1,5 @@
 import { Avatar, Card, Col, Row, Tag, Typography } from 'antd';
+import UserPostCard from 'lib/components/UserPostCard';
 import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -37,11 +38,7 @@ export const PostItem: React.FC<Props> = ({ post }) => {
           </Paragraph>
         </Col>
         <Col span={5}>
-          <Card className="post__layout--user">
-            <Avatar src={user.avatar} className="post__layout--user-avatar" />
-            <Paragraph type="secondary">{user.name}</Paragraph>
-            <Paragraph type="secondary">asked {moment(createdAt).fromNow()}</Paragraph>
-          </Card>
+          <UserPostCard user={user} createdAt={createdAt} />
         </Col>
       </Row>
     </Card>

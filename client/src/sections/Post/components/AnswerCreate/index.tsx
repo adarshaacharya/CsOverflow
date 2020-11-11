@@ -1,6 +1,9 @@
+import { Button, Form, Input, Typography } from 'antd';
 import React, { useState } from 'react';
-import { Comment, Avatar, Form, Button, List, Input, Typography } from 'antd';
-import moment from 'moment';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { addAnswer } from 'store/modules/answers/answers.actions';
+import { RootState } from 'store/modules/combine-reducer';
 
 const { Item } = Form;
 const { TextArea } = Input;
@@ -10,12 +13,14 @@ export const AnswerCreate = () => {
   const [value, setValue] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
+  const { id } = useParams<{ id: string }>();
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state: RootState) => state.answer);
+
   const onSubmit = () => {
     setSubmitting(true);
-    setTimeout(() => {
-      setValue('');
-      setSubmitting(false);
-    }, 3000);
+    dispatch(addAnswer({ body: value, postId: id }));
+    setSubmitting(loading);
   };
   return (
     <>
