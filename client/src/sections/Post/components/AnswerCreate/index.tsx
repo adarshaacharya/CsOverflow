@@ -9,11 +9,15 @@ const { Item } = Form;
 const { TextArea } = Input;
 const { Title, Paragraph, Text } = Typography;
 
+interface MatchProps {
+  id: string;
+}
+
 export const AnswerCreate = () => {
   const [value, setValue] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<MatchProps>();
   const dispatch = useDispatch();
   const { loading } = useSelector((state: RootState) => state.answer);
 
@@ -21,6 +25,7 @@ export const AnswerCreate = () => {
     setSubmitting(true);
     dispatch(addAnswer({ body: value, postId: id }));
     setSubmitting(loading);
+    setValue('');
   };
   return (
     <>

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { answersReducer } from './answers/answers.reducer';
 import { authReducer } from './auth/auth.reducer';
-import { errorReducer } from './errors/errors.reducer';
+import { errorReducer } from './error/errors.reducer';
 import { postsReducer } from './posts/posts.reducer';
 import { usersReducer } from './users/users.reducer';
 

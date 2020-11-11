@@ -12,7 +12,7 @@ export const getAnswers = (id: string) => async (dispatch: Dispatch<AnswerAction
   } catch (error) {
     dispatch({
       type: ANSWER_ERROR,
-      payload: error.response.data.error,
+      payload: error,
     });
   }
 };
@@ -20,9 +20,7 @@ export const getAnswers = (id: string) => async (dispatch: Dispatch<AnswerAction
 export const addAnswer = (answer: IAnswerCreate) => async (dispatch: Dispatch<AnswerActions>) => {
   try {
     const { body, postId } = answer;
-
     const { data } = await Api.post(`/posts/answers/${postId}`, { body });
-
     dispatch({
       type: ADD_ANSWER,
       payload: data,
@@ -30,9 +28,10 @@ export const addAnswer = (answer: IAnswerCreate) => async (dispatch: Dispatch<An
 
     dispatch<any>(getAnswers(postId));
   } catch (error) {
+    console.log(error)
     dispatch({
       type: ANSWER_ERROR,
-      payload: error.response.data.error,
+      payload: error,
     });
   }
 };

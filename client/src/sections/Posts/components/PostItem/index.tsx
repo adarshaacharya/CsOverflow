@@ -29,7 +29,14 @@ export const PostItem: React.FC<Props> = ({ post }) => {
         <Col span={16} className="post__layout--body">
           <Link to={`/posts/${id}`}>
             <Title level={4}>{title}</Title>
-            <Paragraph className="post__layout--text">{body}</Paragraph>
+            <Paragraph
+              className="post__layout--text"
+              ellipsis={{
+                rows: 2,
+              }}
+            >
+              {body}
+            </Paragraph>
           </Link>
           <Paragraph className="post__layout--tags">
             {tags.map(tag => (

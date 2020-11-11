@@ -1,59 +1,79 @@
 import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
-import { Avatar, Comment, Tooltip, Typography } from 'antd';
+import { Avatar, Comment, Layout, Tooltip, Typography } from 'antd';
+import { ErrorBanner } from 'lib/components/ErrorBanner';
+import { PageSkeleton } from 'lib/components/PageSkeleton';
+import Sidebar from 'lib/components/Sidebar';
 import moment from 'moment';
-import React, { createElement, useState } from 'react';
+import React, { createElement, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getAnswers } from 'store/modules/answers/answers.actions';
+import { RootState } from 'store/modules/combine-reducer';
 
-const { Title } = Typography;
-export const AnswerDetails = () => {
-  const [action, setAction] = useState<null | string>(null);
-  const [likes, setLikes] = useState(0);
-  const [dislikes, setDislikes] = useState(0);
+const { Title, Paragraph } = Typography;
+const { Content } = Layout;
 
-  const like = () => {
-    setLikes(1);
-    setDislikes(0);
-    setAction('liked');
-  };
+type Props = {};
 
-  const dislike = () => {
-    setAction('disliked');
-  };
-  const actions = [
-    <Tooltip key="comment-basic-like" title="Like">
-      <span onClick={like}>
-        {createElement(action === 'liked' ? LikeFilled : LikeOutlined)}
-        <span className="comment-action">{likes}</span>
-      </span>
-    </Tooltip>,
-    <Tooltip key="comment-basic-dislike" title="Dislike">
-      <span onClick={dislike}>
-        {React.createElement(action === 'disliked' ? DislikeFilled : DislikeOutlined)}
-        <span className="comment-action">{dislikes}</span>
-      </span>
-    </Tooltip>,
-    <span key="comment-basic-reply-to">Reply to</span>,
-  ];
+export const AnswerDetails: React.FC<Props> = () => {
+  const { id } = useParams<{ id: string }>();
+  const dispatch = useDispatch();
+  const { loading, answers, error } = useSelector((state: RootState) => state.answer);
+
+  useEffect(() => {
+    dispatch(getAnswers(id));
+  }, [dispatch, id]);
+
+  if (loading) {
+    return (
+      <>
+        <Content className="posts">
+          <PageSkeleton />
+        </Content>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <Content className="answers">
+        <ErrorBanner
+          description={`Answers may not exist or we 've encounted an error. Please try again soon. Details :  ${error}`}
+        />
+        <PageSkeleton />
+      </Content>
+    );
+  }
+
+  const answersSectionElement = (
+    <>
+      {answers.length < 1 ? (
+        <Paragraph>No comments found.</Paragraph>
+      ) : (
+        answers.map(
+          answer =>
+            answer.user && (
+              <Comment
+                author={answer.user.name}
+                avatar={<Avatar src={answer.user.avatar} alt={answer.user.name} />}
+                content={<Paragraph>{answer.body}</Paragraph>}
+                datetime={
+                  <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                    <span>{moment(answer.updatedAt).fromNow()}</span>
+                  </Tooltip>
+                }
+                key={answer.id}
+              />
+            )
+        )
+      )}
+    </>
+  );
 
   return (
     <>
       <Title level={5}>Answers</Title>
-
-      <Comment
-        actions={actions}
-        author={'Han Solo'}
-        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-        content={
-          <p>
-            We supply a series of design principles, practical patterns and high quality design resources (Sketch and
-            Axure), to help people create their product prototypes beautifully and efficiently.
-          </p>
-        }
-        datetime={
-          <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-            <span>{moment().fromNow()}</span>
-          </Tooltip>
-        }
-      />
+      {answersSectionElement}
     </>
   );
 };

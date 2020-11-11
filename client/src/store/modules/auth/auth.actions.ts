@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
 import { displaySuccessNotification } from 'lib/utils';
-import { setError } from '../errors/errors.action';
+import { setError } from '../error/errors.action';
 import {
   AuthActions,
   AUTH_ERROR,

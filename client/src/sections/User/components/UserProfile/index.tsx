@@ -1,6 +1,6 @@
 import { Avatar, Card, Col, Divider, Row, Typography } from 'antd';
 import React from 'react';
-import Moment from 'react-moment';
+import moment from 'moment';
 import { IUser } from 'store/modules/auth/auth.types';
 
 interface Props {
@@ -47,10 +47,7 @@ export const UserProfile: React.FC<Props> = ({ user }) => {
               Email : <Text strong>{email}</Text>
             </Paragraph>
             <Paragraph>
-              Created at :{' '}
-              <Text strong>
-                <Moment format="YYY/MM/DD">{createdAt}</Moment>
-              </Text>
+              Created at : <Text strong>{moment(createdAt).format('Do MMMM  YYYY')}</Text>
             </Paragraph>
           </Col>
         </Row>

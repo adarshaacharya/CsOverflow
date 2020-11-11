@@ -23,11 +23,11 @@ export class Posts extends Model {
           autoIncrement: true,
         },
         title: {
-          type: DataTypes.STRING(),
+          type: DataTypes.TEXT(),
           allowNull: false,
         },
         body: {
-          type: DataTypes.STRING(),
+          type: DataTypes.TEXT(),
           allowNull: false,
         },
         userId: {

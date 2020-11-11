@@ -1,2 +1,2 @@
-import UserPostCard from './UserPostCard'
-export default UserPostCard
+import UserPostCard from './UserPostCard';
+export default UserPostCard;

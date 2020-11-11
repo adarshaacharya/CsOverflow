@@ -23,7 +23,7 @@ export class Comments extends Model {
           autoIncrement: true,
         },
         body: {
-          type: DataTypes.STRING(),
+          type: DataTypes.TEXT(),
           allowNull: false,
         },
         postId: {

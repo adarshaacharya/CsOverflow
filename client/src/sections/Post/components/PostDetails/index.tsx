@@ -1,4 +1,5 @@
 import { Button, Card, Col, Divider, Row, Tag, Typography } from 'antd';
+import UserPostCard from 'lib/components/UserPostCard';
 import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -38,7 +39,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
             </Tag>
           </Col>
 
-          <Col span={21} className="post-details__body">
+          <Col span={16} className="post-details__body">
             <Paragraph className="post-details__text">{body}</Paragraph>
             <Paragraph className="post-details__tags">
               {tags.map(tag => (
@@ -47,6 +48,9 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
                 </Tag>
               ))}
             </Paragraph>
+          </Col>
+          <Col span={5}>
+            <UserPostCard user={user} createdAt={createdAt} />
           </Col>
         </Row>
       </Card>

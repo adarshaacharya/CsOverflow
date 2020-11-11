@@ -11,10 +11,14 @@ import { UserProfile } from './components';
 
 const { Content } = Layout;
 
+interface MatchProps {
+  id: string;
+}
+
 const User = () => {
   const dispatch = useDispatch();
   const { loading, error, user } = useSelector((state: RootState) => state.user);
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<MatchProps>();
 
   useEffect(() => {
     dispatch(getUserById(id));
