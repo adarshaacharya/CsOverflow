@@ -6,10 +6,9 @@ import { useScrollToTop } from 'lib/hooks';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getAnswers } from 'store/modules/answers/answers.actions';
 import { RootState } from 'store/modules/combine-reducer';
 import { getPostById } from 'store/modules/posts/posts.actions';
-import { AnswerCreate, AnswerDetails, PostDetails } from './components';
+import { PostAnswerCreate, PostAnswerDetails, PostDetails } from './components';
 
 const { Content } = Layout;
 const Post = () => {
@@ -50,9 +49,9 @@ const Post = () => {
       <Sidebar />
       <Content className="post-wrapper">
         {post && <PostDetails post={post} />}
-        <AnswerDetails />
+        <PostAnswerDetails />
         <Divider />
-        <AnswerCreate />
+        <PostAnswerCreate />
       </Content>
     </>
   );

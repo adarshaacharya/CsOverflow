@@ -13,9 +13,8 @@ import { RootState } from 'store/modules/combine-reducer';
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
 
-type Props = {};
 
-export const AnswerDetails: React.FC<Props> = () => {
+export const PostAnswerDetails = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch();
   const { loading, answers, error } = useSelector((state: RootState) => state.answer);

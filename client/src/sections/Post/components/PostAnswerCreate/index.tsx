@@ -7,13 +7,13 @@ import { RootState } from 'store/modules/combine-reducer';
 
 const { Item } = Form;
 const { TextArea } = Input;
-const { Title, Paragraph, Text } = Typography;
+const { Title } = Typography;
 
 interface MatchProps {
   id: string;
 }
 
-export const AnswerCreate = () => {
+export const PostAnswerCreate = () => {
   const [value, setValue] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
