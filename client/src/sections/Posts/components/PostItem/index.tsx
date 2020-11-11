@@ -14,7 +14,7 @@ const { Paragraph, Title } = Typography;
 export const PostItem: React.FC<Props> = ({ post }) => {
   const { id, body, title, user, tags, createdAt } = post;
   return (
-    <Card hoverable className="post__layout">
+    <Card className="post__layout">
       <Row>
         <Col span={3} className="post__layout--stats">
           <Tag color="magenta" className="post__layout--stats-vote">

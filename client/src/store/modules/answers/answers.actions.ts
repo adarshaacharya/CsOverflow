@@ -28,7 +28,7 @@ export const addAnswer = (answer: IAnswerCreate) => async (dispatch: Dispatch<An
 
     dispatch<any>(getAnswers(postId));
   } catch (error) {
-    console.log(error)
+    console.log(error);
     dispatch({
       type: ANSWER_ERROR,
       payload: error,
