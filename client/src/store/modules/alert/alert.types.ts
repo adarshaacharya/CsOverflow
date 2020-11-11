@@ -1,6 +1,6 @@
 export const SET_ALERT = '@@/auth/SET_ALERT';
 export const CLEAR_ALERT = '@@/auth/CLEAR_ALERT';
-export type Msg = 'success' | 'error'
+export type Msg = 'success' | 'error';
 
 export interface AlertState {
   msg: string | null;

@@ -1,23 +1,19 @@
 import { CoffeeOutlined } from '@ant-design/icons';
 import { Affix, Button, Layout } from 'antd';
-import Alert from 'lib/components/Alert';
+import AlertBoundary from 'lib/components/AlertBoundary';
 import Navbar from 'lib/components/AppHeader';
 import { useRoutes } from 'lib/routing/routes';
-import { displayErrorMessage, displaySuccessNotification } from 'lib/utils';
 import history from 'lib/utils/history';
 import React, { useEffect } from 'react';
-import { Provider, useSelector } from 'react-redux';
 import { Link, Router } from 'react-router-dom';
 import store from 'store';
 import { loadUser } from 'store/modules/auth/auth.actions';
 import { LOGOUT } from 'store/modules/auth/auth.types';
 import { setAuthToken } from 'store/modules/auth/auth.utils';
-import { RootState } from 'store/modules/combine-reducer';
 import 'styles/index.css';
 
 const App: React.FC = () => {
   const routes = useRoutes();
-  const { msg, type } = useSelector((state: RootState) => state.alert);
 
   useEffect(() => {
     if (localStorage.cstoken) {
@@ -32,15 +28,6 @@ const App: React.FC = () => {
     });
   }, []);
 
-  React.useEffect(() => {
-    if (msg && type === 'error') {
-      displayErrorMessage(msg);
-    }
-    if (msg && type === 'success') {
-      displaySuccessNotification(msg);
-    }
-  }, [msg, type]);
-
   return (
     <>
       <Router history={history}>
@@ -48,9 +35,8 @@ const App: React.FC = () => {
           <Affix offsetTop={0} className="app__affix-header">
             <Navbar />
           </Affix>
-          {/* <Alert /> */}
           <Layout>
-            {routes}
+            <AlertBoundary>{routes}</AlertBoundary>
             <Affix offsetBottom={10} className="app__affix-footer">
               <Button type="primary">
                 <Link to="/about">

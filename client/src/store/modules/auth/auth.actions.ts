@@ -1,7 +1,6 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
-import { displaySuccessNotification } from 'lib/utils';
-import { setError } from '../error/errors.action';
+import { setAlert } from '../alert/alert.actions';
 import {
   AuthActions,
   AUTH_ERROR,
@@ -10,9 +9,8 @@ import {
   LOGIN_SUCESS,
   LOGOUT,
   REGISTER_SUCCESS,
-  USER_LOADED,
+  USER_LOADED
 } from './auth.types';
-import { setAlert } from '../alert/alert.actions';
 
 // load user after signin on every page render to check if user has been authorized with jwt
 // put the token in global header from localstorage (if there's any) so auth middleware will check
