@@ -13,7 +13,7 @@ interface MatchProps {
   id: string;
 }
 
-export const PostAnswerCreate = () => {
+export const PostCreateAnswer = () => {
   const [value, setValue] = useState('');
   const [submitting, setSubmitting] = useState(false);
 

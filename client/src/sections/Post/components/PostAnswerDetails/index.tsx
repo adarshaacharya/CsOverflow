@@ -13,7 +13,6 @@ import { RootState } from 'store/modules/combine-reducer';
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
 
-
 export const PostAnswerDetails = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch();

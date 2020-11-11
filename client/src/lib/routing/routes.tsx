@@ -12,6 +12,7 @@ import Users from 'sections/Users';
 import Tags from 'sections/Tags';
 import Posts from 'sections/Posts';
 import Post from 'sections/Post';
+import  Ask  from 'sections/Ask';
 
 export const useRoutes = () => {
   return (
@@ -24,6 +25,7 @@ export const useRoutes = () => {
       <AuthRoute exact path="/users" component={Users} />
       <AuthRoute exact path="/posts" component={Posts} />
       <AuthRoute exact path="/posts/:id" component={Post} />
+      <AuthRoute exact path="/ask" component={Ask} />
       <AuthRoute exact path="/tags" component={Tags} />
       <AuthRoute exact path="/dashboard" component={Dashboard} />
       <Route component={NotFound} />

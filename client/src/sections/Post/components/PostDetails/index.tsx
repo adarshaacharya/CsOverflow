@@ -24,7 +24,9 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
             asked {moment(createdAt).fromNow()} by {user && <Link to={`/users/${user.id}`}>{user.name}</Link>}
           </Paragraph>
         </div>
-        <Button type="primary">Ask Question</Button>
+        <Button type="primary">
+          <Link to="/ask">Ask Question</Link>
+        </Button>
       </Row>
       <Card className="post-details__main">
         <Row>

@@ -1,6 +1,5 @@
-import { Avatar, Card, Col, Row, Tag, Typography } from 'antd';
+import { Card, Col, Row, Tag, Typography } from 'antd';
 import UserPostCard from 'lib/components/UserPostCard';
-import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IPost } from 'store/modules/posts/posts.types';

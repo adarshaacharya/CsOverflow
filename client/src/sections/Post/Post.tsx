@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { RootState } from 'store/modules/combine-reducer';
 import { getPostById } from 'store/modules/posts/posts.actions';
-import { PostAnswerCreate, PostAnswerDetails, PostDetails } from './components';
+import { PostCreateAnswer, PostAnswerDetails, PostDetails } from './components';
 
 const { Content } = Layout;
 const Post = () => {
@@ -51,7 +51,7 @@ const Post = () => {
         {post && <PostDetails post={post} />}
         <PostAnswerDetails />
         <Divider />
-        <PostAnswerCreate />
+        <PostCreateAnswer />
       </Content>
     </>
   );

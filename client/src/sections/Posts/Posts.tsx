@@ -5,6 +5,7 @@ import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { RootState } from 'store/modules/combine-reducer';
 import { getPosts } from 'store/modules/posts/posts.actions';
 import { PostItem } from './components';
@@ -65,7 +66,9 @@ const Posts = () => {
           <Title level={2} className="posts__title">
             Top Questions
           </Title>
-          <Button type="primary">Ask Question</Button>
+          <Button type="primary">
+            <Link to="/ask">Ask Question</Link>
+          </Button>
         </Row>
         <Divider />
         {postsSectionElement}
