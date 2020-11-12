@@ -12,7 +12,6 @@ const { Text, Title } = Typography;
 const { Item } = Form;
 const { Password } = Input;
 
-
 const Signup = () => {
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);

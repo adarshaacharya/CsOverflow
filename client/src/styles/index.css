@@ -304,6 +304,9 @@
 .count-text {
    font-size: 12px;
 }
+.posts .post__layout .post__layout--body {
+   padding: 0 10px;
+}
 .posts .post__layout .post__layout--body > h4 {
    padding: 5px 0;
 }
@@ -354,6 +357,9 @@
    height: 55px;
    padding: 8px;
 }
+.post-details .post-details__main .post-details__body {
+   padding: 0 10px;
+}
 .post-details .post-details__main .post-details__body .post-details__text {
    margin-bottom: 2rem;
 }
@@ -362,4 +368,3 @@
    padding: 60px 100px;
    background: #fff;
 }
-

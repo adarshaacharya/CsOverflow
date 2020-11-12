@@ -1,4 +1,4 @@
-import { Card, Typography } from 'antd';
+import { Card, Spin, Typography } from 'antd';
 import Avatar from 'antd/lib/avatar/avatar';
 import React from 'react';
 import moment from 'moment';
@@ -12,7 +12,10 @@ type Props = {
   createdAt: string;
 };
 const UserCard: React.FC<Props> = ({ user, createdAt }) => {
+  if (!user) return <Spin />;
+
   const { name, avatar, id } = user;
+
   return (
     <Card className="user-post__card">
       <Avatar src={avatar} className="user-post__card--avatar" />

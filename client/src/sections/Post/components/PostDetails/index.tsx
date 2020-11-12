@@ -30,7 +30,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
       </Row>
       <Card className="post-details__main">
         <Row>
-          <Col span={3} className="post-details__stats">
+          <Col span={2} className="post-details__stats">
             <Tag color="magenta" className="post-details__stats--vote">
               <span className="vote-count">1</span>
               <div className="count-text">upvotes</div>
@@ -52,7 +52,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
                 ))}
             </Paragraph>
           </Col>
-          <Col span={5}>
+          <Col span={6}>
             <UserPostCard user={user} createdAt={createdAt} />
           </Col>
         </Row>

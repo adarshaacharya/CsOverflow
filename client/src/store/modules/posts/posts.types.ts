@@ -36,7 +36,6 @@ export interface PostsState {
   error: {} | null;
 }
 
-
 export interface IPostCreate {
   title: string;
   body: string;

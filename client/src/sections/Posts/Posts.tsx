@@ -51,7 +51,7 @@ const Posts = () => {
       ) : (
         posts.map(post => (
           <div className="post" id={`${post.id}`}>
-            <PostItem post={post} />
+           {post && post.user && <PostItem post={post} />}
           </div>
         ))
       )}

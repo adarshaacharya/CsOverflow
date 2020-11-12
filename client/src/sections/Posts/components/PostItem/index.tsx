@@ -1,4 +1,4 @@
-import { Card, Col, Row, Tag, Typography } from 'antd';
+import { Card, Col, Row, Spin, Tag, Typography } from 'antd';
 import UserPostCard from 'lib/components/UserPostCard';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,9 @@ const { Paragraph, Title } = Typography;
 
 export const PostItem: React.FC<Props> = ({ post }) => {
   const { id, body, title, user, tags, createdAt } = post;
+
+ 
+
   return (
     <Card className="post__layout">
       <Row>
