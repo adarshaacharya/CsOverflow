@@ -1,5 +1,5 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { loginUser } from 'store/modules/auth/auth.actions';
@@ -11,6 +11,8 @@ const { Text, Title } = Typography;
 const { Item } = Form;
 
 const Login = () => {
+  const [confirmLoading, setConfirmLoading] = useState(false);
+
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
@@ -19,7 +21,12 @@ const Login = () => {
   }
 
   const onFormSubmit = (formData: ISignInData) => {
-    dispatch(loginUser(formData));
+    setConfirmLoading(true);
+
+    setTimeout(() => {
+      setConfirmLoading(false);
+      dispatch(loginUser(formData));
+    }, 3000);
   };
 
   return (
@@ -66,7 +73,7 @@ const Login = () => {
           </Item>
 
           <Item>
-            <Button type="primary" htmlType="submit" className="log-in-card__form-button">
+            <Button type="primary" htmlType="submit" loading={confirmLoading} className="log-in-card__form-button">
               Log In
             </Button>
           </Item>
