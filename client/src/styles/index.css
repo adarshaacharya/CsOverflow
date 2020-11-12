@@ -383,3 +383,7 @@
    background: #fff;
    padding: 60px 100px;
 }
+.tags .tags__header .tags__header--title {
+   color: #1d226c;
+   margin-bottom: 15px;
+}
