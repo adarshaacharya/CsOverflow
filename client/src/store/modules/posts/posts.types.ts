@@ -6,7 +6,7 @@ export const POST_ERROR = '@@/posts/POST_ERROR';
 export const ADD_POST = '@@/posts/ADD_POST';
 export const DELETE_POST = '@@/posts/DELETE_POST';
 
-export interface ITag {
+export interface IPostTag {
   id: number;
   tagname: string;
 }
@@ -25,7 +25,7 @@ export interface IPost {
   userId: number;
   createdAt: string;
   updatedAt: string;
-  tags: ITag[];
+  tags: IPostTag[];
   user: IPostUser;
 }
 
@@ -64,7 +64,7 @@ interface DeletePostAction {
 
 interface PostErrorAction {
   type: typeof POST_ERROR;
-  payload: string;
+  payload: object;
 }
 
 export type PostsActions = GetPostsAction | GetPostAction | AddPostAction | DeletePostAction | PostErrorAction;

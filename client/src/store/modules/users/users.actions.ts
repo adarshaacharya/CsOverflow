@@ -12,7 +12,7 @@ export const getUsers = () => async (dispatch: Dispatch<UsersActions>) => {
   } catch (error) {
     dispatch({
       type: USER_ERROR,
-      payload: error.response.data.error,
+      payload: error,
     });
   }
 };
@@ -27,7 +27,7 @@ export const getUserById = (id: string) => async (dispatch: Dispatch<UsersAction
   } catch (error) {
     dispatch({
       type: USER_ERROR,
-      payload: error.response.data.error,
+      payload: error,
     });
   }
 };
