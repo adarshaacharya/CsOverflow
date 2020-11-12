@@ -13,8 +13,6 @@ const { Paragraph, Title } = Typography;
 export const PostItem: React.FC<Props> = ({ post }) => {
   const { id, body, title, user, tags, createdAt } = post;
 
- 
-
   return (
     <Card className="post__layout">
       <Row>
@@ -41,7 +39,7 @@ export const PostItem: React.FC<Props> = ({ post }) => {
             </Paragraph>
           </Link>
           <Paragraph className="post__layout--tags">
-            {tags && tags.map(tag => <Tag key={tag.id}>{tag.tagname}</Tag>)}
+            {tags && tags.length > 0 && tags.map(tag => <Tag key={tag.id}>{tag.tagname}</Tag>)}
           </Paragraph>
         </Col>
         <Col span={5}>

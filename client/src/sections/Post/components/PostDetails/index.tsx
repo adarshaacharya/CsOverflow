@@ -45,6 +45,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
             <Paragraph className="post-details__text">{body}</Paragraph>
             <Paragraph className="post-details__tags">
               {tags &&
+                tags.length > 0 &&
                 tags.map(tag => (
                   <Tag key={tag.id}>
                     <Link to={`/tags/${tag.tagname}`}>{tag.tagname}</Link>
