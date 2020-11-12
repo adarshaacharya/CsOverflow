@@ -22,7 +22,6 @@ const Login = () => {
 
   const onFormSubmit = (formData: ISignInData) => {
     setConfirmLoading(true);
-
     setTimeout(() => {
       setConfirmLoading(false);
       dispatch(loginUser(formData));

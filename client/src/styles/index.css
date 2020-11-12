@@ -367,4 +367,19 @@
 .ask {
    padding: 60px 100px;
    background: #fff;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 100px;
+  margin: 0 auto;
+}
+.ask .ask__form-header .ask__form-title {
+   color: #1d226c;
+   margin-bottom: 15px;
+}
+
+/* tags */
+.tags {
+   background: #fff;
+   padding: 60px 100px;
 }

@@ -1,5 +1,5 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { registerUser } from 'store/modules/auth/auth.actions';
@@ -13,6 +13,8 @@ const { Item } = Form;
 const { Password } = Input;
 
 const Signup = () => {
+  const [confirmLoading, setConfirmLoading] = useState(false);
+
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
@@ -22,7 +24,11 @@ const Signup = () => {
 
   const onFormSubmit = (formData: ISignupData) => {
     const { name, email, password } = formData;
-    dispatch(registerUser({ name, email, password }));
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setConfirmLoading(false);
+      dispatch(registerUser({ name, email, password }));
+    }, 2000);
   };
 
   return (
@@ -113,7 +119,7 @@ const Signup = () => {
           </Item>
 
           <Item>
-            <Button type="primary" htmlType="submit" className="sign-up-card__form-button">
+            <Button type="primary" loading={confirmLoading} htmlType="submit" className="sign-up-card__form-button">
               Register
             </Button>
           </Item>
@@ -124,7 +130,7 @@ const Signup = () => {
         </Text>
         <Divider />
         <Text>
-          Already have an account ?<Link to="/login"> Login.</Link>
+          Already have an account ? <Link to="/login"> Login.</Link>
         </Text>
       </Card>
     </Content>

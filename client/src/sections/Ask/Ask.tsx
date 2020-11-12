@@ -1,9 +1,8 @@
-import { Layout, Typography, Input, Form, Divider, Button } from 'antd';
+import { Button, Divider, Form, Input, Layout, Typography } from 'antd';
 import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'store/modules/combine-reducer';
+import { useDispatch } from 'react-redux';
 import { addPost } from 'store/modules/posts/posts.actions';
 import { IPostCreate } from 'store/modules/posts/posts.types';
 
