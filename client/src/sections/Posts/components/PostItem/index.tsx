@@ -38,9 +38,7 @@ export const PostItem: React.FC<Props> = ({ post }) => {
             </Paragraph>
           </Link>
           <Paragraph className="post__layout--tags">
-            {tags.map(tag => (
-              <Tag key={tag.id}>{tag.tagname}</Tag>
-            ))}
+            {tags && tags.map(tag => <Tag key={tag.id}>{tag.tagname}</Tag>)}
           </Paragraph>
         </Col>
         <Col span={5}>

@@ -2,6 +2,7 @@ import { AuthRequest } from '../../common/types/types';
 import { NextFunction, Response } from 'express';
 import { postsService } from './posts.service';
 import { validateIdOrThrow } from '../../common/validators';
+import { convertToArray } from './posts.utils';
 
 class PostsController {
   public async findAll(_req: AuthRequest, res: Response, next: NextFunction) {
@@ -35,7 +36,7 @@ class PostsController {
   public async createOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
       const { title, body, tags } = req.body;
-      const tagsArr = Array.isArray(tags) ? tags : tags.split(',').map(skill => ' ' + skill.trim());
+      const tagsArr = Array.isArray(tags) ? tags : convertToArray(tags);
 
       const post = await postsService.createOne({
         title,

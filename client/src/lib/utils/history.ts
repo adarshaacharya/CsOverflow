@@ -6,7 +6,7 @@
 
 import { createBrowserHistory } from 'history';
 
-export default createBrowserHistory();
+export const history = createBrowserHistory();
 
 /* Reference: 
 https://reactrouter.com/web/api/Router

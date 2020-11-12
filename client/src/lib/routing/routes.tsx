@@ -12,7 +12,7 @@ import Users from 'sections/Users';
 import Tags from 'sections/Tags';
 import Posts from 'sections/Posts';
 import Post from 'sections/Post';
-import  Ask  from 'sections/Ask';
+import Ask from 'sections/Ask';
 
 export const useRoutes = () => {
   return (

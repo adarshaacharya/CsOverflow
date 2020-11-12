@@ -12,13 +12,6 @@ const { Text, Title } = Typography;
 const { Item } = Form;
 const { Password } = Input;
 
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailFormItemLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -50,7 +43,7 @@ const Signup = () => {
           </Text>
         </div>
 
-        <Form {...layout} onFinish={onFormSubmit} size="large" className="sign-up-card__form">
+        <Form layout="vertical" onFinish={onFormSubmit} size="large" className="sign-up-card__form">
           <Item
             label="Name"
             name="name"
@@ -120,7 +113,7 @@ const Signup = () => {
             <Password />
           </Item>
 
-          <Item {...tailFormItemLayout}>
+          <Item>
             <Button type="primary" htmlType="submit" className="sign-up-card__form-button">
               Register
             </Button>

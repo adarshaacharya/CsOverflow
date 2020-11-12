@@ -1,6 +1,8 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
-import { GET_POST, GET_POSTS, PostsActions, POST_ERROR } from './posts.types';
+import { setAlert } from '../alert/alert.actions';
+import { GET_POST, GET_POSTS, PostsActions, POST_ERROR, IPostCreate, ADD_POST } from './posts.types';
+import { history } from 'lib/utils';
 
 export const getPosts = () => async (dispatch: Dispatch<PostsActions>) => {
   try {
@@ -24,6 +26,27 @@ export const getPostById = (id: string) => async (dispatch: Dispatch<PostsAction
       type: GET_POST,
       payload: data,
     });
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: error.response.data.error,
+    });
+  }
+};
+
+export const addPost = (formData: IPostCreate) => async (dispatch: Dispatch<PostsActions>) => {
+  try {
+    console.log(formData);
+    const { data } = await Api.post(`/posts`, formData);
+
+    dispatch({
+      type: GET_POST,
+      payload: data,
+    });
+
+    dispatch<any>(setAlert('Question asked successfully', 'success'));
+    dispatch<any>(getPosts());
+    history.push('/posts');
   } catch (error) {
     dispatch({
       type: POST_ERROR,

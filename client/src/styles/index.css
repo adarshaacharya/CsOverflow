@@ -116,9 +116,8 @@
    background: #fff;
 }
 .log-in-card {
-   max-width: 480px;
+   max-width: 450px;
    text-align: center;
-   padding: 10px 0 20px;
 }
 .log-in-card__intro-title.ant-typography,
 .log-in-card__intro-title.ant-typography + h3.ant-typography {
@@ -126,6 +125,7 @@
 }
 .log-in-card__form {
    margin-top: 1rem;
+   text-align: start;
 }
 .log-in-card__form-button {
    width: 100%;
@@ -152,7 +152,9 @@
 }
 .sign-up-card__form {
    margin-top: 1rem;
+   text-align: start;
 }
+
 .sign-up-card__form-button {
    width: 100%;
 }
@@ -355,3 +357,9 @@
 .post-details .post-details__main .post-details__body .post-details__text {
    margin-bottom: 2rem;
 }
+/* ask */
+.ask {
+   padding: 60px 100px;
+   background: #fff;
+}
+

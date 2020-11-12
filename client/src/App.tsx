@@ -3,7 +3,7 @@ import { Affix, Button, Layout } from 'antd';
 import AlertBoundary from 'lib/components/AlertBoundary';
 import Navbar from 'lib/components/AppHeader';
 import { useRoutes } from 'lib/routing/routes';
-import history from 'lib/utils/history';
+import {history} from 'lib/utils';
 import React, { useEffect } from 'react';
 import { Link, Router } from 'react-router-dom';
 import store from 'store';

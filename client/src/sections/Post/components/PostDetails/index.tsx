@@ -8,10 +8,10 @@ import { IPost } from 'store/modules/posts/posts.types';
 type Props = {
   post: IPost;
 };
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 export const PostDetails: React.FC<Props> = ({ post }) => {
-  const { id, body, createdAt, tags, title, user } = post;
+  const { body, createdAt, tags, title, user } = post;
 
   return (
     <div className="post-details">
@@ -44,11 +44,12 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
           <Col span={16} className="post-details__body">
             <Paragraph className="post-details__text">{body}</Paragraph>
             <Paragraph className="post-details__tags">
-              {tags.map(tag => (
-                <Tag key={tag.id}>
-                  <Link to={`/tags/${tag.tagname}`}>{tag.tagname}</Link>
-                </Tag>
-              ))}
+              {tags &&
+                tags.map(tag => (
+                  <Tag key={tag.id}>
+                    <Link to={`/tags/${tag.tagname}`}>{tag.tagname}</Link>
+                  </Tag>
+                ))}
             </Paragraph>
           </Col>
           <Col span={5}>

@@ -10,15 +10,6 @@ const { Content } = Layout;
 const { Text, Title } = Typography;
 const { Item } = Form;
 
-const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 18 },
-};
-
-const tailLayout = {
-  wrapperCol: { offset: 6, span: 18 },
-};
-
 const Login = () => {
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
@@ -45,7 +36,7 @@ const Login = () => {
           </Title>
           <Text className="log-in-card__intro-text">Sign in to ask or answer questions and unlock all features.</Text>
         </div>
-        <Form {...layout} size={'large'} className="log-in-card__form" onFinish={onFormSubmit}>
+        <Form layout="vertical" size={'large'} className="log-in-card__form" onFinish={onFormSubmit}>
           <Item
             name="email"
             label="E-mail"
@@ -74,7 +65,7 @@ const Login = () => {
             <Input.Password />
           </Item>
 
-          <Item {...tailLayout}>
+          <Item>
             <Button type="primary" htmlType="submit" className="log-in-card__form-button">
               Log In
             </Button>
