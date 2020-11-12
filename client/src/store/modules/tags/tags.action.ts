@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
-import { GET_TAGS, TAG_ERROR } from './tags.types';
+import { GET_TAGS, TagsAction, TAG_ERROR } from './tags.types';
 
-export const getTags = () => async (dispatch: Dispatch) => {
+export const getTags = () => async (dispatch: Dispatch<TagsAction>) => {
   try {
     const { data } = await Api.get('/tags');
     dispatch({

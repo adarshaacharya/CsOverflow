@@ -1,5 +1,3 @@
-import { GET_POST, GET_POSTS } from '../posts/posts.types';
-
 export const GET_TAG = '@@/tags/GET_TAG';
 export const GET_TAGS = '@@/tags/GET_TAGS';
 export const TAG_ERROR = '@@/tags/TAG_ERROR';
@@ -11,18 +9,18 @@ export interface ITag {
 
 export interface TagsState {
   tags: ITag[];
-  tag: null;
-  loading: true;
+  tag: ITag | null;
+  loading: boolean;
   error: {} | null;
 }
 
 interface GetTagAction {
-  type: typeof GET_POST;
+  type: typeof GET_TAG;
   payload: ITag;
 }
 
-interface GetPostsAction {
-  type: typeof GET_POSTS;
+interface GetTagsAction {
+  type: typeof GET_TAGS;
   payload: ITag[];
 }
 
@@ -31,4 +29,4 @@ interface TagErrorAction {
   payload: object;
 }
 
-export type TagsAction = GetTagAction | GetPostsAction | TagErrorAction;
+export type TagsAction = GetTagAction | GetTagsAction | TagErrorAction;
