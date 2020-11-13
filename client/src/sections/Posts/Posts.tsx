@@ -63,7 +63,7 @@ const Posts = () => {
       <Sidebar />
       <Content className="posts">
         <Row justify="space-between" className="posts__header">
-          <Title level={2} className="posts__title">
+          <Title level={3} className="posts__title">
             Top Questions
           </Title>
           <Button type="primary">

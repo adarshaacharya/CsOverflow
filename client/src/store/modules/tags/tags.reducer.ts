@@ -4,7 +4,7 @@ const initialState: TagsState = {
   tags: [],
   tag: null,
   loading: true,
-  error: {},
+  error: null,
 };
 
 export const tagsReducer = (state: TagsState = initialState, action: TagsAction): TagsState => {
