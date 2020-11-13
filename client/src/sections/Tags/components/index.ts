@@ -1,1 +1,1 @@
-export * from './TagCard'
+export * from './TagCard';

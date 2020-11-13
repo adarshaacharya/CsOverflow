@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   user: usersReducer,
   post: postsReducer,
   answer: answersReducer,
-  tag : tagsReducer,
+  tag: tagsReducer,
   alert: alertReducer,
 });
 

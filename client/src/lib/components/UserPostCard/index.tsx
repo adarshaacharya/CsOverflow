@@ -11,7 +11,8 @@ type Props = {
   user: IPostUser;
   createdAt: string;
 };
-const UserCard: React.FC<Props> = ({ user, createdAt }) => {
+
+const UserPostCard: React.FC<Props> = ({ user, createdAt }) => {
   if (!user) return <Spin />;
 
   const { name, avatar, id } = user;
@@ -29,4 +30,4 @@ const UserCard: React.FC<Props> = ({ user, createdAt }) => {
   );
 };
 
-export default UserCard;
+export default UserPostCard;

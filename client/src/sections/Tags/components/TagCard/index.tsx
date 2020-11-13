@@ -14,7 +14,7 @@ export const TagCard: React.FC<Props> = ({ tag }) => {
 
       <div className="tags__tag-caption">
         <Paragraph type="secondary">3 questions</Paragraph>
-        <Paragraph type="secondary"> added a month ago</Paragraph>
+        <Paragraph type="secondary">added month ago</Paragraph>
       </div>
     </Card>
   );
