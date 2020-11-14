@@ -66,9 +66,8 @@ const Tags = () => {
         />
       ) : (
         <div>
-          <Paragraph>It appears no tags has been found.</Paragraph>
           <Paragraph>
-            Be the first person to create a <Link to="/ask">post!</Link>
+            It appears no tags has been found. Be the first person to create a <Link to="/ask">post!</Link>
           </Paragraph>
         </div>
       )}

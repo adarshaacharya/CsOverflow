@@ -1,5 +1,5 @@
 import { Card, Col, Row, Spin, Tag, Typography } from 'antd';
-import  UserPostCard  from 'lib/components/UserPostCard';
+import UserPostCard from 'lib/components/UserPostCard';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IPost } from 'store/modules/posts/posts.types';
