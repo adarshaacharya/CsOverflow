@@ -8,7 +8,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { RootState } from 'store/modules/combine-reducer';
-import { getTagPosts, getTopPosts } from 'store/modules/posts/posts.actions';
+import { getTagPosts } from 'store/modules/posts/posts.actions';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
