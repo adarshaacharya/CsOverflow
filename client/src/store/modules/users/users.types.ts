@@ -1,8 +1,15 @@
-import { IUser } from '../auth/auth.types';
-
 export const GET_USER = '@@/auth/GET_USER';
 export const GET_USERS = '@@/auth/GET_USERS';
 export const USER_ERROR = '@@/auth/USER_ERROR';
+
+interface IUser {
+  id: number;
+  name: string;
+  email: string;
+  avatar: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
 export interface UsersState {
   users: IUser[];

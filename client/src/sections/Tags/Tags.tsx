@@ -15,7 +15,7 @@ const { Title, Paragraph } = Typography;
 
 const Tags = () => {
   const dispatch = useDispatch();
-  const { tags, loading,  error } = useSelector((state: RootState) => state.tag);
+  const { tags, loading, error } = useSelector((state: RootState) => state.tag);
 
   useEffect(() => {
     dispatch(getTags());

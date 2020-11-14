@@ -3,6 +3,7 @@ import generateToken from '../../common/token/generate-jwt';
 import { NotFound, BadRequest } from '../../common/exceptions';
 import gravatar from 'gravatar';
 import normalizeUrl from 'normalize-url';
+import { Posts } from 'modules/posts/posts.model';
 
 interface IUsersData {
   name: string;
@@ -58,7 +59,6 @@ class UsersService {
       where: { id },
       attributes: { exclude: ['password'] },
     });
-
     return user;
   }
 
