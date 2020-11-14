@@ -6,7 +6,11 @@ const { Sider } = Layout;
 
 const Sidebar = () => {
   return (
-    <Sider width={200} theme="light" className="side-bar" breakpoint={'lg'}>
+    <Sider width={200} 
+    style={{ 
+    
+  }}
+    theme="light" className="side-bar" breakpoint={'lg'}>
       <div className="sidebar__menu-section">
         <MenuItems />
       </div>

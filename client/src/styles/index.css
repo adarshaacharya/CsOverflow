@@ -7,6 +7,11 @@
 #app {
    background: #fff;
 }
+main.ant-layout-content {
+   margin-left: 150px;
+   background: #fff;
+}
+/* app header */
 .app-header {
    display: flex;
    justify-content: space-between;
@@ -75,12 +80,17 @@
 /* side bar */
 .side-bar {
    background: #fff;
-
-    
+   padding-top: 25px;
+   border-right: 1px solid rgba(0, 0, 0, 0.05);
+   overflow: auto;
+   height: 100vh;
+   position: fixed;
+   left: 0;
 }
 .side-bar.sidebar__menu-items {
    height: 100%;
    border-right: 0;
+   
 }
 
 /* error banner component */
@@ -197,7 +207,6 @@
 .home {
    background-color: #fff;
    padding: 60px 120px;
-
 }
 
 /* user page */
@@ -239,6 +248,7 @@
 .users {
    padding: 60px 120px;
    background: #fff;
+   
 }
 .users > h3.users__title {
    color: #1d226c;
@@ -365,10 +375,10 @@
    padding: 60px 100px;
    background: #fff;
    display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 100px;
-  margin: 0 auto;
+   justify-content: center;
+   align-items: center;
+   padding: 40px 100px;
+   margin: 0 auto;
 }
 .ask .ask__form-header .ask__form-title {
    color: #1d226c;

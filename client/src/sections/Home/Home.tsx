@@ -1,15 +1,29 @@
+import { Divider, Layout, Typography } from 'antd';
 import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
+const { Title, Paragraph } = Typography;
+const { Content } = Layout;
 const Home = () => {
   useScrollToTop();
 
   return (
     <>
       <Sidebar />
-      <div className="home">
-        <h1>Home Page</h1>
+      <Content className="home">
+        <div className="home__header">
+          <Title level={3}>Top Questions</Title>
+
+          <Paragraph type="secondary">
+            Top questions are displayed based on the performance and the interactivity of posts. If you want to view all
+            questions
+            <Link to="/posts"> click here !</Link>
+          </Paragraph>
+        </div>
+
+        <Divider />
         <p>
           te consectetur, repellendus quasi iure earum labore, quia illo temporibus dolores vel. Quod quisquam, quo
           numquam vero ipsam nulla ea illum sed ratione sapiente laboriosam aut, fuga est animi illo nesciunt odio,
@@ -24,7 +38,7 @@ const Home = () => {
           consectetur amet vel recusandae soluta vitae quo voluptatibus aut! Ut beatae unde cumque, aliquam voluptatibus
           ullam natus possimus! Accusamus asperiores laudantium, ipsam dolor recusandae vel tenetur rem libero delectus
         </p>
-      </div>
+      </Content>
     </>
   );
 };

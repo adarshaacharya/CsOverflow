@@ -1,4 +1,5 @@
-import { Button, Divider, Layout, Row, Typography } from 'antd';
+import { Button, Divider, Layout, Row, Tag, Typography } from 'antd';
+import { List } from 'antd/lib/form/Form';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import { PostCard } from 'lib/components/PostCard';
@@ -49,6 +50,7 @@ const Posts = () => {
       {posts.length < 1 ? (
         <Paragraph>It appears no questions has been asked. Be first one to create it.</Paragraph>
       ) : (
+        // <List />
         posts.map(post => (
           <div className="post" id={`${post.id}`}>
             {post && post.user && <PostCard post={post} />}
@@ -64,12 +66,16 @@ const Posts = () => {
       <Content className="posts">
         <Row justify="space-between" className="posts__header">
           <Title level={3} className="posts__title">
-            Top Questions
+            All Questions
           </Title>
           <Button type="primary">
             <Link to="/ask">Ask Question</Link>
           </Button>
         </Row>
+        <Tag color="purple">
+          {posts.length} Question
+          {posts.length <= 1 ? '' : 's'}
+        </Tag>
         <Divider />
         {postsSectionElement}
       </Content>
