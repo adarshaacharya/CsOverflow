@@ -11,3 +11,11 @@ export const router: Router = Router();
  * @acces private
  */
 router.get('/', authJwt, tagsController.getAll);
+
+/**
+ * @method POST
+ * @route /api/tags/:tagname
+ * @description : fetch a single tag
+ * @acces private
+ */
+router.get('/:tagname', authJwt, tagsController.getTag);

@@ -1,2 +1,2 @@
-import TagPosts from './TagPosts'
-export default TagPosts
+import TagPosts from './TagPosts';
+export default TagPosts;

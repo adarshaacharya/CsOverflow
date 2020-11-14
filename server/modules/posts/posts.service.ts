@@ -77,13 +77,13 @@ class PostsService {
             attributes: [],
           },
 
-          include : [
+          include: [
             {
               model: Users,
               as: 'user',
               attributes: ['id', 'name', 'email', 'avatar'],
-            }
-          ]
+            },
+          ],
         },
       ],
     });

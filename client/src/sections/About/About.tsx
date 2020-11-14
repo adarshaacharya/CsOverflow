@@ -14,7 +14,9 @@ const About = () => {
           <Title level={3} className="about-hero__title">
             About CS Overflow
           </Title>
-          <Text className="about-hero__subtitle" type="secondary">More info coming soon...</Text>
+          <Text className="about-hero__subtitle" type="secondary">
+            More info coming soon...
+          </Text>
         </div>
       </Content>
     </>

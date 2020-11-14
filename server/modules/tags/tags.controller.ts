@@ -12,6 +12,15 @@ class TagsController {
       next(error);
     }
   }
+
+  public async getTag(req: AuthRequest, res: Response, next: NextFunction) {
+    try {
+      const tag = await tagsService.getTag(req.params.tagname);
+      res.status(200).json(tag);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 export const tagsController = new TagsController();
