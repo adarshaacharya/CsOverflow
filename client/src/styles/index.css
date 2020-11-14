@@ -89,8 +89,6 @@ main.ant-layout-content {
 }
 .side-bar.sidebar__menu-items {
    height: 100%;
-   border-right: 0;
-   
 }
 
 /* error banner component */

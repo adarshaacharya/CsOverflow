@@ -20,7 +20,7 @@ router.get('/', authJwt, postsController.findAll);
  * @description : Fetch all posts sorted by maximum interactivity
  * @acces private
  */
-// router.get('/top', postsController.findAll);
+router.get('/top', postsController.findTopPosts);
 
 /**
  * @method GET

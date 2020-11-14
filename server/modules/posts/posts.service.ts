@@ -33,6 +33,28 @@ class PostsService {
     });
     return posts;
   }
+  public async findTopPosts(): Promise<Posts[]> {
+    const posts = await Posts.findAll({
+      limit: 5,
+      order: [['id', 'DESC']],
+      include: [
+        {
+          model: Tags,
+          as: 'tags',
+          attributes: ['id', 'tagname'],
+          through: {
+            attributes: [],
+          },
+        },
+        {
+          model: Users,
+          as: 'user',
+          attributes: ['id', 'name', 'email', 'avatar'],
+        },
+      ],
+    });
+    return posts;
+  }
 
   public async findOneByIdOrThrow(id: number): Promise<Posts | null> {
     const post = this.findOneById(id);

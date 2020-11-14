@@ -14,6 +14,15 @@ class PostsController {
     }
   }
 
+  public async findTopPosts(_req: AuthRequest, res: Response, next: NextFunction) {
+    try {
+      const posts = await postsService.findTopPosts();
+      res.status(201).json(posts);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   public async findOneById(req: AuthRequest, res: Response, next: NextFunction) {
     try {
       validateIdOrThrow(+req.params.id);

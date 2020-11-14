@@ -51,7 +51,7 @@ const Tags = () => {
       {tags && tags.length > 0 ? (
         <List
           grid={{
-            gutter: 16, 
+            gutter: 16,
             column: 3,
             lg: 2,
             md: 2,
