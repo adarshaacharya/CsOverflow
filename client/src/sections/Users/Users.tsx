@@ -50,7 +50,7 @@ const Users = () => {
       <Sidebar />
       <Content className="content users">
         <Title level={3} className="users__title">
-          Top Users
+          Users
         </Title>
         <Tag color="purple">
           {users.length} user

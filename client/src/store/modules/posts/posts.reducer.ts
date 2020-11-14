@@ -3,6 +3,7 @@ import {
   DELETE_POST,
   GET_POST,
   GET_POSTS,
+  GET_TAG_POSTS,
   GET_TOP_POSTS,
   PostsActions,
   PostsState,
@@ -20,6 +21,7 @@ export const postsReducer = (state: PostsState = initialState, action: PostsActi
   switch (action.type) {
     case GET_POSTS:
     case GET_TOP_POSTS:
+    case GET_TAG_POSTS:
       return {
         ...state,
         posts: action.payload,

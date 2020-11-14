@@ -1,8 +1,16 @@
+import { history } from 'lib/utils';
 import { Dispatch } from 'redux';
 import Api from 'store/api';
 import { setAlert } from '../alert/alert.actions';
-import { GET_POST, GET_POSTS, PostsActions, POST_ERROR, IPostCreate, ADD_POST, GET_TOP_POSTS } from './posts.types';
-import { history } from 'lib/utils';
+import {
+  GET_POST,
+  GET_POSTS,
+  GET_TAG_POSTS,
+  GET_TOP_POSTS,
+  IPostCreate,
+  PostsActions,
+  POST_ERROR,
+} from './posts.types';
 
 export const getPosts = () => async (dispatch: Dispatch<PostsActions>) => {
   try {
@@ -30,6 +38,23 @@ export const getTopPosts = () => async (dispatch: Dispatch<PostsActions>) => {
     dispatch({
       type: POST_ERROR,
       payload: error.response.data.error,
+    });
+  }
+};
+
+export const getTagPosts = (tagName: string) => async (dispatch: Dispatch<PostsActions>) => {
+  try {
+    const {
+      data: { posts },
+    } = await Api.get(`/posts/tag/${tagName}`);
+    dispatch({
+      type: GET_TAG_POSTS,
+      payload: posts,
+    });
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: error,
     });
   }
 };

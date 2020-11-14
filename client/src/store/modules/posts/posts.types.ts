@@ -29,6 +29,13 @@ export interface IPost {
   user: IPostUser;
 }
 
+export interface ITagPosts {
+  id: number;
+  tagname: string;
+  createdAt: string;
+  posts: IPost[];
+}
+
 export interface PostsState {
   posts: IPost[];
   post: IPost | null;
@@ -49,6 +56,11 @@ interface GetPostsAction {
 
 interface GetTopPostsAction {
   type: typeof GET_TOP_POSTS;
+  payload: IPost[];
+}
+
+interface GetTagPostsAction {
+  type: typeof GET_TAG_POSTS;
   payload: IPost[];
 }
 
@@ -75,6 +87,7 @@ interface PostErrorAction {
 export type PostsActions =
   | GetPostsAction
   | GetTopPostsAction
+  | GetTagPostsAction
   | GetPostAction
   | AddPostAction
   | DeletePostAction

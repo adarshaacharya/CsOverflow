@@ -5,6 +5,7 @@ export const TAG_ERROR = '@@/tags/TAG_ERROR';
 export interface ITag {
   id: number;
   tagname: string;
+  createdAt: string;
 }
 
 export interface TagsState {

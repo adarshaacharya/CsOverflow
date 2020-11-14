@@ -27,7 +27,7 @@ const Tags = () => {
     return (
       <>
         <Sidebar />
-        <Content className="tags">
+        <Content className="content tags">
           <PageSkeleton />
         </Content>
       </>
@@ -38,7 +38,7 @@ const Tags = () => {
     return (
       <>
         <Sidebar />
-        <Content className="listings">
+        <Content className="content listings">
           <ErrorBanner description="Tags may not exists or we 've encounted an error. Please try again soon." />
           <PageSkeleton />
         </Content>
@@ -60,7 +60,9 @@ const Tags = () => {
           dataSource={tags}
           renderItem={item => (
             <List.Item key={item.id}>
-              <TagCard tag={item} />
+              <Link to={`/tags/${item.tagname}`}>
+                <TagCard tag={item} />
+              </Link>
             </List.Item>
           )}
         />

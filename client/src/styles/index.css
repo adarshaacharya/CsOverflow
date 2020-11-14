@@ -375,11 +375,6 @@
 .ask {
    padding: 60px 100px;
    background: #fff;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding: 40px 100px;
-   margin: 0 auto;
 }
 .ask .ask__form-header .ask__form-title {
    color: #1d226c;
@@ -405,4 +400,15 @@
    justify-content: space-between;
    align-items: center;
    margin-top: 1rem;
+}
+
+/* tagpost page */
+.tag-posts {
+   background: #fff;
+   padding: 60px 100px;
+}
+.tag-posts .tag-posts__header 
+.tag-posts__header--title {
+   color: #1d226c;
+   margin-bottom: 15px;
 }

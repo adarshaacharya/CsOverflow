@@ -76,6 +76,14 @@ class PostsService {
           through: {
             attributes: [],
           },
+
+          include : [
+            {
+              model: Users,
+              as: 'user',
+              attributes: ['id', 'name', 'email', 'avatar'],
+            }
+          ]
         },
       ],
     });
