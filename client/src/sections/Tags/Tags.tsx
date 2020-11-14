@@ -1,4 +1,4 @@
-import { Divider, Layout, List, Typography } from 'antd';
+import { Divider, Layout, List, Tag, Typography } from 'antd';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
@@ -77,7 +77,7 @@ const Tags = () => {
   return (
     <>
       <Sidebar />
-      <Content className="tags">
+      <Content className="content tags">
         <div className="tags__header">
           <Title level={3} className="tags__header--title">
             Tags
@@ -86,6 +86,10 @@ const Tags = () => {
             A tag is a keyword or label that categorizes your question with other, similar questions. Using the right
             tags makes it easier for others to find and answer your question.
           </Paragraph>
+          <Tag color="purple">
+            {tags.length} Tag
+            {tags.length <= 1 ? '' : 's'}
+          </Tag>
         </div>
         <Divider />
         {tagsSectionElement}

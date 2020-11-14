@@ -9,7 +9,7 @@ const About = () => {
   return (
     <>
       <Sidebar />
-      <Content className="about">
+      <Content className="content about">
         <div className="about-hero">
           <Title level={1} className="about-hero__title">
             About CS Overflow

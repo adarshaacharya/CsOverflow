@@ -1,6 +1,5 @@
 export * from './About';
 export * from './Ask';
-export * from './Dashboard';
 export * from './Home';
 export * from './Login';
 export * from './Post';

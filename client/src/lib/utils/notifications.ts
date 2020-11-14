@@ -14,3 +14,7 @@ export function displaySuccessNotification(message: string, description?: string
 export function displayErrorMessage(error: string) {
   return message.error(error);
 }
+
+export function displayWarningMessage(warning: string) {
+  return message.warning(warning);
+}

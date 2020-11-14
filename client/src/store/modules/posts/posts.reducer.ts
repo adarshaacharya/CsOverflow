@@ -1,4 +1,13 @@
-import { ADD_POST, DELETE_POST, GET_POST, GET_POSTS, PostsActions, PostsState, POST_ERROR } from './posts.types';
+import {
+  ADD_POST,
+  DELETE_POST,
+  GET_POST,
+  GET_POSTS,
+  GET_TOP_POSTS,
+  PostsActions,
+  PostsState,
+  POST_ERROR,
+} from './posts.types';
 
 const initialState: PostsState = {
   posts: [],
@@ -10,6 +19,7 @@ const initialState: PostsState = {
 export const postsReducer = (state: PostsState = initialState, action: PostsActions): PostsState => {
   switch (action.type) {
     case GET_POSTS:
+    case GET_TOP_POSTS:
       return {
         ...state,
         posts: action.payload,

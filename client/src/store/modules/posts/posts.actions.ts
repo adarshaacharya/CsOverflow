@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
 import { setAlert } from '../alert/alert.actions';
-import { GET_POST, GET_POSTS, PostsActions, POST_ERROR, IPostCreate, ADD_POST } from './posts.types';
+import { GET_POST, GET_POSTS, PostsActions, POST_ERROR, IPostCreate, ADD_POST, GET_TOP_POSTS } from './posts.types';
 import { history } from 'lib/utils';
 
 export const getPosts = () => async (dispatch: Dispatch<PostsActions>) => {
@@ -9,6 +9,21 @@ export const getPosts = () => async (dispatch: Dispatch<PostsActions>) => {
     const { data } = await Api.get('/posts');
     dispatch({
       type: GET_POSTS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: error.response.data.error,
+    });
+  }
+};
+
+export const getTopPosts = () => async (dispatch: Dispatch<PostsActions>) => {
+  try {
+    const { data } = await Api.get('/posts/top');
+    dispatch({
+      type: GET_TOP_POSTS,
       payload: data,
     });
   } catch (error) {

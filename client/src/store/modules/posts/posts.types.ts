@@ -47,6 +47,11 @@ interface GetPostsAction {
   payload: IPost[];
 }
 
+interface GetTopPostsAction {
+  type: typeof GET_TOP_POSTS;
+  payload: IPost[];
+}
+
 interface GetPostAction {
   type: typeof GET_POST;
   payload: IPost;
@@ -67,4 +72,10 @@ interface PostErrorAction {
   payload: object;
 }
 
-export type PostsActions = GetPostsAction | GetPostAction | AddPostAction | DeletePostAction | PostErrorAction;
+export type PostsActions =
+  | GetPostsAction
+  | GetTopPostsAction
+  | GetPostAction
+  | AddPostAction
+  | DeletePostAction
+  | PostErrorAction;

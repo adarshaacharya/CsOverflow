@@ -22,7 +22,7 @@ const Ask = () => {
   return (
     <>
       <Sidebar />
-      <Content className="ask">
+      <Content className="content ask">
         <Form layout="vertical" onFinish={onFormSubmit}>
           <div className="ask__form-header">
             <Title level={3} className="ask__form-title">

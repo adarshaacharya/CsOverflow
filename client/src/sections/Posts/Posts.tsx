@@ -29,7 +29,7 @@ const Posts = () => {
     return (
       <>
         <Sidebar />
-        <Content className="posts">
+        <Content className="content posts">
           <PageSkeleton />
         </Content>
       </>
@@ -38,7 +38,7 @@ const Posts = () => {
 
   if (error) {
     return (
-      <Content className="posts">
+      <Content className="content posts">
         <ErrorBanner description="Posts may not exist or we 've encounted an error. Please try again soon." />
         <PageSkeleton />
       </Content>
@@ -50,7 +50,6 @@ const Posts = () => {
       {posts.length < 1 ? (
         <Paragraph>It appears no questions has been asked. Be first one to create it.</Paragraph>
       ) : (
-        // <List />
         posts.map(post => (
           <div className="post" id={`${post.id}`}>
             {post && post.user && <PostCard post={post} />}
@@ -63,7 +62,7 @@ const Posts = () => {
   return (
     <>
       <Sidebar />
-      <Content className="posts">
+      <Content className="content posts">
         <Row justify="space-between" className="posts__header">
           <Title level={3} className="posts__title">
             All Questions
@@ -72,6 +71,11 @@ const Posts = () => {
             <Link to="/ask">Ask Question</Link>
           </Button>
         </Row>
+        <Paragraph type="secondary">
+          Explore all the questions and help us to answer unanswered questions. You can choose the category of questions by
+          exploring on
+          <Link to="/tags"> tags section.</Link>
+        </Paragraph>
         <Tag color="purple">
           {posts.length} Question
           {posts.length <= 1 ? '' : 's'}

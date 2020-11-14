@@ -26,7 +26,7 @@ const Post = () => {
     return (
       <>
         <Sidebar />
-        <Content className="post-wrapper">
+        <Content className="content post-wrapper">
           <PageSkeleton />
         </Content>
       </>
@@ -36,7 +36,7 @@ const Post = () => {
     return (
       <>
         <Sidebar />
-        <Content className="post-wrapper">
+        <Content className="content post-wrapper">
           <ErrorBanner description="This post may not exists we've encountered an error. Please try again later" />
           <PageSkeleton />
         </Content>
@@ -47,7 +47,7 @@ const Post = () => {
   return (
     <>
       <Sidebar />
-      <Content className="post-wrapper">
+      <Content className="content post-wrapper">
         {post && <PostDetails post={post} />}
         <PostAnswerDetails />
         <Divider />

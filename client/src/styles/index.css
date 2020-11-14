@@ -7,9 +7,8 @@
 #app {
    background: #fff;
 }
-main.ant-layout-content {
+.content {
    margin-left: 150px;
-   background: #fff;
 }
 /* app header */
 .app-header {
@@ -206,6 +205,9 @@ main.ant-layout-content {
    background-color: #fff;
    padding: 60px 120px;
 }
+.home .home__header h3 {
+   color: #1d226c;
+}
 
 /* user page */
 .user {
@@ -246,7 +248,6 @@ main.ant-layout-content {
 .users {
    padding: 60px 120px;
    background: #fff;
-   
 }
 .users > h3.users__title {
    color: #1d226c;
@@ -277,23 +278,25 @@ main.ant-layout-content {
 .posts .posts__header > h3 {
    color: #1d226c;
 }
-.posts .post__layout {
+
+/* post card */
+.post__card {
    margin: 30px 0;
    padding: 1rem 0;
    border-radius: 4px;
    transition: all 0.2s ease 0s;
 }
-.posts .post__layout:hover {
+.post__card:hover {
    transform: translate(0px, -2px);
    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
 }
-.posts .post__layout .post__layout--stats {
+.post__card .post__card--stats {
    display: grid;
    justify-content: center;
    text-align: center;
    color: #6a737c;
 }
-.posts .post__layout .post__layout--stats .post__layout--stats-vote {
+.post__card .post__card--stats .post__card--stats-vote {
    margin-bottom: 1rem;
    text-align: center;
    display: flex;
@@ -309,16 +312,16 @@ main.ant-layout-content {
 .count-text {
    font-size: 12px;
 }
-.posts .post__layout .post__layout--body {
+.post__card .post__card--body {
    padding: 0 10px;
 }
-.posts .post__layout .post__layout--body > h4 {
+.post__card .post__card--body > h4 {
    padding: 5px 0;
 }
-.posts .post__layout .post__layout--text {
+.post__card .post__card--text {
    padding: 5px 0;
 }
-.posts .post__layout .post__layout--tags {
+.post__card .post__card--tags {
    padding: 5px 0;
 }
 /* user post card */

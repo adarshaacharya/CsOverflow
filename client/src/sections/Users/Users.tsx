@@ -1,4 +1,4 @@
-import { Col, Divider, Layout, Row, Typography } from 'antd';
+import { Col, Divider, Layout, Row, Tag, Typography } from 'antd';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
@@ -25,7 +25,7 @@ const Users = () => {
     return (
       <>
         <Sidebar />
-        <Content className="users">
+        <Content className="content users">
           <PageSkeleton />
         </Content>
       </>
@@ -48,10 +48,14 @@ const Users = () => {
   return (
     <>
       <Sidebar />
-      <Content className="users">
+      <Content className="content users">
         <Title level={3} className="users__title">
           Top Users
         </Title>
+        <Tag color="purple">
+          {users.length} user
+          {users.length <= 1 ? '' : 's'}
+        </Tag>
         <Divider />
         {usersSectionElement}
       </Content>

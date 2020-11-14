@@ -1,5 +1,4 @@
 import NotFound from 'lib/components/NotFound';
-import Dashboard from 'sections/Dashboard';
 import Home from 'sections/Home';
 import Login from 'sections/Login';
 import Signup from 'sections/Signup';
@@ -27,7 +26,6 @@ export const useRoutes = () => {
       <AuthRoute exact path="/posts/:id" component={Post} />
       <AuthRoute exact path="/ask" component={Ask} />
       <AuthRoute exact path="/tags" component={Tags} />
-      <AuthRoute exact path="/dashboard" component={Dashboard} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,20 +1,74 @@
-import { Divider, Layout, Typography } from 'antd';
+import { Button, Divider, Layout, List, Row, Typography } from 'antd';
+import { ErrorBanner } from 'lib/components/ErrorBanner';
+import { PageSkeleton } from 'lib/components/PageSkeleton';
+import { PostCard } from 'lib/components/PostCard';
 import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RootState } from 'store/modules/combine-reducer';
+import { getTopPosts } from 'store/modules/posts/posts.actions';
 
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
+
 const Home = () => {
+  const dispatch = useDispatch();
+  const { error, loading, posts } = useSelector((state: RootState) => state.post);
+
+  useEffect(() => {
+    dispatch(getTopPosts());
+  }, [dispatch]);
+
   useScrollToTop();
+
+  if (loading) {
+    return (
+      <>
+        <Sidebar />
+        <Content className="content home">
+          <PageSkeleton />
+        </Content>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <Content className="content home">
+        <ErrorBanner description="Posts may not exist or we 've encounted an error. Please try again soon." />
+        <PageSkeleton />
+      </Content>
+    );
+  }
+  const postsSectionElement = (
+    <>
+      {posts.length < 1 ? (
+        <Paragraph>It appears no questions has been asked. Be first one to create it.</Paragraph>
+      ) : (
+        posts.map(post => (
+          <div className="post" id={`${post.id}`}>
+            {post && post.user && <PostCard post={post} />}
+          </div>
+        ))
+      )}
+    </>
+  );
 
   return (
     <>
       <Sidebar />
-      <Content className="home">
+      <Content className="content home">
         <div className="home__header">
-          <Title level={3}>Top Questions</Title>
+          <Row justify="space-between">
+            <Title level={3} className="home__title">
+              Top Questions
+            </Title>
+            <Button type="primary">
+              <Link to="/ask">Ask Question</Link>
+            </Button>
+          </Row>
 
           <Paragraph type="secondary">
             Top questions are displayed based on the performance and the interactivity of posts. If you want to view all
@@ -24,20 +78,12 @@ const Home = () => {
         </div>
 
         <Divider />
-        <p>
-          te consectetur, repellendus quasi iure earum labore, quia illo temporibus dolores vel. Quod quisquam, quo
-          numquam vero ipsam nulla ea illum sed ratione sapiente laboriosam aut, fuga est animi illo nesciunt odio,
-          voluptatum minus neque. Vitae eum aliquam sapiente ea voluptates aliquid illo illum necessitatibus ipsa in
-          quasi non a natus id obcaecati eos, sed repellendus accusantium enim! Eveniet modi beatae sint omnis
-          temporibus culpa, architecto voluptates obcaecati ducimus excepturi, facere suscipit dolore quia laboriosam
-          quasi, non et mollitia? Inventore molestias eius labore tenetur sint. Itaque odit molestiae voluptates sed
-          recusandae ratione repellendus nihil laborum quas ut consequuntur facilis mollitia ullam praesentium, nostrum
-          rerum veritatis ex. Nemo blanditiis asperiores veritatis culpa nihil placeat dolorem fugiat non excepturi
-          similique repudiandae necessitatibus tenetur eius delectus, sed doloribus modi cumque, aspernatur voluptate
-          nostrum enim. Dolorem nulla nam hic aspernatur voluptates, tenetur quisquam natus ad? Tempore, accusamus ea
-          consectetur amet vel recusandae soluta vitae quo voluptatibus aut! Ut beatae unde cumque, aliquam voluptatibus
-          ullam natus possimus! Accusamus asperiores laudantium, ipsam dolor recusandae vel tenetur rem libero delectus
-        </p>
+        {postsSectionElement}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button type="link">
+            <Link to="/posts">View all posts</Link>
+          </Button>
+        </div>
       </Content>
     </>
   );

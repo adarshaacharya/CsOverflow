@@ -19,7 +19,7 @@ const Signup = () => {
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/" />;
   }
 
   const onFormSubmit = (formData: ISignupData) => {

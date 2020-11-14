@@ -26,14 +26,14 @@ const User = () => {
 
   if (loading) {
     return (
-      <Content className="user">
+      <Content className="content user">
         <PageSkeleton />
       </Content>
     );
   }
   if (error) {
     return (
-      <Content className="user">
+      <Content className="content user">
         <ErrorBanner description="This user may not exists we've encountered an error. Please try again later" />
         <PageSkeleton />
       </Content>
@@ -45,7 +45,7 @@ const User = () => {
   return (
     <>
       <Sidebar />
-      <Content className="user">
+      <Content className="content user">
         <Row>
           <Col xs={24}>{userProfileElement}</Col>
         </Row>
