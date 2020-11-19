@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import { RootState } from 'store/modules/combine-reducer';
 import { getUserById } from 'store/modules/users/users.actions';
 import { UserProfile } from './components';
+import UserPosts from './components/UserPosts';
 
 const { Content } = Layout;
 
@@ -40,7 +41,11 @@ const User = () => {
     );
   }
 
+  const userPosts = user ? user.posts : null;
+
   const userProfileElement = user ? <UserProfile user={user} /> : null;
+
+  const userPostsElement = userPosts ? <UserPosts posts={userPosts} /> : null
 
   return (
     <>
@@ -49,6 +54,7 @@ const User = () => {
         <Row>
           <Col xs={24}>{userProfileElement}</Col>
         </Row>
+        {userPostsElement}
       </Content>
     </>
   );

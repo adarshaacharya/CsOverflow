@@ -2,6 +2,11 @@ export const GET_USER = '@@/auth/GET_USER';
 export const GET_USERS = '@@/auth/GET_USERS';
 export const USER_ERROR = '@@/auth/USER_ERROR';
 
+interface IPost {
+  id: number;
+  title: string;
+}
+
 interface IUser {
   id: number;
   name: string;
@@ -9,6 +14,7 @@ interface IUser {
   avatar: string;
   createdAt: string;
   updatedAt: string;
+  posts: IPost[];
 }
 
 export interface UsersState {

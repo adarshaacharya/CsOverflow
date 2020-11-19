@@ -58,13 +58,13 @@ class UsersService {
     const user = await Users.findOne({
       where: { id },
       attributes: { exclude: ['password'] },
-      include : [
+      include: [
         {
-          model : Posts,
-          as : 'posts',
-          attributes : ['id', 'title']
-        }
-      ]
+          model: Posts,
+          as: 'posts',
+          attributes: ['id', 'title'],
+        },
+      ],
     });
     return user;
   }
