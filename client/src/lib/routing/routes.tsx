@@ -22,12 +22,12 @@ export const useRoutes = () => {
       <Route exact path="/login" component={Login} />
       <Route exact path="/about" component={About} />
       <AuthRoute exact path="/users/:id" component={User} />
-      <AuthRoute exact path="/users" component={Users} />
-      <AuthRoute exact path="/posts" component={Posts} />
+      <Route exact path="/users" component={Users} />
+      <Route exact path="/posts" component={Posts} />
       <AuthRoute exact path="/posts/:id" component={Post} />
       <AuthRoute exact path="/ask" component={Ask} />
-      <AuthRoute exact path="/tags" component={Tags} />
-      <AuthRoute exact path="/tags/:tagname" component={TagPosts} />
+      <Route exact path="/tags" component={Tags} />
+      <Route exact path="/tags/:tagname" component={TagPosts} />
       <Route component={NotFound} />
     </Switch>
   );

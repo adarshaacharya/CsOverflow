@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/modules/combine-reducer';
 import { getUsers } from 'store/modules/users/users.actions';
 import { UserCard } from './components';
+import { Link } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Paragraph, Title } = Typography;
@@ -34,7 +35,10 @@ const Users = () => {
 
   const usersSectionElement =
     users.length < 1 ? (
-      <Paragraph>No users found.</Paragraph>
+      <Paragraph>
+        No users found. Be first one to
+        <Link to="/signup"> create account !</Link>
+      </Paragraph>
     ) : (
       <Row gutter={[48, 48]} className="users__user-cards">
         {users.map(user => (

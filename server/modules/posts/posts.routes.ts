@@ -12,7 +12,7 @@ export const router: Router = Router();
  * @description : Fetch all posts
  * @acces private
  */
-router.get('/', authJwt, postsController.findAll);
+router.get('/',  postsController.findAll);
 
 /**
  * @method GET
@@ -28,7 +28,7 @@ router.get('/top', postsController.findTopPosts);
  * @description : Fetch all posts of a specific tag
  * @acces private
  */
-router.get('/tag/:tagname', authJwt, postsController.findByTag);
+router.get('/tag/:tagname',  postsController.findByTag);
 
 /**
  * @method GET

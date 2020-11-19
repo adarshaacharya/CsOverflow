@@ -1,4 +1,4 @@
-import { LikeOutlined, DeleteOutlined, EditOutlined, CommentOutlined } from '@ant-design/icons';
+import { CommentOutlined, DeleteOutlined, EditOutlined, LikeOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Divider, message, Popconfirm, Row, Space, Tag, Tooltip, Typography } from 'antd';
 import UserPostCard from 'lib/components/UserPostCard';
 import moment from 'moment';
@@ -17,7 +17,7 @@ type Params = {
   id: string;
 };
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 export const PostDetails: React.FC<Props> = ({ post }) => {
   const { body, createdAt, tags, title, user } = post;
@@ -34,7 +34,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
     message.success('Liked');
   }
 
-  const viewerIsUser = user.id === auth.user?.id;
+  const viewerIsUser = user && user.id === auth.user?.id;
 
   const postActionsElement = (
     <Space className="post-details__actions" size="middle">

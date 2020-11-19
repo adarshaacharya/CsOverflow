@@ -10,7 +10,7 @@ export const router: Router = Router();
  * @description : fetch all tags
  * @acces private
  */
-router.get('/', authJwt, tagsController.getAll);
+router.get('/', tagsController.getAll);
 
 /**
  * @method POST
