@@ -1,17 +1,72 @@
-import { Button, Card, Col, Divider, Row, Tag, Typography } from 'antd';
+import { LikeOutlined, DeleteOutlined, EditOutlined, CommentOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Divider, message, Popconfirm, Row, Space, Tag, Tooltip, Typography } from 'antd';
 import UserPostCard from 'lib/components/UserPostCard';
 import moment from 'moment';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { RootState } from 'store/modules/combine-reducer';
+import { deletePost } from 'store/modules/posts/posts.actions';
 import { IPost } from 'store/modules/posts/posts.types';
 
 type Props = {
   post: IPost;
 };
-const { Title, Paragraph } = Typography;
+
+type Params = {
+  id: string;
+};
+
+const { Title, Paragraph, Text } = Typography;
 
 export const PostDetails: React.FC<Props> = ({ post }) => {
   const { body, createdAt, tags, title, user } = post;
+  const { id } = useParams<Params>();
+
+  const dispatch = useDispatch();
+  const { auth } = useSelector((state: RootState) => state);
+
+  function confirm() {
+    dispatch(deletePost(id));
+  }
+
+  function like() {
+    message.success('Liked');
+  }
+
+  const viewerIsUser = user.id === auth.user?.id;
+
+  const postActionsElement = (
+    <Space className="post-details__actions" size="middle">
+      <Tooltip key="like" title="Like" className="like">
+        <span onClick={like}>
+          <LikeOutlined />
+          <span className="like-count">2 upvotes</span>
+        </span>
+      </Tooltip>
+
+      {viewerIsUser ? (
+        <Popconfirm title="Are you sure to delete this question?" onConfirm={confirm} okText="Yes" cancelText="No">
+          <Button type="link" className="delete">
+            <DeleteOutlined />
+            Delete
+          </Button>
+        </Popconfirm>
+      ) : null}
+
+      {viewerIsUser ? (
+        <Button type="link" className="edit">
+          <EditOutlined />
+          Edit
+        </Button>
+      ) : null}
+
+      <Tooltip title="Comment" key="comment" className="comment">
+        <CommentOutlined />
+        <span className="comments-count">2 comments</span>
+      </Tooltip>
+    </Space>
+  );
 
   return (
     <div className="post-details">
@@ -52,7 +107,9 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
                   </Tag>
                 ))}
             </Paragraph>
+            {postActionsElement}
           </Col>
+
           <Col span={6}>
             <UserPostCard user={user} createdAt={createdAt} />
           </Col>

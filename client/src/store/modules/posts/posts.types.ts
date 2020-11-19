@@ -76,7 +76,7 @@ interface AddPostAction {
 
 interface DeletePostAction {
   type: typeof DELETE_POST;
-  payload: number;
+  payload: string;
 }
 
 interface PostErrorAction {

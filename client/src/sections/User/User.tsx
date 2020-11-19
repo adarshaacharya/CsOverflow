@@ -54,9 +54,7 @@ const User = () => {
         <Row>
           <Col xs={24}>{userProfileElement}</Col>
         </Row>
-        <Row>
-          {userPostsElement}
-          </Row>
+        <Row>{userPostsElement}</Row>
       </Content>
     </>
   );

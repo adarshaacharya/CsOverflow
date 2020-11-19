@@ -269,7 +269,6 @@
    border: 1px solid #e8e8e8;
 }
 
-
 /* users page */
 .users {
    padding: 60px 120px;
@@ -396,6 +395,27 @@
 }
 .post-details .post-details__main .post-details__body .post-details__text {
    margin-bottom: 2rem;
+}
+.post-details .post-details__main .post-details__actions {
+   padding-top: 10px;
+}
+.post-details .post-details__main .post-details__actions .delete {
+   color: red;
+}
+.post-details .post-details__main .post-details__actions .like {
+   cursor: pointer;
+}
+.post-details .post-details__main .post-details__actions .like-count {
+   margin-left: 4px;
+}
+.post-details .post-details__main .post-details__actions .edit {
+   padding-left: 0;
+}
+.post-details .post-details__main .post-details__actions .comment {
+   color: #faad14;
+}
+.post-details .post-details__main .post-details__actions .comments-count {
+   margin-left: 4px;
 }
 /* ask */
 .ask {
