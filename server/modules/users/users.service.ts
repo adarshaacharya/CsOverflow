@@ -62,7 +62,7 @@ class UsersService {
         {
           model: Posts,
           as: 'posts',
-          attributes: ['id', 'title'],
+          attributes: ['id', 'title', 'createdAt'],
         },
       ],
     });

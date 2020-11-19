@@ -244,6 +244,32 @@
 .user-profile__stats-tail {
    font-weight: bold;
 }
+.user-posts {
+   padding: 40px 20px;
+}
+.user-posts .user-posts--not-found {
+   font-size: 1rem;
+   text-align: center;
+   text-align: center;
+}
+.user-posts .user-posts__title {
+   color: #1d226c;
+}
+.user-posts__description.ant-typography {
+   font-size: 15px;
+}
+.user-posts .user-posts__list-items--item {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 30px;
+   padding: 20px 20px;
+   border-radius: 8px;
+   box-shadow: 0 3px 7px -1px rgba(150, 170, 180, 0.4);
+   border: 1px solid #e8e8e8;
+}
+
+
 /* users page */
 .users {
    padding: 60px 120px;
@@ -407,8 +433,7 @@
    background: #fff;
    padding: 60px 100px;
 }
-.tag-posts .tag-posts__header 
-.tag-posts__header--title {
+.tag-posts .tag-posts__header .tag-posts__header--title {
    color: #1d226c;
    margin-bottom: 15px;
 }

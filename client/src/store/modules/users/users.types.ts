@@ -5,6 +5,7 @@ export const USER_ERROR = '@@/auth/USER_ERROR';
 interface IPost {
   id: number;
   title: string;
+  createdAt: string;
 }
 
 interface IUser {

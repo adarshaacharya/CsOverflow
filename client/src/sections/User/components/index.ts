@@ -1,2 +1,2 @@
 export * from './UserProfile';
-export * from './UserPosts'
+export * from './UserPosts';

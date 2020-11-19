@@ -45,7 +45,7 @@ const User = () => {
 
   const userProfileElement = user ? <UserProfile user={user} /> : null;
 
-  const userPostsElement = userPosts ? <UserPosts posts={userPosts} /> : null
+  const userPostsElement = userPosts ? <UserPosts posts={userPosts} /> : null;
 
   return (
     <>
@@ -54,7 +54,9 @@ const User = () => {
         <Row>
           <Col xs={24}>{userProfileElement}</Col>
         </Row>
-        {userPostsElement}
+        <Row>
+          {userPostsElement}
+          </Row>
       </Content>
     </>
   );
