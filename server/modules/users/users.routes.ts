@@ -17,7 +17,7 @@ router.get('/', authJwt, usersController.findAll);
 /**
  * @method GET
  * @route /api/users/:id
- * @description fetch single user
+ * @description fetch single user (complete details)
  * @acces private
  */
 router.get('/:id', authJwt, usersController.findOneById);

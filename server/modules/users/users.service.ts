@@ -3,7 +3,7 @@ import generateToken from '../../common/token/generate-jwt';
 import { NotFound, BadRequest } from '../../common/exceptions';
 import gravatar from 'gravatar';
 import normalizeUrl from 'normalize-url';
-import { Posts } from 'modules/posts/posts.model';
+import { Posts } from '../../modules/posts/posts.model';
 
 interface IUsersData {
   name: string;
@@ -58,6 +58,13 @@ class UsersService {
     const user = await Users.findOne({
       where: { id },
       attributes: { exclude: ['password'] },
+      include : [
+        {
+          model : Posts,
+          as : 'posts',
+          attributes : ['id', 'title']
+        }
+      ]
     });
     return user;
   }
