@@ -194,11 +194,15 @@
 }
 .ant-typography.about-hero__title {
    color: #1d226c;
-   margin-bottom: 0.2em;
+   margin-bottom: .5em;
 }
 .ant-typography.about-hero__subtitle {
    font-size: 17px;
    margin-bottom: 1.5em;
+}
+.about .about__body {
+   padding: 30px 40px;
+   text-align: left;
 }
 /* home page */
 .home {

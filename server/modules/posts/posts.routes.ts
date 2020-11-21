@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { authJwt } from '../../common/middlewares/auth.middleware';
 import { createValidator } from '../../common/middlewares/create-validator.middleware';
 import { postsController } from './posts.controller';
-import { createPostDto } from './posts.dtos';
+import { createPostDto, updatePostDto } from './posts.dtos';
 
 export const router: Router = Router();
 
@@ -12,7 +12,7 @@ export const router: Router = Router();
  * @description : Fetch all posts
  * @acces private
  */
-router.get('/',  postsController.findAll);
+router.get('/', postsController.findAll);
 
 /**
  * @method GET
@@ -28,7 +28,7 @@ router.get('/top', postsController.findTopPosts);
  * @description : Fetch all posts of a specific tag
  * @acces private
  */
-router.get('/tag/:tagname',  postsController.findByTag);
+router.get('/tag/:tagname', postsController.findByTag);
 
 /**
  * @method GET
@@ -46,6 +46,14 @@ router.get('/:id', authJwt, postsController.findOneById);
  * @async
  */
 router.post('/', [authJwt, createValidator(createPostDto)], postsController.createOne);
+
+/**
+ * @method PUT
+ * @route /api/posts/:id
+ * @description : Update a post
+ * @acces private
+ */
+router.put('/:id', [authJwt, createValidator(updatePostDto)], postsController.updateOne);
 
 /**
  * @method DELETE

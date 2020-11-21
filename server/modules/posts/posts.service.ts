@@ -3,12 +3,21 @@ import { Tags } from '../../modules/tags/tags.model';
 import { Users } from '../../modules/users/users.model';
 import { Posts } from './posts.model';
 
-interface IPostsData {
+interface ICreatePostData {
   body: string;
   title: string;
   userId: number;
   tags: string[];
 }
+
+interface IUpdatePostData {
+  body: string;
+  title: string;
+  userId: number;
+  postId: number;
+  tags: string[];
+}
+
 const NO_RIGHTS = 'You do not have rights to do this.';
 
 class PostsService {
@@ -91,7 +100,7 @@ class PostsService {
     return post;
   }
 
-  public async createOne(postsData: IPostsData): Promise<Posts> {
+  public async createOne(postsData: ICreatePostData): Promise<Posts> {
     const { title, body, userId, tags } = postsData;
 
     const post = await Posts.create({
@@ -108,6 +117,25 @@ class PostsService {
     });
 
     return post;
+  }
+
+  public async updateOne(formData: IUpdatePostData) {
+    const { body, postId, tags, title, userId } = formData;
+
+    const post = await this.findOneById(postId);
+    if (!post) throw new NotFound(`Can't find the post with id ${postId}`);
+
+    if (post.userId !== userId) {
+      throw new Unauthorized(NO_RIGHTS);
+    }
+    const updates = { id: postId, title, body, tags };
+
+    const updatedPost = await Posts.update(updates, {
+      returning: true,
+      where: { id: postId },
+    });
+
+    return updatedPost;
   }
 
   public async deleteOne(postId: number, userId: number) {
