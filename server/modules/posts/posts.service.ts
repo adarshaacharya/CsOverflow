@@ -10,11 +10,9 @@ interface ICreatePostData {
   tags: string[];
 }
 
-interface IUpdatePostData {
+interface IPosts {
   body: string;
   title: string;
-  userId: number;
-  postId: number;
   tags: string[];
 }
 
@@ -119,20 +117,17 @@ class PostsService {
     return post;
   }
 
-  public async updateOne(formData: IUpdatePostData) {
-    const { body, postId, tags, title, userId } = formData;
-
-    const post = await this.findOneById(postId);
-    if (!post) throw new NotFound(`Can't find the post with id ${postId}`);
+  public async updateOne(id: number, updates: IPosts, userId: number) {
+    const post = await this.findOneById(id);
+    if (!post) throw new NotFound(`Can't find the post with id ${id}`);
 
     if (post.userId !== userId) {
       throw new Unauthorized(NO_RIGHTS);
     }
-    const updates = { id: postId, title, body, tags };
 
     const updatedPost = await Posts.update(updates, {
       returning: true,
-      where: { id: postId },
+      where: { id },
     });
 
     return updatedPost;

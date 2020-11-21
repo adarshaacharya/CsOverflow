@@ -60,15 +60,15 @@ class PostsController {
     }
   }
 
-  public async updateOne(req: AuthRequest, res: Response, next: NextFunction) {
+  public async updateOne(req: AuthRequest, res: Response, next: NextFunction) : Promise<void> {
     try {
-      const { title, body, tags } = req.body;
+      // const { title, body, tags } = req.body;
 
       validateIdOrThrow(+req.params.id);
       const postId = +req.params.id;
       const userId = validateIdOrThrow(req.user!.id);
 
-      const post = await postsService.updateOne({ postId, userId, title, body, tags });
+      const post = await postsService.updateOne(postId, req.body, userId);
       res.status(201).json(post);
     } catch (error) {
       next(error);
