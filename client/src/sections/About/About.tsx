@@ -1,7 +1,7 @@
+import { CheckCircleTwoTone, PlayCircleTwoTone } from '@ant-design/icons';
 import { Divider, Layout, Typography } from 'antd';
 import Sidebar from 'lib/components/Sidebar';
 import React from 'react';
-import { SmileTwoTone, LaptopOutlined, PlayCircleTwoTone, CheckCircleTwoTone } from '@ant-design/icons';
 
 const { Content } = Layout;
 const { Title, Text, Paragraph } = Typography;

@@ -9,6 +9,7 @@ import {
   LOGIN_SUCESS,
   LOGOUT,
   REGISTER_SUCCESS,
+  SET_LOADING,
   USER_LOADED,
 } from './auth.types';
 
@@ -17,6 +18,7 @@ import {
 // if there is any (x-auth-token) in req.header
 export const loadUser = () => async (dispatch: Dispatch<AuthActions>) => {
   try {
+    dispatch<any>(setLoading());
     const {
       data: { user },
     } = await Api.get('/auth');
@@ -33,6 +35,7 @@ export const loadUser = () => async (dispatch: Dispatch<AuthActions>) => {
 
 export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch<AuthActions>) => {
   try {
+    dispatch<any>(setLoading());
     const {
       data: { token },
     } = await Api.post('/users', formData);
@@ -52,6 +55,7 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
 
 export const loginUser = (formData: ISignInData) => async (dispatch: Dispatch<AuthActions>) => {
   try {
+    dispatch<any>(setLoading());
     const {
       data: { token },
     } = await Api.post('/auth', formData);
@@ -70,7 +74,14 @@ export const loginUser = (formData: ISignInData) => async (dispatch: Dispatch<Au
 };
 
 export const logOut = () => async (dispatch: Dispatch<AuthActions>) => {
+  setLoading();
   dispatch({
     type: LOGOUT,
   });
+};
+
+export const setLoading = () => {
+  return {
+    type: SET_LOADING,
+  };
 };
