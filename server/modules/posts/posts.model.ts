@@ -53,4 +53,5 @@ Posts.belongsTo(Users, {
 Users.hasMany(Posts, {
   foreignKey: 'userId',
   as: 'posts',
+  onDelete: 'cascade',
 });

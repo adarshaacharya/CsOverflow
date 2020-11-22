@@ -62,34 +62,3 @@ Users.beforeCreate(async (user: Users) => {
     user.password = hashedPassword;
   }
 });
-
-// Users.init(
-//     {
-//         id: {
-//             type: DataTypes.BIGINT,
-//             autoIncrement: true,
-//             field: 'id',
-//             primaryKey: true,
-//         },
-//         name: {
-//             type: new DataTypes.STRING(255),
-//             allowNull: false,
-//             field: 'name',
-//         },
-//         email: {
-//             type: new DataTypes.STRING(128),
-//             unique: true,
-//             allowNull: false,
-//             field: 'email',
-//         },
-//         password: {
-//             type: new DataTypes.STRING(255),
-//             allowNull: false,
-//             field: 'password',
-//         },
-//     },
-//     {
-//         tableName: 'users',
-//         sequelize,
-//     }
-// );
