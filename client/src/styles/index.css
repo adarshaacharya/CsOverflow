@@ -197,14 +197,26 @@
    color: #1d226c;
    margin-bottom: 0.5em;
 }
+.about h4 {
+   color: #1d226c;
+}
 .ant-typography.about-hero__subtitle {
-   font-size: 17px;
+   font-size: 1rem;
    margin-bottom: 1.5em;
 }
 .about .about__body {
    padding: 30px 40px;
    text-align: left;
+   font-size: 1rem;
 }
+.about .about__body .about__body--info,
+.about .about__body .about__body--features,
+.about .about__body .about__body--tech-stack,
+.about .about__body .about__body--contribution,
+.about .about__body .about__body--liscense {
+   padding: 10px 30px;
+}
+
 /* home page */
 .home {
    background-color: #fff;
