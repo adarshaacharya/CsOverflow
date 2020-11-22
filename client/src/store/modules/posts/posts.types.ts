@@ -50,6 +50,11 @@ export interface IPostCreate {
   tags: string;
 }
 
+export interface IPostEdit {
+  title: string;
+  body: string;
+  tags: string;
+}
 interface GetPostsAction {
   type: typeof GET_POSTS;
   payload: IPost[];

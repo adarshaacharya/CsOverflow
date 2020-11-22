@@ -9,6 +9,7 @@ import {
   GET_TAG_POSTS,
   GET_TOP_POSTS,
   IPostCreate,
+  IPostEdit,
   PostsActions,
   POST_ERROR,
   UPDATE_POST,
@@ -96,9 +97,9 @@ export const addPost = (formData: IPostCreate) => async (dispatch: Dispatch<Post
   }
 };
 
-export const updatePost = (id: string) => async (dispatch: Dispatch<PostsActions>) => {
+export const updatePost = (id: string, formData: IPostEdit) => async (dispatch: Dispatch<PostsActions>) => {
   try {
-    const { data } = await Api.put(`/posts/${id}`);
+    const { data } = await Api.put(`/posts/${id}`, formData);
 
     dispatch({
       type: UPDATE_POST,
@@ -106,6 +107,7 @@ export const updatePost = (id: string) => async (dispatch: Dispatch<PostsActions
     });
 
     dispatch<any>(setAlert('Question updated successfully', 'success'));
+    dispatch<any>(getPostById(id));
     history.push(`/posts/${id}`);
   } catch (error) {
     dispatch({

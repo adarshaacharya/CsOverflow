@@ -1,28 +1,69 @@
-import { Button, Divider, Form, Input, Layout, Typography } from 'antd';
+import { Button, Divider, Form, Input, Layout, Spin, Typography } from 'antd';
+import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
 import { useScrollToTop } from 'lib/hooks';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { RootState } from 'store/modules/combine-reducer';
+import { getPostById, updatePost } from 'store/modules/posts/posts.actions';
+import { IPostEdit, IPostTag } from 'store/modules/posts/posts.types';
 
 interface Params {
   id: string;
 }
 
-const { Title, Text, Paragraph } = Typography;
+function convertArrayToString(tags: IPostTag[]) {
+  const tagsArr = tags.map(item => item['tagname']);
+  return tagsArr.toString().replace(/,/g, ' ');
+}
+
+const { Title, Text } = Typography;
 const { Content } = Layout;
 const { Item } = Form;
 
 export const PostEdit = () => {
   const { id } = useParams<Params>();
+  const dispatch = useDispatch();
+  const { post, loading } = useSelector((state: RootState) => state.post);
+
+  useEffect(() => {
+    if (id) {
+      dispatch<any>(getPostById(id));
+    }
+  }, [dispatch, id]);
 
   useScrollToTop();
 
-  const onFormSubmit = () => {
-    console.log('On form submit');
+  const onFormSubmit = (values: IPostEdit) => {
+    dispatch(updatePost(id, values));
+  };
+
+  if (!post || !post.tags || loading) {
+    return (
+      <>
+        <Sidebar />
+        <Content className="content post-edit">
+          <PageSkeleton />
+        </Content>
+      </>
+    );
+  }
+
+  const initalValues = {
+    title: post.title,
+    body: post.body,
+    tags: convertArrayToString(post.tags),
   };
 
   const postEditSection = (
-    <Form layout="vertical" onFinish={onFormSubmit}>
+    <Form
+      layout="vertical"
+      onFinish={onFormSubmit}
+      initialValues={{
+        ...initalValues,
+      }}
+    >
       <div className="ask__form-header">
         <Title level={3} className="ask__form-title">
           Edit question
@@ -77,7 +118,7 @@ export const PostEdit = () => {
             },
           ]}
         >
-          <Input placeholder="e.g. (algorithm quicksort time-complexity)" />
+          <Input placeholder="e.g. (algorithm quicksort time-complexity)" value={post.tags.toString()} />
         </Item>
         <Item>
           <Button type="primary" size="large" htmlType="submit">
@@ -91,9 +132,7 @@ export const PostEdit = () => {
   return (
     <>
       <Sidebar />
-      <Content className="content post-edit">
-          {postEditSection}
-      </Content>
+      <Content className="content post-edit">{post && postEditSection}</Content>
     </>
   );
 };
