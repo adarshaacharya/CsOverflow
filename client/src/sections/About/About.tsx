@@ -39,7 +39,7 @@ const About = () => {
               </Paragraph>
 
               <Paragraph type="danger">
-                Asking non-computer-science related question may lead to ban from community. 🚫
+                Asking question not related to computer science may lead to ban from community. 🚫
               </Paragraph>
             </div>
             <Divider />

@@ -18,8 +18,8 @@ const App: React.FC = () => {
   useEffect(() => {
     if (localStorage.cstoken) {
       setAuthToken(localStorage.cstoken);
+      store.dispatch<any>(loadUser());
     }
-    store.dispatch<any>(loadUser());
 
     // log user out from all tabs if they log out in one tab
     window.addEventListener('storage', () => {
