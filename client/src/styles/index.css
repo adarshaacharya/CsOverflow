@@ -9,6 +9,7 @@
 }
 .content {
    margin-left: 150px;
+   background: #fff;
 }
 /* app header */
 .app-header {
@@ -194,7 +195,7 @@
 }
 .ant-typography.about-hero__title {
    color: #1d226c;
-   margin-bottom: .5em;
+   margin-bottom: 0.5em;
 }
 .ant-typography.about-hero__subtitle {
    font-size: 17px;
@@ -421,6 +422,11 @@
 .post-details .post-details__main .post-details__actions .comments-count {
    margin-left: 4px;
 }
+.post-edit {
+   padding: 60px 100px;
+   background: #fff;
+}
+
 /* ask */
 .ask {
    padding: 60px 100px;

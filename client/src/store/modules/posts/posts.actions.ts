@@ -104,7 +104,7 @@ export const updatePost = (id: string) => async (dispatch: Dispatch<PostsActions
       type: UPDATE_POST,
       payload: data,
     });
-    
+
     dispatch<any>(setAlert('Question updated successfully', 'success'));
     history.push(`/posts/${id}`);
   } catch (error) {
