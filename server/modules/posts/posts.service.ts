@@ -3,12 +3,19 @@ import { Tags } from '../../modules/tags/tags.model';
 import { Users } from '../../modules/users/users.model';
 import { Posts } from './posts.model';
 
-interface IPostsData {
+interface ICreatePostData {
   body: string;
   title: string;
   userId: number;
   tags: string[];
 }
+
+interface IPosts {
+  body: string;
+  title: string;
+  tags: string[];
+}
+
 const NO_RIGHTS = 'You do not have rights to do this.';
 
 class PostsService {
@@ -91,7 +98,7 @@ class PostsService {
     return post;
   }
 
-  public async createOne(postsData: IPostsData): Promise<Posts> {
+  public async createOne(postsData: ICreatePostData): Promise<Posts> {
     const { title, body, userId, tags } = postsData;
 
     const post = await Posts.create({
@@ -108,6 +115,27 @@ class PostsService {
     });
 
     return post;
+  }
+
+  public async updateOne(id: number, updates: IPosts, userId: number) {
+    const post = await this.findOneById(id);
+    if (!post) throw new NotFound(`Can't find the post with id ${id}`);
+
+    if (post.userId !== userId) {
+      throw new Unauthorized(NO_RIGHTS);
+    }
+
+    const [, [updatedPost]] = await Posts.update(updates, {
+      where: { id },
+      returning: true,
+    });
+
+    updates.tags.forEach(async el => {
+      let tag = await Tags.findOne({ where: { tagname: el } });
+      if (!tag) tag = await Tags.create({ tagname: el });
+      await post.setTags(tag, { through: { postId: post.id, tagId: tag.id } });
+    });
+    return updatedPost;
   }
 
   public async deleteOne(postId: number, userId: number) {

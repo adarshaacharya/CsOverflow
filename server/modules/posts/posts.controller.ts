@@ -60,6 +60,23 @@ class PostsController {
     }
   }
 
+  public async updateOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+    try {
+      validateIdOrThrow(+req.params.id);
+      const postId = +req.params.id;
+      const userId = validateIdOrThrow(req.user!.id);
+
+      const { title, body, tags } = req.body;
+
+      const tagsArr = Array.isArray(tags) ? tags : convertToArray(tags);
+      const updates = { title, body, tags: tagsArr };
+      const post = await postsService.updateOne(postId, updates, userId);
+      res.status(201).json(post);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   public async deleteOne(req: AuthRequest, res: Response, next: NextFunction) {
     try {
       validateIdOrThrow(+req.params.id);

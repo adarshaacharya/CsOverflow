@@ -55,10 +55,12 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
       ) : null}
 
       {viewerIsUser ? (
-        <Button type="link" className="edit">
-          <EditOutlined />
-          Edit
-        </Button>
+        <Link to={`/posts/${id}/edit`}>
+          <Button type="link" className="edit">
+            <EditOutlined />
+            Edit
+          </Button>
+        </Link>
       ) : null}
 
       <Tooltip title="Comment" key="comment" className="comment">

@@ -9,8 +9,10 @@ import {
   GET_TAG_POSTS,
   GET_TOP_POSTS,
   IPostCreate,
+  IPostEdit,
   PostsActions,
   POST_ERROR,
+  UPDATE_POST,
 } from './posts.types';
 
 export const getPosts = () => async (dispatch: Dispatch<PostsActions>) => {
@@ -77,7 +79,6 @@ export const getPostById = (id: string) => async (dispatch: Dispatch<PostsAction
 
 export const addPost = (formData: IPostCreate) => async (dispatch: Dispatch<PostsActions>) => {
   try {
-    console.log(formData);
     const { data } = await Api.post(`/posts`, formData);
 
     dispatch({
@@ -88,6 +89,26 @@ export const addPost = (formData: IPostCreate) => async (dispatch: Dispatch<Post
     dispatch<any>(setAlert('Question asked successfully', 'success'));
     dispatch<any>(getPosts());
     history.push('/posts');
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: error,
+    });
+  }
+};
+
+export const updatePost = (id: string, formData: IPostEdit) => async (dispatch: Dispatch<PostsActions>) => {
+  try {
+    const { data } = await Api.put(`/posts/${id}`, formData);
+
+    dispatch({
+      type: UPDATE_POST,
+      payload: data,
+    });
+
+    dispatch<any>(setAlert('Question updated successfully', 'success'));
+    dispatch<any>(getPostById(id));
+    history.push(`/posts/${id}`);
   } catch (error) {
     dispatch({
       type: POST_ERROR,
