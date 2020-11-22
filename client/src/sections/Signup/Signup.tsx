@@ -1,5 +1,5 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
-import logo from './logo.png';
+import logo from './assets/logo.png';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
