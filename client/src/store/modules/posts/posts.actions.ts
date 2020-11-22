@@ -11,6 +11,7 @@ import {
   IPostCreate,
   PostsActions,
   POST_ERROR,
+  UPDATE_POST,
 } from './posts.types';
 
 export const getPosts = () => async (dispatch: Dispatch<PostsActions>) => {
@@ -77,7 +78,6 @@ export const getPostById = (id: string) => async (dispatch: Dispatch<PostsAction
 
 export const addPost = (formData: IPostCreate) => async (dispatch: Dispatch<PostsActions>) => {
   try {
-    console.log(formData);
     const { data } = await Api.post(`/posts`, formData);
 
     dispatch({
@@ -88,6 +88,25 @@ export const addPost = (formData: IPostCreate) => async (dispatch: Dispatch<Post
     dispatch<any>(setAlert('Question asked successfully', 'success'));
     dispatch<any>(getPosts());
     history.push('/posts');
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: error,
+    });
+  }
+};
+
+export const updatePost = (id: string) => async (dispatch: Dispatch<PostsActions>) => {
+  try {
+    const { data } = await Api.put(`/posts/${id}`);
+
+    dispatch({
+      type: UPDATE_POST,
+      payload: data,
+    });
+    
+    dispatch<any>(setAlert('Question updated successfully', 'success'));
+    history.push(`/posts/${id}`);
   } catch (error) {
     dispatch({
       type: POST_ERROR,

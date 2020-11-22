@@ -77,7 +77,7 @@ interface AddPostAction {
 
 interface UpdatePostAction {
   type: typeof UPDATE_POST;
-  payload: string;
+  payload: IPost;
 }
 
 interface DeletePostAction {

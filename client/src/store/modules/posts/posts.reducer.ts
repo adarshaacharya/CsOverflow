@@ -8,6 +8,7 @@ import {
   PostsActions,
   PostsState,
   POST_ERROR,
+  UPDATE_POST,
 } from './posts.types';
 
 const initialState: PostsState = {
@@ -39,6 +40,14 @@ export const postsReducer = (state: PostsState = initialState, action: PostsActi
       return {
         ...state,
         posts: [action.payload, ...state.posts],
+        loading: false,
+      };
+
+    case UPDATE_POST:
+      return {
+        ...state,
+        post: action.payload,
+        loading: false,
       };
 
     case DELETE_POST:

@@ -13,6 +13,7 @@ import Posts from 'sections/Posts';
 import Post from 'sections/Post';
 import Ask from 'sections/Ask';
 import TagPosts from 'sections/TagPosts';
+import { PostEdit } from 'sections/Post/components';
 
 export const useRoutes = () => {
   return (
@@ -25,6 +26,7 @@ export const useRoutes = () => {
       <Route exact path="/users" component={Users} />
       <Route exact path="/posts" component={Posts} />
       <AuthRoute exact path="/posts/:id" component={Post} />
+      <AuthRoute exact path="/posts/:id/edit" component={PostEdit} />
       <AuthRoute exact path="/ask" component={Ask} />
       <Route exact path="/tags" component={Tags} />
       <Route exact path="/tags/:tagname" component={TagPosts} />

@@ -1,10 +1,8 @@
-import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
 import { Avatar, Comment, Layout, Tooltip, Typography } from 'antd';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
-import Sidebar from 'lib/components/Sidebar';
 import moment from 'moment';
-import React, { createElement, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAnswers } from 'store/modules/answers/answers.actions';
@@ -46,7 +44,7 @@ export const PostAnswerDetails = () => {
   const answersSectionElement = (
     <>
       {answers.length < 1 ? (
-        <Paragraph>No comments found.</Paragraph>
+        <Paragraph>No answers found. Be first one to give it !</Paragraph>
       ) : (
         answers.map(
           answer =>

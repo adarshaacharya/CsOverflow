@@ -125,11 +125,16 @@ class PostsService {
       throw new Unauthorized(NO_RIGHTS);
     }
 
-    const updatedPost = await Posts.update(updates, {
-      returning: true,
+    const [, [updatedPost]] = await Posts.update(updates, {
       where: { id },
+      returning: true,
     });
 
+    updates.tags.forEach(async el => {
+      let tag = await Tags.findOne({ where: { tagname: el } });
+      if (!tag) tag = await Tags.create({ tagname: el });
+      await post.setTags(tag, { through: { postId: post.id, tagId: tag.id } });
+    });
     return updatedPost;
   }
 
