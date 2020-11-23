@@ -29,7 +29,7 @@ Q/A forum for Computer Science & Engineering students.
     ·
     <a href="https://github.com/adarshaacharya/CsOverflow/issues">Request Feature</a>
   </p>
-  <p align="center">Universal bug tracker for everyone! BugVilla allows team members to collaborate, discuss and kill bugs effectively.</p>
+  <p align="center">Ask a questioncontribute an answer and upvote your favourite one! CsOverflow gives students correct answer and derivation of all relevant computer science and engineering questions.</p>
 
 ## ⭐ Features
 
@@ -47,6 +47,7 @@ Q/A forum for Computer Science & Engineering students.
 - **Styling** : Ant Design, Custom Css with BEM naming convention
 - **Backend** : Typescript, Node.js with Express framework
 - **Database** : Sequelize ORM with PostgresSQL database
+- **Deployment** : Server, Client and Database hosted on Heroku
 
 ## 📺 Prerequisites
 
