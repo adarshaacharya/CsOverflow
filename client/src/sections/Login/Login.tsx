@@ -11,21 +11,15 @@ const { Text, Title } = Typography;
 const { Item } = Form;
 
 const Login = () => {
-  const [confirmLoading, setConfirmLoading] = useState(false);
-
   const dispatch = useDispatch();
-  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const { isAuthenticated, loading } = useSelector((state: RootState) => state.auth);
 
   if (isAuthenticated) {
     return <Redirect to="/" />;
   }
 
   const onFormSubmit = (formData: ISignInData) => {
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setConfirmLoading(false);
-      dispatch(loginUser(formData));
-    }, 3000);
+    dispatch(loginUser(formData));
   };
 
   return (
@@ -72,7 +66,7 @@ const Login = () => {
           </Item>
 
           <Item>
-            <Button type="primary" htmlType="submit" loading={confirmLoading} className="log-in-card__form-button">
+            <Button type="primary" htmlType="submit" loading={loading} className="log-in-card__form-button">
               Log In
             </Button>
           </Item>

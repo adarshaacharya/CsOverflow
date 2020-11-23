@@ -1,7 +1,7 @@
+import { CheckCircleTwoTone, PlayCircleTwoTone } from '@ant-design/icons';
 import { Divider, Layout, Typography } from 'antd';
 import Sidebar from 'lib/components/Sidebar';
 import React from 'react';
-import { SmileTwoTone, LaptopOutlined, PlayCircleTwoTone, CheckCircleTwoTone } from '@ant-design/icons';
 
 const { Content } = Layout;
 const { Title, Text, Paragraph } = Typography;
@@ -16,7 +16,7 @@ const About = () => {
             About CS Overflow
           </Title>
           <Text className="about-hero__subtitle" type="secondary">
-            Open source learning community for
+            Open source Q/A forum for
             <strong> Computer Science & Engineering students.</strong>
           </Text>
           <div className="about__body">
@@ -39,7 +39,7 @@ const About = () => {
               </Paragraph>
 
               <Paragraph type="danger">
-                Asking non-computer-science related question may lead to ban from community. 🚫
+                Asking question not related to computer science may lead to ban from community. 🚫
               </Paragraph>
             </div>
             <Divider />

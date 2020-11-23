@@ -68,7 +68,10 @@ export const PostEdit = () => {
         <Title level={3} className="ask__form-title">
           Edit question
         </Title>
-        <Text type="secondary">Make sure that you've fill the post boxes properly. All the other rules are followed  same as creating the post. </Text>
+        <Text type="secondary">
+          Make sure that you've fill the post boxes properly. All the other rules are followed same as creating the
+          post.{' '}
+        </Text>
         <Divider />
       </div>
 

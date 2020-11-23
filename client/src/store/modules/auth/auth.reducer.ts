@@ -1,9 +1,18 @@
-import { AuthActions, AuthState, AUTH_ERROR, LOGIN_SUCESS, LOGOUT, REGISTER_SUCCESS, USER_LOADED } from './auth.types';
+import {
+  AuthActions,
+  AuthState,
+  AUTH_ERROR,
+  LOGIN_SUCESS,
+  LOGOUT,
+  REGISTER_SUCCESS,
+  SET_LOADING,
+  USER_LOADED,
+} from './auth.types';
 
 const initialState: AuthState = {
   token: localStorage.getItem('cstoken'),
   isAuthenticated: null,
-  loading: true,
+  loading: false,
   user: null,
 };
 
@@ -41,6 +50,12 @@ export const authReducer = (state: AuthState = initialState, action: AuthActions
         isAuthenticated: false,
         loading: false,
         user: null,
+      };
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
 
     default:

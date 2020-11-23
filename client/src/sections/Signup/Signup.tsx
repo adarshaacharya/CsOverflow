@@ -1,11 +1,11 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
-import React, { useState } from 'react';
+import logo from './assets/logo.png';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { registerUser } from 'store/modules/auth/auth.actions';
 import { ISignupData } from 'store/modules/auth/auth.types';
 import { RootState } from 'store/modules/combine-reducer';
-import logo from 'assets/images/csoverflow-logo.png';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
@@ -13,10 +13,8 @@ const { Item } = Form;
 const { Password } = Input;
 
 const Signup = () => {
-  const [confirmLoading, setConfirmLoading] = useState(false);
-
   const dispatch = useDispatch();
-  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const { isAuthenticated, loading } = useSelector((state: RootState) => state.auth);
 
   if (isAuthenticated) {
     return <Redirect to="/" />;
@@ -24,20 +22,17 @@ const Signup = () => {
 
   const onFormSubmit = (formData: ISignupData) => {
     const { name, email, password } = formData;
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setConfirmLoading(false);
-      dispatch(registerUser({ name, email, password }));
-    }, 2000);
+
+    dispatch(registerUser({ name, email, password }));
   };
 
   return (
     <Content className="sign-up">
       <Card className="sign-up-card">
         <div className="sign-up-card__intro">
-          <Title level={3} className="sign-up-card__intro-logo">
-            <img src={logo} alt="logo" />
-          </Title>
+          <div className="sign-up-card__intro-logo">
+            <img src={logo} alt="logo" height="50px" />
+          </div>
 
           <Title level={3} className="sign-up-card__intro-title">
             Sign up to CS Overflow!
@@ -119,7 +114,7 @@ const Signup = () => {
           </Item>
 
           <Item>
-            <Button type="primary" loading={confirmLoading} htmlType="submit" className="sign-up-card__form-button">
+            <Button type="primary" loading={loading} htmlType="submit" className="sign-up-card__form-button">
               Register
             </Button>
           </Item>

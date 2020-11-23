@@ -3,6 +3,7 @@ export const LOGIN_SUCESS = '@@/auth/LOGIN_SUCESS';
 export const AUTH_ERROR = '@@/auth/AUTH_ERROR';
 export const USER_LOADED = '@@/auth/USER_LOADED';
 export const LOGOUT = '@@/auth/LOGOUT';
+export const SET_LOADING = '@@/auth/SET_LOADING';
 
 export interface AuthState {
   token: string | null;
@@ -31,11 +32,6 @@ export interface ISignInData {
   password: string;
 }
 
-// interface AuthActionType<T, P> {
-//   readonly type: T;
-//   payload?: P;
-// }
-
 interface AuthErorAction {
   type: typeof AUTH_ERROR;
 }
@@ -58,12 +54,14 @@ interface LoginSuccessAction {
 interface LogOutAction {
   type: typeof LOGOUT;
 }
+interface SetLoadingAction {
+  type: typeof SET_LOADING;
+}
 
-export type AuthActions = AuthErorAction | UserLoadedAction | RegisterSuccessAction | LoginSuccessAction | LogOutAction;
-
-// export type AuthActions =
-//   | AuthActionType<typeof AUTH_ERROR, null>
-//   | AuthActionType<typeof USER_LOADED, IUser>
-//   | AuthActionType<typeof REGISTER_SUCCESS, string>
-//   | AuthActionType<typeof REGISTER_FAIL, null>
-//   | AuthActionType<typeof LOGOUT, null>;
+export type AuthActions =
+  | AuthErorAction
+  | UserLoadedAction
+  | RegisterSuccessAction
+  | LoginSuccessAction
+  | LogOutAction
+  | SetLoadingAction;

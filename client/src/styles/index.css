@@ -31,7 +31,7 @@
    padding: 0 10px;
 }
 .app-header__logo img {
-   width: 36px;
+   height: 45px;
 }
 .app-header__search-input {
    display: flex;
@@ -148,7 +148,8 @@
    padding: 0 0 20px;
 }
 .sign-up-card__intro-logo img {
-   width: 36px;
+   height: 60px;
+   margin-bottom: 1rem;
 }
 .sign-up-card__intro-title.ant-typography,
 .sign-up-card__intro-title.ant-typography + h3.ant-typography {

@@ -8,6 +8,12 @@ export const sequelize: Sequelize = new Sequelize({
   port: +process.env.DB_PORT!,
   // @ts-ignore
   dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
 
   pool: {
     max: 5,
@@ -24,7 +30,7 @@ export const databaseGenerate = () => {
     .catch(err => console.log(err));
 
   // sync db
-  sequelize.sync({ force: true }).then(() => {
+  sequelize.sync({ force: false }).then(() => {
     console.log('✅ Drop and re-sync db.');
   });
 };
