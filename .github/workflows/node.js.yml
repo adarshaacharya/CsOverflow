@@ -41,7 +41,9 @@ jobs:
           cd client && npm install
       
     - name: npm build
-      run : npm run heroku-postbuild
+      run : |
+           npm run server:build
+           cd client && npm run build
 
           
   
