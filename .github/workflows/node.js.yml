@@ -25,15 +25,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: npm install
-      run: |
-          npm install
-          cd client && npm install
+    - name: npm client install
+      run:  cd client && npm install
       
-    - name: npm build
-      run : |
-           npm run server:build
-           cd client && npm cache clean --force && rm -rf node_modules package-lock.json && npm run build
+    - name: npm server install
+      run : npm install
+      
+    - name: npm client build
+      run : npm run server:build
+      
+    - name: npm server install
+      run : cd client && npm run build
 
           
   
