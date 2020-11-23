@@ -2,11 +2,11 @@
     "compilerOptions": {
         "target": "esnext",
         "module": "CommonJS",
-        "moduleResolution": "node",
-        "sourceMap": true,
+        "sourceMap": false,
+        "outDir": "./prod",
         "downlevelIteration": true,
         "strict": true,
-        "noImplicitAny": false, // shoudl always assign value to params (recheck it)
+        "noImplicitAny": false,
         "strictFunctionTypes": true,
         "alwaysStrict": true,
         "skipLibCheck": true,
@@ -16,7 +16,6 @@
         "noFallthroughCasesInSwitch": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "experimentalDecorators": true,
         "strictPropertyInitialization": false, // optional
         "baseUrl": "./server",
         "typeRoots": [
