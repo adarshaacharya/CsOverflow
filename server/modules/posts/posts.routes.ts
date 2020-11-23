@@ -16,8 +16,8 @@ router.get('/', postsController.findAll);
 
 /**
  * @method GET
- * @route /api/posts
- * @description : Fetch all posts sorted by maximum interactivity
+ * @route /api/posts/top
+ * @description : Fetch top posts sorted by maximum interactivity
  * @acces private
  */
 router.get('/top', postsController.findTopPosts);
