@@ -10,8 +10,11 @@ Q/A forum for Computer Science & Engineering students.
 </b>
 </p>
 
+[![Android-master Actions Status](https://github.com/adarshaacharya/CsOverflow/workflows/Node.js CI/badge.svg)](https://github.com/AndreSand/BornInApp/actions)
+
+
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=version&message=1.0.0&color=blue" alt="version" />
+<img src="https://img.shields.io/github/workflow/status/adarshaacharya/CsOverflow/build" alt="github actions" />
 <a href="https://www.codacy.com/gh/adarshaacharya/CsOverflow/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=adarshaacharya/CsOverflow&amp;utm_campaign=Badge_Grade">
 <img src="https://app.codacy.com/project/badge/Grade/0d9e7dd307aa44528e75abc123e01a85" alt="Codacy Badge" >
 </a>
