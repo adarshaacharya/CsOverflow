@@ -35,8 +35,13 @@ jobs:
         restore-keys: |
          ${{ runner.os }}-npm-cache-
          
-    - name: npm install and build
+    - name: npm install
       run: |
-          npm run develop:ci
+          npm install
+          cd client && npm install
+      
+    - name: npm develop
+      run : npm run heroku-postbuild
+
           
   
