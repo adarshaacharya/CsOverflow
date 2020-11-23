@@ -10,8 +10,6 @@ Q/A forum for Computer Science & Engineering students.
 </b>
 </p>
 
-[![Android-master Actions Status](https://github.com/adarshaacharya/CsOverflow/workflows/Node.js CI/badge.svg)](https://github.com/AndreSand/BornInApp/actions)
-
 
 <p align="center">
 <img src="https://img.shields.io/github/workflow/status/adarshaacharya/CsOverflow/build" alt="github actions" />
