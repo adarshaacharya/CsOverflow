@@ -25,17 +25,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: npm client install
+    - name: Client Install
       run:  cd client && npm install
       
-    - name: npm server install
+    - name: Server Install
       run : npm install
       
-    - name: npm server build
-      run : npm run server:build
-      
-    - name: npm client build
+    - name: Client Build
       run : cd client && npm run build --if-present
+      
+    - name: Server Build
+      run : npm run server:build
 
       env: 
         CI: false
