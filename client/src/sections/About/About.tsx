@@ -16,7 +16,7 @@ const About = () => {
             About CS Overflow
           </Title>
           <Text className="about-hero__subtitle" type="secondary">
-            Open source Q/A forum for
+            Open source Q/A  for
             <strong> Computer Science & Engineering students.</strong>
           </Text>
           <div className="about__body">
