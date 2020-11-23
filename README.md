@@ -121,6 +121,7 @@ There is a Heroku post build script so that you do not have to compile your Reac
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome. After cloning & setting up project locally, you can just submit a PR to this repo and it will be deployed once it's accepted.
+Read [CONTRIBUTING.md](https://github.com/adarshaacharya/CsOverflow/blob/master/CONTRIBUTING.md) for complete guide of Contribution
 
 **⚠️ Note - Commit & PR Title :**
 
@@ -131,7 +132,7 @@ Read [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3
 
 ## 👏🏻 Show your support
 
-Give a ⭐️ if you like the project!
+Give a ⭐️ if you like the project! :tada:
 
 ## 👤 Author
 
