@@ -31,12 +31,11 @@ jobs:
     - name: Server Install
       run : npm install
       
-    - name: Client Build
-      run : cd client && npm run build --if-present
-      
     - name: Server Build
       run : npm run server:build
-
+      
+    - name: Client Build
+      run : cd client && npm run build --if-present
       env: 
         CI: false
           
