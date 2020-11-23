@@ -33,7 +33,7 @@ jobs:
     - name: npm build
       run : |
            npm run server:build
-           cd client && npm run build
+           cd client && npm cache clean --force && rm -rf node_modules package-lock.json && npm run build
 
           
   
