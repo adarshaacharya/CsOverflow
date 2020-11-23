@@ -1,8 +1,13 @@
 {
   "name": "csoverflow",
   "version": "1.0.0",
-  "description": "Form for computer science students.",
+  "description": "Open Source O/A forum for computer science students.",
   "main": "server/server.ts",
+  "engines": {
+    "node": "12.19.1",
+    "npm": "6.14.8",
+    "yarn": "1.22.4"
+  },
   "scripts": {
     "start": "cross-env NODE_ENV=production node prod/server.js",
     "server": "nodemon server/server.ts",
@@ -27,7 +32,7 @@
     "typescript",
     "mern",
     "react",
-    "mongo",
+    "postgreSQL",
     "node",
     "express"
   ],
