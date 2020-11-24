@@ -30,7 +30,7 @@ Q/A forum for Computer Science & Engineering students.
     ·
     <a href="https://github.com/adarshaacharya/CsOverflow/issues">Request Feature</a>
   </p>
-  <p align="center">Ask a questioncontribute an answer and upvote your favourite one! CsOverflow gives students correct answer and derivation of all relevant computer science and engineering questions.</p>
+  <p align="center">Ask a question, contribute an answer and upvote your favourite one! CsOverflow gives students correct answer and derivation of all relevant computer science and engineering questions.</p>
 
 ## ⭐ Features
 
