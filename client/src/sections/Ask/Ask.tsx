@@ -1,7 +1,8 @@
 import { Button, Divider, Form, Input, Layout, Typography } from 'antd';
 import Sidebar from 'lib/components/Sidebar';
+import TextEditor from 'lib/components/TextEditor';
 import { useScrollToTop } from 'lib/hooks';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPost } from 'store/modules/posts/posts.actions';
 import { IPostCreate } from 'store/modules/posts/posts.types';
@@ -16,7 +17,8 @@ const Ask = () => {
   useScrollToTop();
 
   const onFormSubmit = (values: IPostCreate) => {
-    dispatch(addPost(values));
+    console.log(values);
+    // dispatch(addPost(values));
   };
 
   return (
@@ -34,7 +36,12 @@ const Ask = () => {
             </Text>
             <Divider />
           </div>
+
           <div className="ask__form-content">
+            <Item name="question" label="Question">
+              {/* @ts-ignore */}
+              <TextEditor />
+            </Item>
             <Item
               name="title"
               label="Title"
@@ -47,7 +54,7 @@ const Ask = () => {
               ]}
             >
               <Input
-                maxLength={100}
+                maxLength={200}
                 placeholder="e.g. How quick sort can be made to run in optimal time in the worst case ?"
               />
             </Item>
@@ -64,7 +71,7 @@ const Ask = () => {
             >
               <Input.TextArea
                 rows={12}
-                maxLength={400}
+                maxLength={5000}
                 placeholder="Include all the information someone would
                 need to answer your question"
               />
