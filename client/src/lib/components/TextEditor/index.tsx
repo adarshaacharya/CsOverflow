@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { placeholder } from 'sequelize/types/lib/operators';
 import './style.css';
 
 const modules = {
@@ -33,10 +34,11 @@ interface OnChangeHandler {
 
 type Props = {
   value: string;
+  placeholder: string;
   onChange: OnChangeHandler;
 };
 
-const TextEditor: React.FC<Props> = ({ value, onChange }) => {
+const TextEditor: React.FC<Props> = ({ value, onChange, placeholder }) => {
   return (
     <>
       <ReactQuill
@@ -45,8 +47,7 @@ const TextEditor: React.FC<Props> = ({ value, onChange }) => {
         modules={modules}
         formats={formats}
         onChange={onChange}
-        placeholder="Include all the information someone would
-       need to answer your question"
+        placeholder={placeholder}
       />
     </>
   );

@@ -58,6 +58,7 @@ const Ask = () => {
             <Item
               name="body"
               label="Body"
+              extra="Include all the information someone would need to answer your question"
               rules={[
                 {
                   required: true,
