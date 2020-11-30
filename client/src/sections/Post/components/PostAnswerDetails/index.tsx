@@ -52,7 +52,11 @@ export const PostAnswerDetails = () => {
               <Comment
                 author={answer.user.name}
                 avatar={<Avatar src={answer.user.avatar} alt={answer.user.name} />}
-                content={<Paragraph>{answer.body}</Paragraph>}
+                content={
+                  <Paragraph>
+                    <span dangerouslySetInnerHTML={{ __html: answer.body }}></span>
+                  </Paragraph>
+                }
                 datetime={
                   <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
                     <span>{moment(answer.updatedAt).fromNow()}</span>
