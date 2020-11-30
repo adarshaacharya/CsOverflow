@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './style.css';
+
 const modules = {
   toolbar: [
     [{ header: [1, 2, false] }],
@@ -35,7 +36,7 @@ type Props = {
   onChange: OnChangeHandler;
 };
 
-const TextEditor: React.FC<Props> = ({ value, onChange}) => {
+const TextEditor: React.FC<Props> = ({ value, onChange }) => {
   return (
     <>
       <ReactQuill

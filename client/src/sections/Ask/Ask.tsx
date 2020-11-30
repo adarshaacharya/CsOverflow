@@ -2,7 +2,7 @@ import { Button, Divider, Form, Input, Layout, Typography } from 'antd';
 import Sidebar from 'lib/components/Sidebar';
 import TextEditor from 'lib/components/TextEditor';
 import { useScrollToTop } from 'lib/hooks';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addPost } from 'store/modules/posts/posts.actions';
 import { IPostCreate } from 'store/modules/posts/posts.types';
@@ -18,7 +18,7 @@ const Ask = () => {
 
   const onFormSubmit = (values: IPostCreate) => {
     console.log(values);
-    // dispatch(addPost(values));
+    dispatch(addPost(values));
   };
 
   return (
@@ -38,10 +38,6 @@ const Ask = () => {
           </div>
 
           <div className="ask__form-content">
-            <Item name="question" label="Question">
-              {/* @ts-ignore */}
-              <TextEditor />
-            </Item>
             <Item
               name="title"
               label="Title"
@@ -60,8 +56,8 @@ const Ask = () => {
             </Item>
 
             <Item
-              label="Body"
               name="body"
+              label="Body"
               rules={[
                 {
                   required: true,
@@ -69,12 +65,8 @@ const Ask = () => {
                 },
               ]}
             >
-              <Input.TextArea
-                rows={12}
-                maxLength={5000}
-                placeholder="Include all the information someone would
-                need to answer your question"
-              />
+              {/* @ts-ignore */}
+              <TextEditor />
             </Item>
             <Item
               label="Tags"

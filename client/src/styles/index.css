@@ -414,6 +414,9 @@
 .post-details .post-details__main .post-details__body .post-details__text {
    margin-bottom: 2rem;
 }
+.post-details .post-details__main .post-details__body .post-details__text pre {
+   background-color: #f6f6f6;
+}
 .post-details .post-details__main .post-details__actions {
    padding-top: 10px;
 }
