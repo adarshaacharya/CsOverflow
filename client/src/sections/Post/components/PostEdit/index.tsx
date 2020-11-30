@@ -1,6 +1,7 @@
 import { Button, Divider, Form, Input, Layout, Spin, Typography } from 'antd';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
+import TextEditor from 'lib/components/TextEditor';
 import { useScrollToTop } from 'lib/hooks';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -94,8 +95,8 @@ export const PostEdit = () => {
         </Item>
 
         <Item
-          label="Body"
           name="body"
+          label="Body"
           rules={[
             {
               required: true,
@@ -103,13 +104,10 @@ export const PostEdit = () => {
             },
           ]}
         >
-          <Input.TextArea
-            rows={12}
-            maxLength={400}
-            placeholder="Include all the information someone would
-                need to answer your question"
-          />
+          {/* @ts-ignore */}
+          <TextEditor />
         </Item>
+
         <Item
           label="Tags"
           name="tags"

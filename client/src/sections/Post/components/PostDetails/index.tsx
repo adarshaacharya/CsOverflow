@@ -99,7 +99,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
           </Col>
 
           <Col span={16} className="post-details__body">
-            <p className="post-details__text" dangerouslySetInnerHTML={{__html : body}}></p>
+            <p className="post-details__text" dangerouslySetInnerHTML={{ __html: body }}></p>
             <Paragraph className="post-details__tags">
               {tags &&
                 tags.length > 0 &&
