@@ -41,7 +41,7 @@ const TextEditor: React.FC<Props> = ({ value, onChange }) => {
     <>
       <ReactQuill
         theme="snow"
-        value={value}
+        value={value || ''}
         modules={modules}
         formats={formats}
         onChange={onChange}

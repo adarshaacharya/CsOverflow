@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux';
 import Api from 'store/api';
+import { setAlert } from '../alert/alert.actions';
 import { ADD_ANSWER, AnswerActions, ANSWER_ERROR, GET_ANSWERS, IAnswerCreate } from './answers.types';
 
 export const getAnswers = (id: string) => async (dispatch: Dispatch<AnswerActions>) => {
@@ -28,7 +29,8 @@ export const addAnswer = (answer: IAnswerCreate) => async (dispatch: Dispatch<An
 
     dispatch<any>(getAnswers(postId));
   } catch (error) {
-    console.log(error);
+    dispatch<any>(setAlert(error.response.data.error, 'error'));
+
     dispatch({
       type: ANSWER_ERROR,
       payload: error,
