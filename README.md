@@ -35,6 +35,7 @@ Q/A forum for Computer Science & Engineering students.
 ## ⭐ Features
 
 - Token based secured authentication system
+- Feature enriched Quill Text Editor 
 - Ask question by categorizing based on tags and perform CRUD optertions
 - Upvote and contribute answer to question
 - Filter question based on tags and search feature

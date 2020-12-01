@@ -8,7 +8,7 @@ type Props = {
   post: IPost;
 };
 
-const { Paragraph, Title } = Typography;
+const { Paragraph, Title, Text } = Typography;
 export const PostCard: React.FC<Props> = ({ post }) => {
   const { id, body, title, user, tags, createdAt } = post;
 
@@ -34,7 +34,7 @@ export const PostCard: React.FC<Props> = ({ post }) => {
                 rows: 2,
               }}
             >
-              {body}
+              <span dangerouslySetInnerHTML={{ __html: body }}></span>
             </Paragraph>
           </Link>
           <Paragraph className="post__card--tags">

@@ -1,5 +1,6 @@
 import { Button, Divider, Form, Input, Layout, Typography } from 'antd';
 import Sidebar from 'lib/components/Sidebar';
+import TextEditor from 'lib/components/TextEditor';
 import { useScrollToTop } from 'lib/hooks';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -16,6 +17,7 @@ const Ask = () => {
   useScrollToTop();
 
   const onFormSubmit = (values: IPostCreate) => {
+    console.log(values);
     dispatch(addPost(values));
   };
 
@@ -34,6 +36,7 @@ const Ask = () => {
             </Text>
             <Divider />
           </div>
+
           <div className="ask__form-content">
             <Item
               name="title"
@@ -47,14 +50,15 @@ const Ask = () => {
               ]}
             >
               <Input
-                maxLength={100}
+                maxLength={200}
                 placeholder="e.g. How quick sort can be made to run in optimal time in the worst case ?"
               />
             </Item>
 
             <Item
-              label="Body"
               name="body"
+              label="Body"
+              extra="Include all the information someone would need to answer your question"
               rules={[
                 {
                   required: true,
@@ -62,13 +66,10 @@ const Ask = () => {
                 },
               ]}
             >
-              <Input.TextArea
-                rows={12}
-                maxLength={400}
-                placeholder="Include all the information someone would
-                need to answer your question"
-              />
+              {/* @ts-ignore */}
+              <TextEditor />
             </Item>
+
             <Item
               label="Tags"
               name="tags"
