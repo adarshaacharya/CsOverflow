@@ -1,12 +1,14 @@
 import { CheckCircleTwoTone, PlayCircleTwoTone } from '@ant-design/icons';
 import { Divider, Layout, Typography } from 'antd';
 import Sidebar from 'lib/components/Sidebar';
+import { useScrollToTop } from 'lib/hooks';
 import React from 'react';
 
 const { Content } = Layout;
 const { Title, Text, Paragraph } = Typography;
 
 const About = () => {
+  useScrollToTop();
   return (
     <>
       <Sidebar />
