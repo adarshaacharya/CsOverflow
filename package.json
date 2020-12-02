@@ -43,11 +43,13 @@
   },
   "homepage": "https://github.com/adarshaacharya/csoverflow#readme",
   "dependencies": {
+    "@types/express-rate-limit": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.2.3",
     "fs-extra": "^9.0.1",
     "gravatar": "^1.8.1",
     "joi": "^17.2.1",

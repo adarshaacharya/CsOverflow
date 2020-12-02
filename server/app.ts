@@ -2,6 +2,7 @@ import cors from 'cors';
 import compression from 'compression';
 import express, { Response } from 'express';
 import path from 'path';
+import rateLimit from 'express-rate-limit';
 
 // routes
 import { router as usersRoutes } from './modules/users/users.routes';
@@ -22,6 +23,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '100mb' }));
 app.use(compression());
+
+// rateLimiter
+app.use(
+  '/api/',
+  rateLimit({
+    windowMs: 25 * 60 * 1000,
+    max: 500,
+    message: { error: 'Too many requests!, please try again after 25mins' },
+  })
+);
 
 // routes
 app.use('/api/users', usersRoutes);
