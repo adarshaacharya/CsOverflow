@@ -25,14 +25,12 @@ app.use(express.urlencoded({ extended: true, limit: '100mb' }));
 app.use(compression());
 
 // rateLimiter
-app.use(
-  '/api/',
-  rateLimit({
-    windowMs: 25 * 60 * 1000,
-    max: 500,
-    message: { error: 'Too many requests!, please try again after 25mins' },
-  })
-);
+const limiter = rateLimit({
+  windowMs: 25 * 60 * 1000,
+  max: 500,
+  message: { error: 'Too many requests!, please try again after 25mins' } as string | any,
+});
+app.use('/api/', limiter);
 
 // routes
 app.use('/api/users', usersRoutes);
