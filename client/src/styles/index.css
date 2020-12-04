@@ -364,6 +364,19 @@
 .post__card .post__card--text {
    padding: 5px 0;
 }
+
+.post__card .post__card--text > div h1,
+strong,
+h2,
+code,
+h3 {
+   font-weight: normal;
+   font-size: 15px;
+   font-style: normal;
+   margin: 0;
+   padding: 0;
+}
+
 .post__card .post__card--tags {
    padding: 5px 0;
 }
@@ -483,4 +496,3 @@
    color: #1d226c;
    margin-bottom: 15px;
 }
-
