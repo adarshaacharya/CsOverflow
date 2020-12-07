@@ -32,7 +32,7 @@ export const PostCard: React.FC<Props> = ({ post }) => {
               className="post__card--text"
               ellipsis={{
                 rows: 2,
-              }} 
+              }}
             >
               <div dangerouslySetInnerHTML={{ __html: body }}></div>
             </Paragraph>
