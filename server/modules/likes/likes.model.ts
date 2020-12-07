@@ -21,7 +21,7 @@ export class Likes extends Model {
           allowNull: false,
           autoIncrement: true,
         },
-        
+
         postId: {
           type: DataTypes.INTEGER(),
           allowNull: true,
@@ -47,11 +47,11 @@ Likes.belongsTo(Posts, {
   as: 'post',
 });
 
-Posts.hasMany(Likes, {
-  foreignKey: 'postId',
-  as: 'likes',
-  onDelete: 'cascade',
-});
+// Posts.hasMany(Likes, {
+//   foreignKey: 'postId',
+//   as: 'likes',
+//   onDelete: 'cascade',
+// });
 
 // user
 Likes.belongsTo(Users, {
@@ -59,8 +59,8 @@ Likes.belongsTo(Users, {
   as: 'user',
 });
 
-Users.hasMany(Likes, {
-  foreignKey: 'userId',
-  as: 'likes',
-  onDelete: 'cascade',
-});
+// Users.hasMany(Likes, {
+//   foreignKey: 'userId',
+//   as: 'likes',
+//   onDelete: 'cascade',
+// });
