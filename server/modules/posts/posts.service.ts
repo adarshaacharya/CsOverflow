@@ -1,4 +1,5 @@
 import { BadRequest, NotFound, Unauthorized } from '../../common/exceptions';
+import { Likes } from '../../modules/likes/likes.model';
 import { Tags } from '../../modules/tags/tags.model';
 import { Users } from '../../modules/users/users.model';
 import { Posts } from './posts.model';
@@ -166,6 +167,11 @@ class PostsService {
           model: Users,
           as: 'user',
           attributes: ['id', 'name', 'email', 'avatar'],
+        },
+        {
+          model: Likes,
+          as: 'likes',
+          attributes: ['id', 'userId', 'postId'],
         },
       ],
     });

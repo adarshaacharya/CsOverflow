@@ -47,11 +47,11 @@ Likes.belongsTo(Posts, {
   as: 'post',
 });
 
-// Posts.hasMany(Likes, {
-//   foreignKey: 'postId',
-//   as: 'likes',
-//   onDelete: 'cascade',
-// });
+Posts.hasMany(Likes, {
+  foreignKey: 'postId',
+  as: 'likes',
+  onDelete: 'cascade',
+});
 
 // user
 Likes.belongsTo(Users, {

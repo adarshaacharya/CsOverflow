@@ -14,8 +14,8 @@ router.post('/like/:id', [authJwt], likesController.likeOne);
 
 /**
  * @method DELETE
- * @route /api/posts/unlike/:id
- * @description : Unlike a post
+ * @route /api/posts/dislike/:id
+ * @description : dislike a post
  * @acces private
  */
-router.post('/unlike/:id', [authJwt], likesController.unlikeOne);
+router.post('/dislike/:id', [authJwt], likesController.dislikeOne);

@@ -13,7 +13,6 @@ import { router as answersRoutes } from './modules/answers/answers.routes';
 import { router as likesRoutes } from './modules/likes/likes.routes';
 import { router as tagsRoutes } from './modules/tags/tags.routes';
 
-
 // middleware
 import { errorHandler } from './common/middlewares/errors.middleware';
 
@@ -40,7 +39,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/posts', postsRoutes);
 app.use('/api/posts/comments', commentsRoutes);
 app.use('/api/posts/answers', answersRoutes);
-app.use('/api/posts/likes', likesRoutes);
+app.use('/api/posts', likesRoutes);
 app.use('/api/tags', tagsRoutes);
 
 // middlewares
