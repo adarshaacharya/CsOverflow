@@ -4,6 +4,17 @@ import { likesService } from './likes.service';
 import { validateIdOrThrow } from '../../common/validators';
 
 class LikesController {
+  public async getLikesById(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+    try {
+      validateIdOrThrow(+req.params.id);
+      const postId = +req.params.id;
+      const likes = await likesService.getLikesById(postId);
+      res.json(likes);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   public async likeOne(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
       validateIdOrThrow(+req.params.id);
@@ -22,13 +33,11 @@ class LikesController {
     try {
       validateIdOrThrow(+req.params.id);
 
-      await likesService.dislikeOne({
+      const disliked = await likesService.dislikeOne({
         postId: +req.params.id,
         userId: req.user!.id,
       });
-      res.json({
-        message: 'You unliked this post',
-      });
+      res.json(disliked);
     } catch (error) {
       next(error);
     }

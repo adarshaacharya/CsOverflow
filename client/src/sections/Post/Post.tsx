@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { RootState } from 'store/modules/combine-reducer';
 import { getPostById } from 'store/modules/posts/posts.actions';
-import { PostCreateAnswer, PostAnswerDetails, PostDetails } from './components';
+import { PostAnswerDetails, PostCreateAnswer, PostDetails } from './components';
 
 const { Content } = Layout;
 const Post = () => {
@@ -37,7 +37,7 @@ const Post = () => {
       <>
         <Sidebar />
         <Content className="content post-wrapper">
-          <ErrorBanner description="This post may not exists we've encountered an error. Please try again later" />
+          <ErrorBanner description="We've encountered an error. Please refresh the page." />
           <PageSkeleton />
         </Content>
       </>

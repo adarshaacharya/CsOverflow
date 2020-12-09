@@ -8,6 +8,19 @@ interface ILikeData {
 }
 
 class LikesService {
+  public async getLikesById(id: number) {
+    const post = await postsService.findOneById(id);
+    if (!post) throw new NotFound(`Can't find post with id ${id}`);
+
+    const likes = await Likes.findOne({
+      where: {
+        id,
+      },
+    });
+
+    return likes;
+  }
+
   public async likeOne(likeData: ILikeData): Promise<Likes> {
     const { postId, userId } = likeData;
 
@@ -23,14 +36,14 @@ class LikesService {
 
     if (liked) throw new BadRequest('Post already liked, please refresh');
 
-    const like = new Likes({
+    const like = await Likes.create({
       postId,
       userId,
     });
-    return like.save();
+    return like;
   }
 
-  public async dislikeOne(dislikeData: ILikeData): Promise<void> {
+  public async dislikeOne(dislikeData: ILikeData): Promise<Likes> {
     const { postId, userId } = dislikeData;
 
     const post = await postsService.findOneById(postId);
@@ -51,6 +64,8 @@ class LikesService {
         userId,
       },
     });
+
+    return liked;
   }
 }
 

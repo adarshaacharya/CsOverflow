@@ -37,6 +37,11 @@ class PostsService {
           as: 'user',
           attributes: ['id', 'name', 'email', 'avatar'],
         },
+        {
+          model: Likes,
+          as: 'likes',
+          attributes: ['id', 'userId', 'postId'],
+        },
       ],
     });
     return posts;
@@ -58,6 +63,11 @@ class PostsService {
           model: Users,
           as: 'user',
           attributes: ['id', 'name', 'email', 'avatar'],
+        },
+        {
+          model: Likes,
+          as: 'likes',
+          attributes: ['id', 'userId', 'postId'],
         },
       ],
     });
@@ -84,7 +94,6 @@ class PostsService {
           through: {
             attributes: [],
           },
-
           include: [
             {
               model: Users,

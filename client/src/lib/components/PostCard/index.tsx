@@ -1,4 +1,4 @@
-import { Card, Col, Row, Spin, Tag, Typography } from 'antd';
+import { Card, Col, Layout, Row, Tag, Typography } from 'antd';
 import UserPostCard from 'lib/components/UserPostCard';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -9,15 +9,17 @@ type Props = {
 };
 
 const { Paragraph, Title } = Typography;
+const { Content } = Layout;
+
 export const PostCard: React.FC<Props> = ({ post }) => {
-  const { id, body, title, user, tags, createdAt } = post;
+  const { id, body, title, user, tags, createdAt,  } = post;
 
   return (
     <Card className="post__card">
       <Row>
         <Col span={3} className="post__card--stats">
           <Tag color="magenta" className="post__card--stats-vote">
-            <span className="vote-count">1</span>
+            <span className="vote-count">{3}</span>
             <div className="count-text">upvotes</div>
           </Tag>
           <Tag color="blue" className="post__card--stats-vote">
