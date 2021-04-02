@@ -24,14 +24,14 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
   const { id } = useParams<Params>();
 
   const dispatch = useDispatch();
-  const { auth } = useSelector((state: RootState) => state);
+  const { auth, answer } = useSelector((state: RootState) => state);
 
   function confirm() {
     dispatch(deletePost(id));
   }
 
-  function like() {
-    message.success('Liked');
+  function handleLike() {
+    message.success('post liked');
   }
 
   const viewerIsUser = user && user.id === auth.user?.id;
@@ -39,7 +39,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
   const postActionsElement = (
     <Space className="post-details__actions" size="middle">
       <Tooltip key="like" title="Like" className="like">
-        <span onClick={like}>
+        <span onClick={handleLike}>
           <LikeOutlined />
           <span className="like-count">2 upvotes</span>
         </span>
@@ -53,7 +53,6 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
           </Button>
         </Popconfirm>
       ) : null}
-
       {viewerIsUser ? (
         <Link to={`/posts/${id}/edit`}>
           <Button type="link" className="edit">
@@ -62,10 +61,9 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
           </Button>
         </Link>
       ) : null}
-
       <Tooltip title="Comment" key="comment" className="comment">
         <CommentOutlined />
-        <span className="comments-count">2 comments</span>
+        <span className="comments-count">{answer?.answers} answers</span>
       </Tooltip>
     </Space>
   );
@@ -89,11 +87,11 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
         <Row>
           <Col span={2} className="post-details__stats">
             <Tag color="magenta" className="post-details__stats--vote">
-              <span className="vote-count">1</span>
+              <span className="vote-count">{3}</span>
               <div className="count-text">upvotes</div>
             </Tag>
             <Tag color="blue" className="post-details__stats--vote">
-              <span className="vote-count">1</span>
+              <span className="vote-count">{answer?.answers.length}</span>
               <div className="count-text">answers</div>
             </Tag>
           </Col>

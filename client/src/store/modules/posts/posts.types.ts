@@ -6,6 +6,8 @@ export const POST_ERROR = '@@/posts/POST_ERROR';
 export const ADD_POST = '@@/posts/ADD_POST';
 export const UPDATE_POST = '@@/posts/UPDATE_POST';
 export const DELETE_POST = '@@/posts/DELETE_POST';
+export const LIKE_POST = '@@/posts/LIKE_POST';
+export const DISLIKE_POST = '@@/posts/DISLIKE_POST';
 
 export interface IPostTag {
   id: number;
@@ -17,6 +19,12 @@ export interface IPostUser {
   name: string;
   email: string;
   avatar: string;
+}
+
+export interface IPostLikes {
+  id: number;
+  postId: number;
+  userId: number;
 }
 
 export interface IPost {
@@ -90,6 +98,15 @@ interface DeletePostAction {
   payload: string;
 }
 
+interface LikePostAction {
+  type: typeof LIKE_POST;
+  payload: IPostLikes;
+}
+interface DislikePostAction {
+  type: typeof DISLIKE_POST;
+  payload: IPostLikes;
+}
+
 interface PostErrorAction {
   type: typeof POST_ERROR;
   payload: object;
@@ -103,4 +120,6 @@ export type PostsActions =
   | AddPostAction
   | UpdatePostAction
   | DeletePostAction
+  | LikePostAction
+  | DislikePostAction
   | PostErrorAction;

@@ -10,6 +10,7 @@ import { router as authRoutes } from './modules/auth/auth.routes';
 import { router as postsRoutes } from './modules/posts/posts.routes';
 import { router as commentsRoutes } from './modules/comments/comments.routes';
 import { router as answersRoutes } from './modules/answers/answers.routes';
+import { router as likesRoutes } from './modules/likes/likes.routes';
 import { router as tagsRoutes } from './modules/tags/tags.routes';
 
 // middleware
@@ -38,6 +39,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/posts', postsRoutes);
 app.use('/api/posts/comments', commentsRoutes);
 app.use('/api/posts/answers', answersRoutes);
+app.use('/api/posts', likesRoutes);
 app.use('/api/tags', tagsRoutes);
 
 // middlewares

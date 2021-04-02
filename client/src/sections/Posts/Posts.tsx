@@ -1,5 +1,4 @@
 import { Button, Divider, Layout, Row, Tag, Typography } from 'antd';
-import { List } from 'antd/lib/form/Form';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import { PostCard } from 'lib/components/PostCard';
@@ -52,7 +51,7 @@ const Posts = () => {
       ) : (
         posts.map(post => (
           <div className="post" id={`${post.id}`}>
-            {post && post.user && <PostCard post={post} />}
+            {post && <PostCard post={post} />}
           </div>
         ))
       )}

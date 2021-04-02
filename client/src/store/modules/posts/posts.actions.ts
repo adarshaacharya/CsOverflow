@@ -4,12 +4,14 @@ import Api from 'store/api';
 import { setAlert } from '../alert/alert.actions';
 import {
   DELETE_POST,
+  DISLIKE_POST,
   GET_POST,
   GET_POSTS,
   GET_TAG_POSTS,
   GET_TOP_POSTS,
   IPostCreate,
   IPostEdit,
+  LIKE_POST,
   PostsActions,
   POST_ERROR,
   UPDATE_POST,
@@ -25,7 +27,7 @@ export const getPosts = () => async (dispatch: Dispatch<PostsActions>) => {
   } catch (error) {
     dispatch({
       type: POST_ERROR,
-      payload: error.response.data.error,
+      payload: error,
     });
   }
 };
@@ -40,7 +42,7 @@ export const getTopPosts = () => async (dispatch: Dispatch<PostsActions>) => {
   } catch (error) {
     dispatch({
       type: POST_ERROR,
-      payload: error.response.data.error,
+      payload: error,
     });
   }
 };
@@ -127,6 +129,42 @@ export const deletePost = (id: string) => async (dispatch: Dispatch<PostsActions
     history.push('/posts');
     dispatch<any>(setAlert('Posts deleted successfully', 'success'));
   } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: error,
+    });
+  }
+};
+
+export const likePost = (id: string) => async (dispatch: Dispatch<PostsActions>) => {
+  try {
+    const { data } = await Api.post(`/posts/like/${id}`);
+
+    dispatch({
+      type: LIKE_POST,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch<any>(setAlert(error.response.data.error, 'error'));
+
+    dispatch({
+      type: POST_ERROR,
+      payload: error,
+    });
+  }
+};
+
+export const dislikePost = (id: string) => async (dispatch: Dispatch<PostsActions>) => {
+  try {
+    const { data } = await Api.post(`/posts/dislike/${id}`);
+    console.log(data);
+    dispatch({
+      type: DISLIKE_POST,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch<any>(setAlert(error.response.data.error, 'error'));
+
     dispatch({
       type: POST_ERROR,
       payload: error,
