@@ -38,13 +38,12 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
 
   const postActionsElement = (
     <Space className="post-details__actions" size="middle">
-       <Tooltip key="like" title="Like" className="like">
+      <Tooltip key="like" title="Like" className="like">
         <span onClick={handleLike}>
           <LikeOutlined />
           <span className="like-count">2 upvotes</span>
         </span>
       </Tooltip>
-
 
       {viewerIsUser ? (
         <Popconfirm title="Are you sure to delete this question?" onConfirm={confirm} okText="Yes" cancelText="No">

@@ -51,7 +51,7 @@ const Posts = () => {
       ) : (
         posts.map(post => (
           <div className="post" id={`${post.id}`}>
-            {post &&  <PostCard post={post} />}
+            {post && <PostCard post={post} />}
           </div>
         ))
       )}

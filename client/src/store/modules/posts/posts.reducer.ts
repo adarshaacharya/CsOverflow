@@ -1,16 +1,14 @@
 import {
   ADD_POST,
   DELETE_POST,
-
   GET_POST,
   GET_POSTS,
   GET_TAG_POSTS,
   GET_TOP_POSTS,
-
   PostsActions,
   PostsState,
   POST_ERROR,
-  UPDATE_POST
+  UPDATE_POST,
 } from './posts.types';
 
 const initialState: PostsState = {

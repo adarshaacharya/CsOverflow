@@ -12,7 +12,7 @@ const { Paragraph, Title } = Typography;
 const { Content } = Layout;
 
 export const PostCard: React.FC<Props> = ({ post }) => {
-  const { id, body, title, user, tags, createdAt,  } = post;
+  const { id, body, title, user, tags, createdAt } = post;
 
   return (
     <Card className="post__card">
