@@ -63,7 +63,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
       ) : null}
       <Tooltip title="Comment" key="comment" className="comment">
         <CommentOutlined />
-        <span className="comments-count">{answer?.answers} answers</span>
+        <span className="comments-count">{answer?.answers.length} answers</span>
       </Tooltip>
     </Space>
   );

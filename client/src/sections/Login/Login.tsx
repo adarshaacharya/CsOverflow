@@ -1,5 +1,5 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { loginUser } from 'store/modules/auth/auth.actions';

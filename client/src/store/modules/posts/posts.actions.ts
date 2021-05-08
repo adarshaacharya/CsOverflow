@@ -157,7 +157,6 @@ export const likePost = (id: string) => async (dispatch: Dispatch<PostsActions>)
 export const dislikePost = (id: string) => async (dispatch: Dispatch<PostsActions>) => {
   try {
     const { data } = await Api.post(`/posts/dislike/${id}`);
-    console.log(data);
     dispatch({
       type: DISLIKE_POST,
       payload: data,

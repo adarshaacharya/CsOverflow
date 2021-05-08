@@ -22,7 +22,8 @@ const Post = () => {
   }, [dispatch, id]);
 
   useScrollToTop();
-  if (loading) {
+
+  if (loading && !post) {
     return (
       <>
         <Sidebar />
