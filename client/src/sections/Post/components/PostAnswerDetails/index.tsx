@@ -20,6 +20,7 @@ export const PostAnswerDetails = () => {
     dispatch(getAnswers(id));
   }, [dispatch, id]);
 
+
   if (loading) {
     return (
       <>
@@ -48,6 +49,7 @@ export const PostAnswerDetails = () => {
       ) : (
         answers.map(
           answer =>
+            answer &&
             answer.user && (
               <Comment
                 author={answer.user.name}

@@ -24,10 +24,10 @@ class AnswersService {
     return answer.save();
   }
 
-  public async findByPostId(postId: number): Promise<Answers[] | null> {
+  public async findAnswersByPostId(postId: number): Promise<Answers[] | null> {
     const post = await postsService.findOneById(postId);
     if (!post) throw new NotFound(`Can't find post with id ${postId}`);
-    return Answers.findAll({
+    const answers = await Answers.findAll({
       where: { postId },
       order: [['id', 'ASC']],
       include: [
@@ -38,6 +38,8 @@ class AnswersService {
         },
       ],
     });
+
+    return answers;
   }
 }
 

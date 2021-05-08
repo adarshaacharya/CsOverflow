@@ -34,6 +34,7 @@ export interface IPost {
   userId: number;
   createdAt: string;
   updatedAt: string;
+  likes: IPostLikes[];
   tags: IPostTag[];
   user: IPostUser;
 }

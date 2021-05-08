@@ -11,7 +11,7 @@ export const router: Router = Router();
  *  @desc : fetch all answers of a post
  *  @access Private
  */
-router.get('/:id', answersController.findByPostId);
+router.get('/:id', answersController.findAnswersByPostId);
 
 /**
  * @method POST

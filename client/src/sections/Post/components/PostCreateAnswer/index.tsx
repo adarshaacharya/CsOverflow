@@ -1,13 +1,11 @@
-import { Button, Form, Input, Typography } from 'antd';
+import { Button, Form, Typography } from 'antd';
 import TextEditor from 'lib/components/TextEditor';
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addAnswer } from 'store/modules/answers/answers.actions';
-import { RootState } from 'store/modules/combine-reducer';
 
 const { Item } = Form;
-const { TextArea } = Input;
 const { Title } = Typography;
 
 interface MatchProps {

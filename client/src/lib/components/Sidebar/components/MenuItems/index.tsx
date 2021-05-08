@@ -1,9 +1,7 @@
 import { FileOutlined, HomeOutlined, LaptopOutlined, UserOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useHistory, useLocation } from 'react-router-dom';
-
-const { Item } = Menu;
+import { useHistory, useLocation } from 'react-router-dom';
 
 const items = [
   {

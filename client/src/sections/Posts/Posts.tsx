@@ -50,7 +50,7 @@ const Posts = () => {
         <Paragraph>It appears no questions has been asked. Be first one to create it.</Paragraph>
       ) : (
         posts.map(post => (
-          <div className="post" id={`${post.id}`}>
+          <div className="post" key={`${post.id}`}>
             {post && <PostCard post={post} />}
           </div>
         ))
