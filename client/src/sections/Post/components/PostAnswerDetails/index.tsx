@@ -20,7 +20,6 @@ export const PostAnswerDetails = () => {
     dispatch(getAnswers(id));
   }, [dispatch, id]);
 
-
   if (loading) {
     return (
       <>
