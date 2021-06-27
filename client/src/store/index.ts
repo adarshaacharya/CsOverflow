@@ -1,6 +1,6 @@
-import { applyMiddleware, createStore } from 'redux';
+import { Action, applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+import thunk, { ThunkAction } from 'redux-thunk';
 import { setAuthToken } from './modules/auth/auth.utils';
 import rootReducer from './modules/combine-reducer';
 
@@ -34,3 +34,5 @@ export default store;
 export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
+
+export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;

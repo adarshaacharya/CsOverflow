@@ -1,17 +1,9 @@
 import { Dispatch } from 'redux';
+import { AppThunk } from 'store';
 import Api from 'store/api';
 import { setAlert } from '../alert/alert.actions';
-import {
-  AuthActions,
-  AUTH_ERROR,
-  ISignInData,
-  ISignupData,
-  LOGIN_SUCESS,
-  LOGOUT,
-  REGISTER_SUCCESS,
-  SET_LOADING,
-  USER_LOADED,
-} from './auth.types';
+import { AlertActions } from '../alert/alert.types';
+import { AuthActions, ISignInData, ISignupData, AuthActionTypes } from './auth.types';
 
 // load user after signin on every page render to check if user has been authorized with jwt
 // put the token in global header from localstorage (if there's any) so auth middleware will check
@@ -23,12 +15,12 @@ export const loadUser = () => async (dispatch: Dispatch<AuthActions>) => {
       data: { user },
     } = await Api.get('/auth');
     dispatch({
-      type: USER_LOADED,
+      type: AuthActionTypes.USER_LOADED,
       payload: user,
     });
   } catch (error) {
     dispatch({
-      type: AUTH_ERROR,
+      type: AuthActionTypes.AUTH_ERROR,
     });
   }
 };
@@ -40,7 +32,7 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
       data: { token },
     } = await Api.post('/users', formData);
     dispatch({
-      type: REGISTER_SUCCESS,
+      type: AuthActionTypes.REGISTER_SUCCESS,
       payload: token,
     });
     dispatch<any>(loadUser());
@@ -48,19 +40,19 @@ export const registerUser = (formData: ISignupData) => async (dispatch: Dispatch
   } catch (error) {
     dispatch<any>(setAlert(error.response.data.error, 'error'));
     dispatch({
-      type: AUTH_ERROR,
+      type: AuthActionTypes.AUTH_ERROR,
     });
   }
 };
 
-export const loginUser = (formData: ISignInData) => async (dispatch: Dispatch<AuthActions>) => {
+export const loginUser = (formData: ISignInData): AppThunk => async (dispatch: Dispatch<AuthActions>) => {
   try {
     dispatch<any>(setLoading());
     const {
       data: { token },
     } = await Api.post('/auth', formData);
     dispatch({
-      type: LOGIN_SUCESS,
+      type: AuthActionTypes.LOGIN_SUCESS,
       payload: token,
     });
     dispatch<any>(loadUser());
@@ -68,7 +60,7 @@ export const loginUser = (formData: ISignInData) => async (dispatch: Dispatch<Au
   } catch (error) {
     dispatch<any>(setAlert(error.response.data.error, 'error'));
     dispatch({
-      type: AUTH_ERROR,
+      type: AuthActionTypes.AUTH_ERROR,
     });
   }
 };
@@ -76,12 +68,12 @@ export const loginUser = (formData: ISignInData) => async (dispatch: Dispatch<Au
 export const logOut = () => async (dispatch: Dispatch<AuthActions>) => {
   setLoading();
   dispatch({
-    type: LOGOUT,
+    type: AuthActionTypes.LOGOUT,
   });
 };
 
 export const setLoading = () => {
   return {
-    type: SET_LOADING,
+    type: AuthActionTypes.SET_LOADING,
   };
 };
