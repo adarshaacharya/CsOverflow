@@ -1,4 +1,4 @@
-import { GET_TAG, GET_TAGS, TagsAction, TagsState, TAG_ERROR } from './tags.types';
+import { TagsAction, TagsState, TagsActionTypes } from './tags.types';
 
 const initialState: TagsState = {
   tags: [],
@@ -9,21 +9,21 @@ const initialState: TagsState = {
 
 export const tagsReducer = (state: TagsState = initialState, action: TagsAction): TagsState => {
   switch (action.type) {
-    case GET_TAG:
+    case TagsActionTypes.GET_TAG:
       return {
         ...state,
         tag: action.payload,
         loading: false,
       };
 
-    case GET_TAGS:
+    case TagsActionTypes.GET_TAGS:
       return {
         ...state,
         tags: action.payload,
         loading: false,
       };
 
-    case TAG_ERROR:
+    case TagsActionTypes.TAG_ERROR:
       return {
         ...state,
         error: action.payload,
