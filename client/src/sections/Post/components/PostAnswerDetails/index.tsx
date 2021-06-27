@@ -1,12 +1,12 @@
 import { Avatar, Comment, Layout, Tooltip, Typography } from 'antd';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
+import { useAppSelector } from 'lib/hooks';
 import moment from 'moment';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAnswers } from 'store/modules/answers/answers.actions';
-import { RootState } from 'store/modules/combine-reducer';
 
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
@@ -14,7 +14,7 @@ const { Content } = Layout;
 export const PostAnswerDetails = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch();
-  const { loading, answers, error } = useSelector((state: RootState) => state.answer);
+  const { loading, answers, error } = useAppSelector(state => state.answer);
 
   useEffect(() => {
     dispatch(getAnswers(id));

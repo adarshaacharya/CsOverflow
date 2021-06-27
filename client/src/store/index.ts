@@ -10,7 +10,9 @@ const middleware = [thunk];
 
 const store = createStore(rootReducer, INITIAL_STATE, composeWithDevTools(applyMiddleware(...middleware)));
 
-// setup store subscription listener so that we can set token in local storage
+/**
+ * setup store subscription listener so that we can set token in local storage
+ */
 let currentState = store.getState();
 
 store.subscribe(() => {
@@ -25,3 +27,10 @@ store.subscribe(() => {
 });
 
 export default store;
+
+/**
+ * Infer the `RootState` and `AppDispatch` types from the store itself
+ */
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;

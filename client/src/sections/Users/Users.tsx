@@ -1,20 +1,19 @@
 import { Col, Divider, Layout, Row, Tag, Typography } from 'antd';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
-import { useScrollToTop } from 'lib/hooks';
+import { useAppSelector, useScrollToTop } from 'lib/hooks';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'store/modules/combine-reducer';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getUsers } from 'store/modules/users/users.actions';
 import { UserCard } from './components';
-import { Link } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Paragraph, Title } = Typography;
 
 const Users = () => {
   const dispatch = useDispatch();
-  const { loading, users } = useSelector((state: RootState) => state.user);
+  const { loading, users } = useAppSelector(state => state.user);
 
   useEffect(() => {
     dispatch(getUsers());

@@ -1,16 +1,15 @@
 import { Spin } from 'antd';
-import { displaySuccessNotification, displayWarningMessage } from 'lib/utils';
+import { useAppSelector } from 'lib/hooks';
+import { displayWarningMessage } from 'lib/utils';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
-import { RootState } from 'store/modules/combine-reducer';
 
 interface AuthRouteProps extends RouteProps {
   component: any;
 }
 
 const AuthRoute: React.FC<AuthRouteProps> = props => {
-  const auth = useSelector((state: RootState) => state.auth);
+  const auth = useAppSelector(state => state.auth);
 
   // https://stackoverflow.com/a/56175010/10629172
   const { isAuthenticated, loading } = auth;

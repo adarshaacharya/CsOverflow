@@ -3,11 +3,10 @@ import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import { PostCard } from 'lib/components/PostCard';
 import Sidebar from 'lib/components/Sidebar';
-import { useScrollToTop } from 'lib/hooks';
+import { useAppSelector, useScrollToTop } from 'lib/hooks';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { RootState } from 'store/modules/combine-reducer';
 import { getTagPosts } from 'store/modules/posts/posts.actions';
 
 const { Content } = Layout;
@@ -21,7 +20,7 @@ const TagPosts = () => {
   const dispatch = useDispatch();
   const { tagname } = useParams<Params>();
 
-  const { posts, loading, error } = useSelector((state: RootState) => state.post);
+  const { posts, loading, error } = useAppSelector(state => state.post);
 
   useEffect(() => {
     if (tagname) {
