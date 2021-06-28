@@ -1,10 +1,10 @@
 import { Button, Card, Divider, Form, Input, Layout, Typography } from 'antd';
+import { useAppSelector } from 'lib/hooks';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { loginUser } from 'store/modules/auth/auth.actions';
 import { ISignInData } from 'store/modules/auth/auth.types';
-import { RootState } from 'store/modules/combine-reducer';
 
 const { Content } = Layout;
 const { Text, Title } = Typography;
@@ -12,7 +12,7 @@ const { Item } = Form;
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { isAuthenticated, loading } = useSelector((state: RootState) => state.auth);
+  const { isAuthenticated, loading } = useAppSelector(state => state.auth);
 
   if (isAuthenticated) {
     return <Redirect to="/" />;

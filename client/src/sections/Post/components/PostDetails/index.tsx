@@ -1,11 +1,11 @@
 import { CommentOutlined, DeleteOutlined, EditOutlined, LikeOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Divider, message, Popconfirm, Row, Space, Tag, Tooltip, Typography } from 'antd';
 import UserPostCard from 'lib/components/UserPostCard';
+import { useAppSelector } from 'lib/hooks';
 import moment from 'moment';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { RootState } from 'store/modules/combine-reducer';
 import { deletePost } from 'store/modules/posts/posts.actions';
 import { IPost } from 'store/modules/posts/posts.types';
 
@@ -24,7 +24,7 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
   const { id } = useParams<Params>();
 
   const dispatch = useDispatch();
-  const { auth, answer } = useSelector((state: RootState) => state);
+  const { auth, answer } = useAppSelector(state => state);
 
   function confirm() {
     dispatch(deletePost(id));

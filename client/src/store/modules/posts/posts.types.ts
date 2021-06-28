@@ -1,13 +1,15 @@
-export const GET_POSTS = '@@/posts/GET_POSTS';
-export const GET_POST = '@@/posts/GET_POST';
-export const GET_TOP_POSTS = '@@/posts/GET_TOP_POSTS';
-export const GET_TAG_POSTS = '@@/posts/GET_TAG_POSTS';
-export const POST_ERROR = '@@/posts/POST_ERROR';
-export const ADD_POST = '@@/posts/ADD_POST';
-export const UPDATE_POST = '@@/posts/UPDATE_POST';
-export const DELETE_POST = '@@/posts/DELETE_POST';
-export const LIKE_POST = '@@/posts/LIKE_POST';
-export const DISLIKE_POST = '@@/posts/DISLIKE_POST';
+export enum PostsActionTypes {
+  GET_POSTS = '@@/posts/GET_POSTS',
+  GET_POST = '@@/posts/GET_POST',
+  GET_TOP_POSTS = '@@/posts/GET_TOP_POSTS',
+  GET_TAG_POSTS = '@@/posts/GET_TAG_POSTS',
+  POST_ERROR = '@@/posts/POST_ERROR',
+  ADD_POST = '@@/posts/ADD_POST',
+  UPDATE_POST = '@@/posts/UPDATE_POST',
+  DELETE_POST = '@@/posts/DELETE_POST',
+  LIKE_POST = '@@/posts/LIKE_POST',
+  DISLIKE_POST = '@@/posts/DISLIKE_POST',
+}
 
 export interface IPostTag {
   id: number;
@@ -65,51 +67,51 @@ export interface IPostEdit {
   tags: string;
 }
 interface GetPostsAction {
-  type: typeof GET_POSTS;
+  type: PostsActionTypes.GET_POSTS;
   payload: IPost[];
 }
 
 interface GetTopPostsAction {
-  type: typeof GET_TOP_POSTS;
+  type: PostsActionTypes.GET_TOP_POSTS;
   payload: IPost[];
 }
 
 interface GetTagPostsAction {
-  type: typeof GET_TAG_POSTS;
+  type: PostsActionTypes.GET_TAG_POSTS;
   payload: IPost[];
 }
 
 interface GetPostAction {
-  type: typeof GET_POST;
+  type: PostsActionTypes.GET_POST;
   payload: IPost;
 }
 
 interface AddPostAction {
-  type: typeof ADD_POST;
+  type: PostsActionTypes.ADD_POST;
   payload: IPost;
 }
 
 interface UpdatePostAction {
-  type: typeof UPDATE_POST;
+  type: PostsActionTypes.UPDATE_POST;
   payload: IPost;
 }
 
 interface DeletePostAction {
-  type: typeof DELETE_POST;
+  type: PostsActionTypes.DELETE_POST;
   payload: string;
 }
 
 interface LikePostAction {
-  type: typeof LIKE_POST;
+  type: PostsActionTypes.LIKE_POST;
   payload: IPostLikes;
 }
 interface DislikePostAction {
-  type: typeof DISLIKE_POST;
+  type: PostsActionTypes.DISLIKE_POST;
   payload: IPostLikes;
 }
 
 interface PostErrorAction {
-  type: typeof POST_ERROR;
+  type: PostsActionTypes.POST_ERROR;
   payload: object;
 }
 

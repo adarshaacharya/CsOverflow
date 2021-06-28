@@ -1,13 +1,12 @@
-import { Button, Divider, Layout, List, Row, Typography } from 'antd';
+import { Button, Divider, Layout, Row, Typography } from 'antd';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import { PostCard } from 'lib/components/PostCard';
 import Sidebar from 'lib/components/Sidebar';
-import { useScrollToTop } from 'lib/hooks';
+import { useAppSelector, useScrollToTop } from 'lib/hooks';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from 'store/modules/combine-reducer';
 import { getTopPosts } from 'store/modules/posts/posts.actions';
 
 const { Title, Paragraph } = Typography;
@@ -15,7 +14,7 @@ const { Content } = Layout;
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { error, loading, posts } = useSelector((state: RootState) => state.post);
+  const { error, loading, posts } = useAppSelector(state => state.post);
 
   useEffect(() => {
     dispatch(getTopPosts());

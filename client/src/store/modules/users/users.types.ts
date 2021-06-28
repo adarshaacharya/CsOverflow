@@ -1,6 +1,8 @@
-export const GET_USER = '@@/auth/GET_USER';
-export const GET_USERS = '@@/auth/GET_USERS';
-export const USER_ERROR = '@@/auth/USER_ERROR';
+export enum UsersActionTypes {
+  GET_USER = '@@/auth/GET_USER',
+  GET_USERS = '@@/auth/GET_USERS',
+  USER_ERROR = '@@/auth/USER_ERROR',
+}
 
 interface IPost {
   id: number;
@@ -26,17 +28,17 @@ export interface UsersState {
 }
 
 interface GetUsersAction {
-  type: typeof GET_USERS;
+  type: UsersActionTypes.GET_USERS;
   payload: IUser[];
 }
 
 interface GetUserAction {
-  type: typeof GET_USER;
+  type: UsersActionTypes.GET_USER;
   payload: IUser;
 }
 
 interface UserErrorAction {
-  type: typeof USER_ERROR;
+  type: UsersActionTypes.USER_ERROR;
   payload: string;
 }
 

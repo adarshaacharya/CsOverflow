@@ -1,17 +1,16 @@
 import { HomeOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Menu, Space } from 'antd';
-import SkeletonButton from 'antd/lib/skeleton/Button';
+import { Avatar, Button, Menu } from 'antd';
+import { useAppSelector } from 'lib/hooks';
+import { displaySuccessNotification } from 'lib/utils';
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logOut } from 'store/modules/auth/auth.actions';
-import { RootState } from 'store/modules/combine-reducer';
-import { displaySuccessNotification } from 'lib/utils';
 
 const { Item, SubMenu } = Menu;
 
 export const MenuItems = () => {
-  const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
+  const { isAuthenticated, user } = useAppSelector(state => state.auth);
 
   const dispatch = useDispatch<any>();
 

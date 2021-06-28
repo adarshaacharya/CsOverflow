@@ -2,11 +2,10 @@ import { Divider, Layout, List, Tag, Typography } from 'antd';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
-import { useScrollToTop } from 'lib/hooks';
+import { useAppSelector, useScrollToTop } from 'lib/hooks';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from 'store/modules/combine-reducer';
 import { getTags } from 'store/modules/tags/tags.action';
 import { TagCard } from './components';
 
@@ -15,7 +14,7 @@ const { Title, Paragraph } = Typography;
 
 const Tags = () => {
   const dispatch = useDispatch();
-  const { tags, loading, error } = useSelector((state: RootState) => state.tag);
+  const { tags, loading, error } = useAppSelector(state => state.tag);
 
   useEffect(() => {
     dispatch(getTags());

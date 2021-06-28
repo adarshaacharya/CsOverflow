@@ -1,12 +1,11 @@
-import { Button, Divider, Form, Input, Layout, Spin, Typography } from 'antd';
+import { Button, Divider, Form, Input, Layout, Typography } from 'antd';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
 import TextEditor from 'lib/components/TextEditor';
-import { useScrollToTop } from 'lib/hooks';
+import { useAppSelector, useScrollToTop } from 'lib/hooks';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { RootState } from 'store/modules/combine-reducer';
 import { getPostById, updatePost } from 'store/modules/posts/posts.actions';
 import { IPostEdit, IPostTag } from 'store/modules/posts/posts.types';
 
@@ -26,7 +25,7 @@ const { Item } = Form;
 export const PostEdit = () => {
   const { id } = useParams<Params>();
   const dispatch = useDispatch();
-  const { post, loading } = useSelector((state: RootState) => state.post);
+  const { post, loading } = useAppSelector(state => state.post);
 
   useEffect(() => {
     if (id) {

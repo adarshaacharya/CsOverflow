@@ -1,6 +1,8 @@
-export const GET_TAG = '@@/tags/GET_TAG';
-export const GET_TAGS = '@@/tags/GET_TAGS';
-export const TAG_ERROR = '@@/tags/TAG_ERROR';
+export enum TagsActionTypes {
+  GET_TAG = '@@/tags/GET_TAG',
+  GET_TAGS = '@@/tags/GET_TAGS',
+  TAG_ERROR = '@@/tags/TAG_ERROR',
+}
 
 interface IPost {
   id: number;
@@ -23,17 +25,17 @@ export interface TagsState {
 }
 
 interface GetTagAction {
-  type: typeof GET_TAG;
+  type: TagsActionTypes.GET_TAG;
   payload: ITag;
 }
 
 interface GetTagsAction {
-  type: typeof GET_TAGS;
+  type: TagsActionTypes.GET_TAGS;
   payload: ITag[];
 }
 
 interface TagErrorAction {
-  type: typeof TAG_ERROR;
+  type: TagsActionTypes.TAG_ERROR;
   payload: object;
 }
 

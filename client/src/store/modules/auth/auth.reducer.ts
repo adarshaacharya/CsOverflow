@@ -1,13 +1,4 @@
-import {
-  AuthActions,
-  AuthState,
-  AUTH_ERROR,
-  LOGIN_SUCESS,
-  LOGOUT,
-  REGISTER_SUCCESS,
-  SET_LOADING,
-  USER_LOADED,
-} from './auth.types';
+import { AuthActions, AuthState, AuthActionTypes } from './auth.types';
 
 const initialState: AuthState = {
   token: localStorage.getItem('cstoken'),
@@ -18,7 +9,7 @@ const initialState: AuthState = {
 
 export const authReducer = (state: AuthState = initialState, action: AuthActions): AuthState => {
   switch (action.type) {
-    case USER_LOADED:
+    case AuthActionTypes.USER_LOADED:
       return {
         ...state,
         isAuthenticated: true,
@@ -26,7 +17,7 @@ export const authReducer = (state: AuthState = initialState, action: AuthActions
         user: action.payload,
       };
 
-    case REGISTER_SUCCESS:
+    case AuthActionTypes.REGISTER_SUCCESS:
       return {
         ...state,
         token: action.payload, // token will be set on local storage by create-store.ts subscription listener
@@ -34,7 +25,7 @@ export const authReducer = (state: AuthState = initialState, action: AuthActions
         loading: false,
       };
 
-    case LOGIN_SUCESS:
+    case AuthActionTypes.LOGIN_SUCESS:
       return {
         ...state,
         token: action.payload,
@@ -42,8 +33,8 @@ export const authReducer = (state: AuthState = initialState, action: AuthActions
         loading: false,
       };
 
-    case AUTH_ERROR:
-    case LOGOUT:
+    case AuthActionTypes.AUTH_ERROR:
+    case AuthActionTypes.LOGOUT:
       return {
         ...state,
         token: null,
@@ -52,7 +43,7 @@ export const authReducer = (state: AuthState = initialState, action: AuthActions
         user: null,
       };
 
-    case SET_LOADING:
+    case AuthActionTypes.SET_LOADING:
       return {
         ...state,
         loading: true,

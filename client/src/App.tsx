@@ -8,22 +8,28 @@ import React, { useEffect } from 'react';
 import { Link, Router } from 'react-router-dom';
 import store from 'store';
 import { loadUser } from 'store/modules/auth/auth.actions';
-import { LOGOUT } from 'store/modules/auth/auth.types';
+import { AuthActionTypes } from 'store/modules/auth/auth.types';
 import { setAuthToken } from 'store/modules/auth/auth.utils';
 import 'styles/index.css';
+import * as storage from 'lib/utils/storage';
+import { CSOVERFLOW_TOKEN } from 'lib/constants';
 
 const App: React.FC = () => {
   const routes = useRoutes();
 
+  /**
+   * Heart of application
+   * runs when application first load or refresh
+   */
   useEffect(() => {
-    if (localStorage.cstoken) {
-      setAuthToken(localStorage.cstoken);
+    if (storage.get(CSOVERFLOW_TOKEN)) {
+      setAuthToken(storage.get(CSOVERFLOW_TOKEN));
       store.dispatch<any>(loadUser());
     }
 
     // log user out from all tabs if they log out in one tab
     window.addEventListener('storage', () => {
-      if (!localStorage.cstoken) store.dispatch({ type: LOGOUT });
+      if (!storage.get(CSOVERFLOW_TOKEN)) store.dispatch({ type: AuthActionTypes.LOGOUT });
     });
   }, []);
 

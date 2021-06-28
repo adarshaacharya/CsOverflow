@@ -2,10 +2,10 @@ import { Col, Layout, Row } from 'antd';
 import { ErrorBanner } from 'lib/components/ErrorBanner';
 import { PageSkeleton } from 'lib/components/PageSkeleton';
 import Sidebar from 'lib/components/Sidebar';
+import { useAppSelector } from 'lib/hooks';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { RootState } from 'store/modules/combine-reducer';
 import { getUserById } from 'store/modules/users/users.actions';
 import { UserProfile } from './components';
 import UserPosts from './components/UserPosts';
@@ -18,7 +18,7 @@ interface MatchProps {
 
 const User = () => {
   const dispatch = useDispatch();
-  const { loading, error, user } = useSelector((state: RootState) => state.user);
+  const { loading, error, user } = useAppSelector(state => state.user);
   const { id } = useParams<MatchProps>();
 
   useEffect(() => {
