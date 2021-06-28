@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { UNAUTHORIZED } from 'lib/constants';
 import store from './index';
-import { LOGOUT } from './modules/auth/auth.types';
+import { AuthActionTypes } from './modules/auth/auth.types';
 
 const Api = Axios.create({
   baseURL: '/api',
@@ -21,7 +21,7 @@ Api.interceptors.response.use(
   err => {
     if (err.response.data.status === UNAUTHORIZED) {
       // mesage that came from backend middleware
-      store.dispatch({ type: LOGOUT });
+      store.dispatch({ type: AuthActionTypes.LOGOUT });
     }
     return Promise.reject(err);
   }
